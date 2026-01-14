@@ -1,95 +1,95 @@
+'use client';
+
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 import { Navigation } from "@/components/navigation/Navigation";
-import { BarChart3, FileText, TrendingUp, Users } from "lucide-react";
+import { HeroSection } from "@/components/landing/HeroSection";
+import { FeatureHighlights } from "@/components/landing/FeatureHighlights";
+import { UseCaseGrid } from "@/components/landing/UseCaseGrid";
+import { WorkflowSection } from "@/components/landing/WorkflowSection";
+import { ExampleShowcase } from "@/components/landing/ExampleShowcase";
+import { TechDetails } from "@/components/landing/TechDetails";
+import { FAQSection } from "@/components/landing/FAQSection";
+import { CallToAction } from "@/components/landing/CallToAction";
+import { LoginModal } from "@/components/auth/LoginModal";
+import { authClient } from "@/lib/auth-client";
+
+type ThemeMode = "light" | "dark";
 
 export default function Home() {
+  const [theme, setTheme] = useState<ThemeMode>("dark");
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const { data: session } = authClient.useSession();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = window.localStorage.getItem("skillsmap-theme");
+    if (stored === "light" || stored === "dark") {
+      setTheme(stored);
+      return;
+    }
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setTheme(prefersDark ? "dark" : "light");
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("skillsmap-theme", theme);
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    if (session && isLoginModalOpen) {
+      setLoginModalOpen(false);
+    }
+  }, [session, isLoginModalOpen]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
+  const isDarkMode = theme === "dark";
+  const user = session?.user;
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navigation />
+    <div
+      className={clsx(
+        "min-h-screen transition-colors duration-500",
+        isDarkMode ? "bg-[#050505] text-white" : "bg-[#f7f7f0] text-[#0f0f0f]"
+      )}
+    >
+      <Navigation
+        isDarkMode={isDarkMode}
+        onToggleTheme={toggleTheme}
+        onLoginClick={() => setLoginModalOpen(true)}
+        user={user}
+        isAuthenticated={Boolean(session)}
+      />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Welcome Section */}
-        <div className="bg-gradient-to-r from-orange-400 to-orange-500 rounded-2xl p-8 mb-8 text-white shadow-lg">
-          <h1 className="text-3xl font-bold mb-2">欢迎使用大格4表合一数据分析系统</h1>
-          <p className="text-orange-50">统一管理和分析您的数据，提升工作效率</p>
-        </div>
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-blue-50 rounded-lg">
-                <FileText className="h-6 w-6 text-blue-600" />
-              </div>
-              <span className="text-sm text-gray-500">本月</span>
+      <main className="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pt-16">
+        <div className="space-y-16">
+          {user && (
+            <div className="rounded-3xl border border-white/10 bg-white/10 px-6 py-4 text-sm text-white shadow-[0_30px_80px_rgba(0,0,0,0.35)] dark:border-white/20">
+              <p className="text-xs uppercase tracking-[0.4em] text-white/60">You are signed in</p>
+              <p className="text-lg font-semibold text-white">
+                {user.name || user.email}
+              </p>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">1,234</h3>
-            <p className="text-sm text-gray-600">数据表单总数</p>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-green-50 rounded-lg">
-                <TrendingUp className="h-6 w-6 text-green-600" />
-              </div>
-              <span className="text-sm text-gray-500">本周</span>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">+18.2%</h3>
-            <p className="text-sm text-gray-600">增长率</p>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-purple-50 rounded-lg">
-                <BarChart3 className="h-6 w-6 text-purple-600" />
-              </div>
-              <span className="text-sm text-gray-500">今日</span>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">89</h3>
-            <p className="text-sm text-gray-600">待处理分析</p>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-orange-50 rounded-lg">
-                <Users className="h-6 w-6 text-orange-600" />
-              </div>
-              <span className="text-sm text-gray-500">在线</span>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">12</h3>
-            <p className="text-sm text-gray-600">活跃用户</p>
-          </div>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">快速操作</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg hover:border-orange-400 hover:bg-orange-50 transition-all">
-              <FileText className="h-5 w-5 text-orange-600" />
-              <div className="text-left">
-                <p className="font-semibold text-gray-900">新建表单</p>
-                <p className="text-sm text-gray-600">创建新的数据表单</p>
-              </div>
-            </button>
-
-            <button className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg hover:border-orange-400 hover:bg-orange-50 transition-all">
-              <BarChart3 className="h-5 w-5 text-orange-600" />
-              <div className="text-left">
-                <p className="font-semibold text-gray-900">查看分析</p>
-                <p className="text-sm text-gray-600">浏览数据分析报表</p>
-              </div>
-            </button>
-
-            <button className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg hover:border-orange-400 hover:bg-orange-50 transition-all">
-              <TrendingUp className="h-5 w-5 text-orange-600" />
-              <div className="text-left">
-                <p className="font-semibold text-gray-900">导出数据</p>
-                <p className="text-sm text-gray-600">导出为Excel或PDF</p>
-              </div>
-            </button>
-          </div>
+          )}
+          <HeroSection isDarkMode={isDarkMode} />
+          <FeatureHighlights />
+          <UseCaseGrid />
+          <WorkflowSection />
+          <ExampleShowcase />
+          <TechDetails />
+          <FAQSection />
+          <CallToAction />
         </div>
       </main>
+
+      <LoginModal open={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
     </div>
   );
 }

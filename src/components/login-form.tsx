@@ -1,108 +1,125 @@
 "use client";
 
 import { useState } from "react";
-import { Lock, Eye, EyeOff } from "lucide-react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Github, Loader2, LogIn, Shield, Sparkles } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import clsx from "clsx";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
+import { authClient } from "@/lib/auth-client";
+
+type SocialProvider = "google" | "github";
+
+const providers: Array<{
+  id: SocialProvider;
+  label: string;
+  description: string;
+  accent: string;
+}> = [
+  {
+    id: "google",
+    label: "Continue with Google",
+    description: "Use your Google Workspace identity to unlock Skills Atlas.",
+    accent: "from-white via-[#f5d399] to-[#c6923c] text-black",
+  },
+  {
+    id: "github",
+    label: "Continue with GitHub",
+    description: "Perfect for engineering and automation teams.",
+    accent: "from-[#050505] via-[#0f0f0f] to-[#232323] text-white",
+  },
+];
 
 export function LoginForm() {
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const searchParams = useSearchParams();
+  const [error, setError] = useState<string | null>(null);
+  const [pendingProvider, setPendingProvider] = useState<SocialProvider | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setIsLoading(true);
+  const callbackUrl = searchParams.get("callbackUrl") ?? "/";
 
+  const handleSocialSignIn = async (provider: SocialProvider) => {
     try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ password }),
+      setError(null);
+      setPendingProvider(provider);
+      await authClient.signIn.social({
+        provider,
+        callbackURL: callbackUrl,
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        window.location.href = "/";
-      } else {
-        setError(data.message || "密码错误");
-      }
-    } catch (error) {
-      setError("登录失败，请重试");
-    } finally {
-      setIsLoading(false);
+    } catch (err) {
+      console.error(err);
+      setError("Unable to start the Better Auth flow. Double-check the provider credentials.");
+      setPendingProvider(null);
     }
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
-      <Card className="w-full max-w-md shadow-xl border-0">
-        <CardHeader className="space-y-4 pb-8 pt-10">
-          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full">
-            <Image
-              src="/epslogo.png"
-              alt="EPS TEC Logo"
-              width={60}
-              height={60}
-              className="object-contain"
-            />
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-black via-[#050505] to-[#1a1209] px-4 py-16">
+      <Card className="w-full max-w-xl border border-white/5 bg-black/70 text-white shadow-[0_45px_90px_rgba(0,0,0,0.65)] backdrop-blur">
+        <CardHeader className="space-y-4 pb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-1 text-xs uppercase tracking-[0.4em] text-white/60">
+            <Sparkles className="h-4 w-4 text-[#f7d793]" />
+            Better Auth
           </div>
-          <div className="text-center space-y-2">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900">大格4表合一数据分析系统</h1>
-            <CardDescription className="text-gray-600">请输入访问密码以继续使用系统</CardDescription>
+          <div className="space-y-2">
+            <h1 className="text-3xl font-semibold tracking-tight">Sign in to curate Claude Skills securely</h1>
+            <CardDescription className="text-base text-white/70">
+              We rely on Better Auth to handle every OAuth detail. Pick Google or GitHub and get redirected back
+              to a polished dashboard in seconds.
+            </CardDescription>
           </div>
         </CardHeader>
-        <CardContent className="px-8 pb-10">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <label htmlFor="password" className="text-sm font-medium text-gray-700">
-                访问密码
-              </label>
-              <div className="relative">
-                <Input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="请输入访问密码"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="pr-10 h-11 border-gray-200 focus:border-orange-400 focus:ring-orange-400"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  {showPassword ? (
-                    <EyeOff className="h-5 w-5" />
-                  ) : (
-                    <Eye className="h-5 w-5" />
-                  )}
-                </button>
-              </div>
-              {error && (
-                <p className="text-sm text-red-500">{error}</p>
-              )}
+        <CardContent className="space-y-6">
+          <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.4em] text-[#f7d793]">
+              <Shield className="h-4 w-4" />
+              Security stack
             </div>
-            <Button
-              type="submit"
-              className="w-full h-11 bg-orange-400 hover:bg-orange-500 text-white font-medium shadow-sm transition-all"
-              disabled={isLoading}
-            >
-              <Lock className="mr-2 h-4 w-4" />
-              {isLoading ? "验证中..." : "验证并进入"}
-            </Button>
-            <p className="text-center text-sm text-gray-500">
-              验证成功后将保持登录状态 15 天
+            <p className="mt-2 text-base text-white">
+              Token storage, cookie refresh, and organization guardrails are handled by Better Auth so you never juggle
+              manual passwords again.
             </p>
-          </form>
+          </div>
+
+          <div className="space-y-3">
+            {providers.map((provider) => (
+              <button
+                type="button"
+                key={provider.id}
+                onClick={() => handleSocialSignIn(provider.id)}
+                disabled={Boolean(pendingProvider)}
+                className={clsx(
+                  "flex w-full items-center justify-between rounded-2xl bg-gradient-to-r px-5 py-4 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 disabled:cursor-not-allowed disabled:opacity-70",
+                  provider.accent
+                )}
+              >
+                <div className="flex items-center gap-3">
+                  {provider.id === "github" ? (
+                    <Github className="h-5 w-5" />
+                  ) : (
+                    <LogIn className="h-5 w-5" />
+                  )}
+                  <div>
+                    <p className="text-lg font-semibold leading-tight">{provider.label}</p>
+                    <p className="text-sm opacity-80">{provider.description}</p>
+                  </div>
+                </div>
+                {pendingProvider === provider.id ? (
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                ) : (
+                  <Shield className="h-5 w-5 opacity-80" />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {error && (
+            <p className="rounded-xl border border-red-400/40 bg-red-400/10 px-4 py-3 text-sm text-red-200">
+              {error}
+            </p>
+          )}
+
+          <p className="text-center text-xs text-white/50">
+            OAuth redirect is powered by Better Auth. You will remain signed in until you disconnect from Google or GitHub.
+          </p>
         </CardContent>
       </Card>
     </div>
