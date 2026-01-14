@@ -1,16 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
-const siteURL = "https://skilllsmap.com";
-const siteTitle = "Skills Atlas | Claude Skills Playbook";
+const siteURL = "https://skillsmaps.com";
+const siteTitle = "SkillsMap | Claude Skills Playbook";
 const siteDescription =
-  "Discover, standardize, and launch Claude Skills with a luxurious black-and-gold interface. Modular playbooks, governance-ready workflows, and enterprise guardrails in one atlas.";
+  "Discover, standardize, and launch Claude Skills with a luxurious black-and-gold interface. Modular playbooks, governance-ready workflows, and enterprise guardrails in one SkillsMap.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteURL),
   title: {
     default: siteTitle,
-    template: "%s | Skills Atlas",
+    template: "%s | SkillsMap",
   },
   description: siteDescription,
   keywords: [
@@ -21,12 +23,12 @@ export const metadata: Metadata = {
     "Enterprise automation",
     "Skills marketplace",
   ],
-  authors: [{ name: "Skills Atlas" }],
+  authors: [{ name: "SkillsMap" }],
   openGraph: {
     title: siteTitle,
     description: siteDescription,
     url: siteURL,
-    siteName: "Skills Atlas",
+    siteName: "SkillsMap",
     locale: "en_US",
     type: "website",
     images: [
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
         url: `${siteURL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Skills Atlas — Claude Skills Playbook",
+        alt: "SkillsMap — Claude Skills Playbook",
       },
     ],
   },
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    site: "@SkillsAtlas",
-    creator: "@SkillsAtlas",
+    site: "@SkillsMapHQ",
+    creator: "@SkillsMapHQ",
     images: [`${siteURL}/og-image.jpg`],
   },
   alternates: {
@@ -79,9 +81,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <GoogleAnalytics gaId={gaId} />
+      </body>
     </html>
   );
 }

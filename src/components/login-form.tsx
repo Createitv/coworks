@@ -18,7 +18,7 @@ const providers: Array<{
   {
     id: "google",
     label: "Continue with Google",
-    description: "Use your Google Workspace identity to unlock Skills Atlas.",
+    description: "Use your Google Workspace identity to unlock SkillsMap.",
     accent: "from-white via-[#f5d399] to-[#c6923c] text-black",
   },
   {

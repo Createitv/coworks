@@ -11,7 +11,7 @@ const secret =
   "dev-only-secret-use-env-var-in-production-1234567890abcd";
 
 export const auth = betterAuth({
-  appName: "Skills Atlas",
+  appName: "SkillsMap",
   baseURL,
   secret,
   database: prismaAdapter(prisma, {

@@ -52,7 +52,7 @@ export function Navigation({
           </div>
           <div>
             <p className="text-base font-semibold text-[#0b0b0b] dark:text-white">
-              Skills Atlas
+              SkillsMap
             </p>
             <p className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
               Claude Skills Playbook
