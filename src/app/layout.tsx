@@ -3,32 +3,67 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
-const siteURL = "https://skillsmaps.com";
-const siteTitle = "SkillsMap | Claude Skills Playbook";
+const siteURL = "https://cowork.skillsmaps.com";
+const siteTitle = "AI Coworker for Task Automation & Productivity | Claude Cowork";
 const siteDescription =
-  "Discover, standardize, and launch Claude Skills with a luxurious black-and-gold interface. Modular playbooks, governance-ready workflows, and enterprise guardrails in one SkillsMap.";
+  "Claude Cowork is an AI coworker that automates tasks, organizes files, and executes workflows - your digital coworker for daily work on macOS.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteURL),
   title: {
     default: siteTitle,
-    template: "%s | SkillsMap",
+    template: "%s | Claude Cowork",
   },
   description: siteDescription,
   keywords: [
-    "Claude Skills",
-    "AI workflows",
-    "Better Auth",
-    "OAuth login",
-    "Enterprise automation",
-    "Skills marketplace",
+    "Claude Cowork",
+    "Claude Coworker",
+    "Claude Work Assistant",
+    "Claude Productivity Assistant",
+    "Claude Agent for Work",
+    "Claude Autonomous AI Agent",
+    "Claude Workflow Automation",
+    "Claude Cowork Platform",
+    "Claude Cowork Software",
+    "Claude Cowork Tool",
+    "Claude Cowork Workspace",
+    "Claude Multi-step AI Agent",
+    "Claude Coworker for Startups",
+    "Claude Coworker for Teams",
+    "Claude Coworker for Remote Work",
+    "Claude Coworker that Organizes Files",
+    "Claude Coworker for Document Automation",
+    "Claude Agent for Productivity",
+    "Claude Cowork Alternative",
+    "Enterprise AI Coworker",
+    "AI cowork",
+    "AI coworker",
+    "AI work assistant",
+    "AI digital coworker",
+    "AI productivity assistant",
+    "AI agent for work",
+    "Autonomous AI agent",
+    "AI workflow automation",
+    "AI cowork platform",
+    "AI cowork software",
+    "AI cowork tool",
+    "AI cowork workspace",
+    "Multi-step AI agent",
+    "AI coworker for startups",
+    "AI coworker for teams",
+    "AI coworker for remote work",
+    "AI coworker that organizes files",
+    "AI coworker for document automation",
+    "AI agent for productivity",
+    "Claude cowork alternative",
+    "Enterprise AI coworker",
   ],
-  authors: [{ name: "SkillsMap" }],
+  authors: [{ name: "Claude Cowork" }],
   openGraph: {
     title: siteTitle,
     description: siteDescription,
     url: siteURL,
-    siteName: "SkillsMap",
+    siteName: "Claude Cowork",
     locale: "en_US",
     type: "website",
     images: [
@@ -36,7 +71,7 @@ export const metadata: Metadata = {
         url: `${siteURL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "SkillsMap — Claude Skills Playbook",
+        alt: "Claude Cowork - Digital AI Coworker",
       },
     ],
   },
@@ -44,8 +79,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    site: "@SkillsMapHQ",
-    creator: "@SkillsMapHQ",
+    site: "@AnthropicAI",
+    creator: "@AnthropicAI",
     images: [`${siteURL}/og-image.jpg`],
   },
   alternates: {

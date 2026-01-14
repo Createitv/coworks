@@ -2,32 +2,32 @@ import { Briefcase, Mail, Presentation, TrendingUp } from "lucide-react";
 
 const examples = [
   {
-    title: "Executive Brief Skill",
+    title: "Downloads Cleanup Run",
     description:
-      "Turns raw meeting transcripts into a gold-standard recap with bullets, highlights, and next steps.",
+      "Cowork inspects the folder, creates month folders, moves screenshots into place, and renames everything consistently.",
     icon: Briefcase,
-    tags: ["Meetings", "Leadership", "Templates"]
+    tags: ["File ops", "Automation", "Tidying"]
   },
   {
-    title: "Enterprise Email Polisher",
+    title: "Expense Sheet Builder",
     description:
-      "Reads CRM notes, applies tone guidelines, and drafts the perfect follow-up email you can send immediately.",
+      "Reads receipts or screenshots, captures totals and categories, and exports a ready-to-review spreadsheet.",
     icon: Mail,
-    tags: ["Sales", "Brand voice"]
+    tags: ["Finance", "OCR", "Spreadsheets"]
   },
   {
-    title: "Board Deck Generator",
+    title: "Project Archive Packager",
     description:
-      "Collects metrics, storyboard slides, and exports speaker notes that match your presentation structure.",
+      "Organizes mixed docs, drafts status notes, and zips the entire project folder so you can hand it off instantly.",
     icon: Presentation,
-    tags: ["Strategy", "Slides", "Automation"]
+    tags: ["Knowledge ops", "Packaging", "Handoff"]
   },
   {
-    title: "Insights Analyst",
+    title: "Insights Summary Maker",
     description:
-      "Ingests spreadsheets or SQL snippets, surfaces anomalies, and suggests recommended actions straight away.",
+      "Combines CSVs, transcripts, or text notes, highlights anomalies, and produces action-ready summaries.",
     icon: TrendingUp,
-    tags: ["Analytics", "Data", "Ops"]
+    tags: ["Analytics", "Research", "Reporting"]
   }
 ];
 
@@ -39,7 +39,7 @@ export function ExampleShowcase() {
           Live examples
         </p>
         <h2 className="text-3xl font-semibold text-[#0b0b0b] dark:text-white">
-          Launch-ready skills you can remix today
+          Sample Cowork tasks you can run right away
         </h2>
       </div>
 

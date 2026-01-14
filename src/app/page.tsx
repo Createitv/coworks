@@ -12,6 +12,7 @@ import { TechDetails } from "@/components/landing/TechDetails";
 import { FAQSection } from "@/components/landing/FAQSection";
 import { CallToAction } from "@/components/landing/CallToAction";
 import { LoginModal } from "@/components/auth/LoginModal";
+import { Footer } from "@/components/navigation/Footer";
 import { authClient } from "@/lib/auth-client";
 
 type ThemeMode = "light" | "dark";
@@ -88,6 +89,7 @@ export default function Home() {
           <CallToAction />
         </div>
       </main>
+      <Footer />
 
       <LoginModal open={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
     </div>

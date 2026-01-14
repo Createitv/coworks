@@ -1,23 +1,23 @@
 const faqs = [
   {
-    question: "Is there an extra fee to enable Claude Skills?",
+    question: "Do I need to pay extra to try Cowork?",
     answer:
-      "Skills come with Claude Team and Enterprise plans. Usage counts toward your existing Claude requests—no surprise SKUs."
+      "Cowork is currently part of the Claude Max subscription and only available through Claude Desktop on macOS."
   },
   {
-    question: "Can we customize every skill?",
+    question: "How much control do I have over my files?",
     answer:
-      "Yes. You can clone templates, edit instructions, attach scripts, and push a new version when you are ready."
+      "You pick the folder Cowork can touch. It cannot browse anywhere else, and you can revoke access whenever you feel unsure."
   },
   {
-    question: "Will skills work through the API?",
+    question: "What kinds of jobs does Cowork handle best?",
     answer:
-      "Absolutely. Pass the skill IDs via API calls or let Claude auto-select them from the workspace catalog."
+      "Anything repetitive or multi-step: organizing downloads, compiling receipts, renaming assets, generating summaries, even juggling multiple tasks in parallel."
   },
   {
-    question: "Can we share skills across teams?",
+    question: "Can I adjust instructions mid-task?",
     answer:
-      "Use collections to distribute skills to specific teams, customers, or partners with full access controls."
+      "Yes. Cowork keeps you updated in real time, so you can clarify or add requirements without restarting the entire process."
   }
 ];
 
@@ -29,7 +29,7 @@ export function FAQSection() {
           FAQ
         </p>
         <h2 className="text-3xl font-semibold text-[#0b0b0b] dark:text-white">
-          Answers for builders and operators
+          Everything you need to know before handing work to Cowork
         </h2>
       </div>
 

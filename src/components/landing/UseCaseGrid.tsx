@@ -2,32 +2,32 @@ import { ChartNoAxesGantt, FilePieChart, PenSquare, Users } from "lucide-react";
 
 const useCases = [
   {
-    title: "Automate reporting",
+    title: "Declutter Downloads and desktops",
     description:
-      "Trigger Claude to summarize CRM notes, create executive summaries, or publish meeting recaps that follow your brand voice.",
+      "Cowork sweeps the folder you authorize, groups files by month, type, or project, and renames everything to match your structure.",
     icon: FilePieChart,
-    result: "Save 4h per team each week"
+    result: "Keep everyday folders clean without touching a mouse"
   },
   {
-    title: "Standardize client deliverables",
+    title: "Turn screenshots into expense sheets",
     description:
-      "Lock tone, formatting, and disclaimers into a skill so every proposal, email, or onboarding note stays on-brand.",
+      "Drop in receipts or screenshots and Cowork extracts the amount, date, and category, then fills the spreadsheet for you.",
     icon: PenSquare,
-    result: "90% fewer review edits"
+    result: "Expense tracking with zero manual typing"
   },
   {
-    title: "Tackle technical playbooks",
+    title: "Compile research into reports",
     description:
-      "Give Claude data-extraction instructions, SQL templates, or notebook scaffolds for complex analysis tasks.",
+      "Give Cowork a messy folder of notes, PDFs, or CSVs. It highlights the key findings and drafts formatted summaries.",
     icon: ChartNoAxesGantt,
-    result: "Analytics tasks 2× faster"
+    result: "Presentation-ready docs on the first pass"
   },
   {
-    title: "Align global teams",
+    title: "Batch create or rename files",
     description:
-      "Share one skill catalog so sales, support, and ops teams re-use the same best practices without re-training Claude.",
+      "Ask Cowork to duplicate templates, rename dozens of assets, or add labels while keeping a running log of every change.",
     icon: Users,
-    result: "Shared playbook across 12 regions"
+    result: "Delegate repetitive file work to AI"
   }
 ];
 
@@ -39,7 +39,7 @@ export function UseCaseGrid() {
           Use cases
         </p>
         <h2 className="text-3xl font-semibold text-[#0b0b0b] dark:text-white">
-          Claude Skills solve the repetitive, high-stakes workflows your teams juggle daily
+          From tidying files to generating reports, Cowork handles the chores that bog you down
         </h2>
       </div>
 

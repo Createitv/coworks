@@ -1,27 +1,27 @@
 const steps = [
   {
-    title: "Activate skills",
+    title: "Install Claude Desktop and open Cowork",
     description:
-      "Enable Claude Skills inside Claude.ai, Claude Code, or through API headers to make them auto-discoverable.",
-    detail: "Takes 60 seconds"
+      "Update Claude Desktop on macOS and launch the Cowork tab inside the research preview build.",
+    detail: "macOS only"
   },
   {
-    title: "Define instructions",
+    title: "Authorize a working folder",
     description:
-      "Describe trigger phrases, tone, and required assets inside SKILL.md. Attach scripts or references if needed.",
-    detail: "Version controlled"
+      "Pick a dedicated folder for Cowork. It operates strictly inside that boundary and you can revoke access anytime.",
+    detail: "Scoped access"
   },
   {
-    title: "Publish & govern",
+    title: "Describe the outcome in plain language",
     description:
-      "Assign reviewers, set expiry reminders, and ship the skill to your workspace or shared collection.",
-    detail: "Audit log included"
+      "Say things like \"sort these files by type\" or \"turn the receipts into a spreadsheet.\" No scripting required.",
+    detail: "Zero learning curve"
   },
   {
-    title: "Call inside any task",
+    title: "Let Cowork plan and execute",
     description:
-      "Ask Claude to 'use' a skill or let it auto-pick based on context. Outputs follow the skill blueprint every time.",
-    detail: "Hands-off delivery"
+      "Cowork breaks the task into actions, runs them sequentially, and reports each milestone so you can fine-tune mid-flight.",
+    detail: "Live updates"
   }
 ];
 
@@ -33,7 +33,7 @@ export function WorkflowSection() {
           Workflow
         </p>
         <h2 className="text-3xl font-semibold text-[#0b0b0b] dark:text-white">
-          Four deliberate steps to ship a high-performing Claude Skill
+          Four simple steps to hand real work over to Cowork
         </h2>
       </div>
 

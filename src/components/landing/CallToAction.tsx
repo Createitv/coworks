@@ -9,15 +9,14 @@ export function CallToAction() {
       <div className="grid gap-8 lg:grid-cols-[2fr_1fr] lg:items-center">
         <div className="space-y-4">
           <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-            Ready to build
+            Ready to work
           </p>
           <h2 className="text-4xl font-semibold">
-            Install the Skill starter pack and give Claude a better playbook today
+            Launch your AI coworker and automate daily workflows end to end
           </h2>
           <p className="text-base text-white/70">
-            Download the template, document your workflow once, and let Claude
-            execute perfectly every time—dark or light mode, just one switch
-            away.
+            Install Claude Desktop, authorize a workspace folder, and describe the workflow once. Cowork - the autonomous AI
+            coworker for task automation - runs every step, tracks changes, and hands you the finished deliverable.
           </p>
         </div>
         <div className="flex flex-col gap-4">
@@ -25,14 +24,14 @@ export function CallToAction() {
             href="/login"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f7d793] to-[#c08b2d] px-6 py-3 text-base font-semibold text-black shadow-lg shadow-[#f4c572]/50 transition hover:-translate-y-0.5"
           >
-            Sign in & Deploy
+            Sign in to Claude Max
             <ArrowRight className="h-4 w-4" />
           </a>
           <a
             href="#overview"
             className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-base font-semibold text-white hover:bg-white/10"
           >
-            Browse documentation
+            Review Cowork basics
           </a>
         </div>
       </div>

@@ -3,32 +3,32 @@ import { BadgeCheck, Blocks, GitBranch, RefreshCcw } from "lucide-react";
 export function FeatureHighlights() {
   const features = [
     {
-      title: "Modular skill kits",
+      title: "Agent-grade execution",
       description:
-        "Break knowledge into reusable, auditable modules so your org voice stays precise across every conversation.",
-      icon: Blocks,
-      meta: "Blueprint Library"
-    },
-    {
-      title: "Automated execution",
-      description:
-        "Chain prompts, calculations, and follow-ups. Claude completes a workflow before handing the result back to your user.",
+        "Cowork breaks \"tidy my Downloads\" or \"produce a report\" into discrete steps, runs them locally, and hands over the finished work.",
       icon: RefreshCcw,
-      meta: "Workflow Engine"
+      meta: "Multi-step Agent"
     },
     {
-      title: "Context-aware routing",
+      title: "Scoped file-system access",
       description:
-        "Skills can check task metadata, channel, or language to decide what instruction set Claude should run.",
+        "It only reads, writes, renames, or creates inside the folder you approved. Revoke permission anytime for a safer workspace.",
+      icon: Blocks,
+      meta: "Scoped Access"
+    },
+    {
+      title: "Live feedback loop",
+      description:
+        "Cowork reports what it's doing in real time. Add clarifications mid-task without re-entering every detail.",
       icon: GitBranch,
-      meta: "Smart Matching"
+      meta: "Live Status"
     },
     {
-      title: "Enterprise guardrails",
+      title: "Safety-first defaults",
       description:
-        "Enforce tone, formatting, and compliance. Every skill is versioned with reviewers and release notes.",
+        "Clear instructions prevent accidental deletions. Anthropic still recommends backups, so you stay protected even in preview.",
       icon: BadgeCheck,
-      meta: "Governance"
+      meta: "Safe defaults"
     }
   ];
 
@@ -39,12 +39,11 @@ export function FeatureHighlights() {
           Capabilities
         </p>
         <h2 className="text-3xl font-semibold text-[#0b0b0b] dark:text-white">
-          Everything Claude needs to deliver the same excellent answer every time
+          More than chat - Cowork is a teammate that operates directly on your computer
         </h2>
         <p className="max-w-3xl text-base text-black/70 dark:text-white/70">
-          Claude Skills turn institutional expertise into living documentation.
-          Plug them into Claude.ai, Claude Code, or the API and keep intent,
-          format, and guardrails synchronized everywhere.
+          Built on the Claude Code agent architecture but aimed at everyday workflows, Cowork takes one authorized folder
+          plus a plain-language goal and does the rest - planned, contained, and auditable.
         </p>
       </div>
 

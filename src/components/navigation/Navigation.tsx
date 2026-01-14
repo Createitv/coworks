@@ -47,15 +47,20 @@ export function Navigation({
     <nav className={navClass}>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#f7d793] to-[#c08b2d] text-sm font-semibold text-black">
-            CS
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Claude Cowork logo"
+            width={44}
+            height={44}
+            className="h-11 w-11 rounded-full border border-black/10 object-cover dark:border-white/20"
+            priority
+          />
           <div>
             <p className="text-base font-semibold text-[#0b0b0b] dark:text-white">
-              SkillsMap
+              Claude Cowork
             </p>
             <p className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
-              Claude Skills Playbook
+              Digital coworker preview
             </p>
           </div>
         </Link>

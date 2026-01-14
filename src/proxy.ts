@@ -2,7 +2,16 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { auth } from "@/lib/auth";
 
-const PUBLIC_PATHS = ["/", "/login"];
+const PUBLIC_PATHS = [
+  "/",
+  "/login",
+  "/about",
+  "/connect-me",
+  "/privacy",
+  "/terms",
+  "/sitemap.xml",
+  "/favicon.ico",
+];
 
 export async function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;

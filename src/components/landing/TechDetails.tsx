@@ -1,32 +1,32 @@
 const details = [
   {
-    title: "Skill blueprint",
+    title: "Folder authorization",
     description:
-      "Each SKILL.md outlines triggers, zero-regret instructions, guardrails, assets, and cleanup steps.",
+      "Cowork operates inside a folder you explicitly approve. Everything it reads, edits, or creates stays within that sandbox.",
     bullets: [
-      "Link scripts or REST calls for data pulls",
-      "Reference brand or legal guidelines",
-      "Document owner, reviewer, and version"
+      "Pick a dedicated workspace before any run",
+      "Revoke or swap the folder whenever you like",
+      "Activity log lives in Claude Desktop"
     ]
   },
   {
-    title: "Runtime orchestration",
+    title: "Agent workflow",
     description:
-      "Claude fetches a skill only when context matches. Content never loads unless a skill is required.",
+      "Natural-language instructions become a multi-step plan. Cowork executes sequentially and only asks for help when needed.",
     bullets: [
-      "Deterministic fallback order",
-      "Configurable latency budgets",
-      "Telemetry per invocation"
+      "Autonomous step planning and ordering",
+      "Local execution without extra scripts",
+      "Status pings after each milestone"
     ]
   },
   {
-    title: "Security & sharing",
+    title: "Safety practices",
     description:
-      "Publish to workspaces, teams, or private sandboxes. Every edit is logged so you can trust the output.",
+      "Cowork is still a research preview, so Anthropic recommends a cautious setup while you explore its power.",
     bullets: [
-      "Role-based controls",
-      "Diff view + approvals",
-      "Expiry reminders"
+      "Back up the working folder frequently",
+      "Confirm any destructive action before proceeding",
+      "Keep sensitive data outside the sandbox"
     ]
   }
 ];
