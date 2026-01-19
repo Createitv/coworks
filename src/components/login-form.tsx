@@ -34,7 +34,7 @@ export function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [pendingProvider, setPendingProvider] = useState<SocialProvider | null>(null);
   const [signingOut, setSigningOut] = useState(false);
-  const { data: session, isLoading: sessionLoading } = authClient.useSession();
+  const { data: session, isPending: sessionLoading } = authClient.useSession();
 
   const callbackUrl = searchParams.get("callbackUrl") ?? "/";
   const isSignedIn = Boolean(session?.user);
