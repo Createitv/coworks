@@ -17,11 +17,11 @@ export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
       />
       <Script id="ga-setup" strategy="afterInteractive">
         {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag(js, new Date());
-            gtag(config, );
-          `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gaId}');
+        `}
       </Script>
     </>
   );

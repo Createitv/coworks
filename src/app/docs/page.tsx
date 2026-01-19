@@ -17,18 +17,39 @@ import {
 import { getAllDocs } from "@/lib/markdown";
 import { DocsThemeToggle } from "./docs-theme-toggle";
 
+const siteURL = "https://cowork.skillsmaps.com";
+
 export const metadata: Metadata = {
   title: "Documentation | Claude Cowork — Your AI-Powered Digital Coworker",
   description:
     "Complete guide to Claude Cowork, the agentic AI assistant. Learn setup, use cases, productivity tips, security best practices, and how it compares to other AI tools.",
   keywords:
     "Claude Cowork documentation, AI assistant guide, Cowork tutorial, agentic AI help, task automation guide",
+  alternates: {
+    canonical: `${siteURL}/docs`,
+  },
   openGraph: {
     title: "Claude Cowork Documentation",
     description:
       "Complete guide to Claude Cowork, the agentic AI assistant. Learn setup, use cases, productivity tips, and more.",
     type: "website",
     siteName: "Claude Cowork",
+    url: `${siteURL}/docs`,
+    images: [
+      {
+        url: `${siteURL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Claude Cowork Documentation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Claude Cowork Documentation",
+    description:
+      "Complete guide to Claude Cowork, the agentic AI assistant. Learn setup, use cases, productivity tips, and more.",
+    images: [`${siteURL}/og-image.jpg`],
   },
 };
 

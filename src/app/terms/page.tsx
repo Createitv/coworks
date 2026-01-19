@@ -1,9 +1,35 @@
 import type { Metadata } from "next";
 import { SimplePage } from "@/components/layout/SimplePage";
 
+const siteURL = "https://cowork.skillsmaps.com";
+
 export const metadata: Metadata = {
   title: "Terms | Claude Cowork",
   description: "Review the usage terms for the Claude Cowork research preview.",
+  alternates: {
+    canonical: `${siteURL}/terms`,
+  },
+  openGraph: {
+    title: "Terms | Claude Cowork",
+    description: "Review the usage terms for the Claude Cowork research preview.",
+    url: `${siteURL}/terms`,
+    siteName: "Claude Cowork",
+    type: "website",
+    images: [
+      {
+        url: `${siteURL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Terms | Claude Cowork",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms | Claude Cowork",
+    description: "Review the usage terms for the Claude Cowork research preview.",
+    images: [`${siteURL}/og-image.jpg`],
+  },
 };
 
 const sections = [

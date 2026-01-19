@@ -22,7 +22,8 @@ export async function middleware(request: NextRequest) {
 
   const isAuthRoute = pathname.startsWith("/api/auth");
   const isLoginPage = pathname === "/login";
-  const isPublicPath = PUBLIC_PATHS.includes(pathname);
+  const isDocsPath = pathname === "/docs" || pathname.startsWith("/docs/");
+  const isPublicPath = PUBLIC_PATHS.includes(pathname) || isDocsPath;
 
   if (isAuthRoute || pathname.startsWith("/_next")) {
     return NextResponse.next();

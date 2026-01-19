@@ -1,9 +1,38 @@
 import type { Metadata } from "next";
 import { SimplePage } from "@/components/layout/SimplePage";
 
+const siteURL = "https://cowork.skillsmaps.com";
+
 export const metadata: Metadata = {
   title: "Privacy | Claude Cowork",
-  description: "Understand how Claude Cowork handles the folders, files, and activity logs you share during the research preview.",
+  description:
+    "Understand how Claude Cowork handles the folders, files, and activity logs you share during the research preview.",
+  alternates: {
+    canonical: `${siteURL}/privacy`,
+  },
+  openGraph: {
+    title: "Privacy | Claude Cowork",
+    description:
+      "Understand how Claude Cowork handles the folders, files, and activity logs you share during the research preview.",
+    url: `${siteURL}/privacy`,
+    siteName: "Claude Cowork",
+    type: "website",
+    images: [
+      {
+        url: `${siteURL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Privacy | Claude Cowork",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy | Claude Cowork",
+    description:
+      "Understand how Claude Cowork handles the folders, files, and activity logs you share during the research preview.",
+    images: [`${siteURL}/og-image.jpg`],
+  },
 };
 
 const sections = [

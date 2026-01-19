@@ -18,6 +18,9 @@ import {
 import { getDocBySlug, getAllDocs, getDocSlugs } from "@/lib/markdown";
 import { ThemeToggle } from "./theme-toggle";
 import { MobileSidebar } from "./mobile-sidebar";
+import { BreadcrumbJsonLd, ArticleJsonLd } from "@/components/seo/JsonLd";
+
+const siteURL = "https://cowork.skillsmaps.com";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -50,20 +53,35 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const pageUrl = `${siteURL}/docs/${slug}`;
+
   return {
     title: `${doc.title} | Claude Cowork Documentation`,
     description: doc.description,
     keywords: doc.keywords.join(", "),
+    alternates: {
+      canonical: pageUrl,
+    },
     openGraph: {
       title: doc.title,
       description: doc.description,
       type: "article",
       siteName: "Claude Cowork",
+      url: pageUrl,
+      images: [
+        {
+          url: `${siteURL}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          alt: doc.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: doc.title,
       description: doc.description,
+      images: [`${siteURL}/og-image.jpg`],
     },
   };
 }
@@ -81,8 +99,21 @@ export default async function DocPage({ params }: PageProps) {
   const prevDoc = currentIndex > 0 ? allDocs[currentIndex - 1] : null;
   const nextDoc = currentIndex < allDocs.length - 1 ? allDocs[currentIndex + 1] : null;
 
+  const breadcrumbItems = [
+    { name: "Home", url: siteURL },
+    { name: "Documentation", url: `${siteURL}/docs` },
+    { name: doc.title, url: `${siteURL}/docs/${slug}` },
+  ];
+
   return (
-    <div className="min-h-screen bg-[#f7f7f0] text-[#0f0f0f] dark:bg-[#050505] dark:text-white">
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+      <ArticleJsonLd
+        title={doc.title}
+        description={doc.description}
+        url={`${siteURL}/docs/${slug}`}
+      />
+      <div className="min-h-screen bg-[#f7f7f0] text-[#0f0f0f] dark:bg-[#050505] dark:text-white">
       {/* Header */}
       <header className="sticky top-0 z-30 border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-black/60">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -189,5 +220,6 @@ export default async function DocPage({ params }: PageProps) {
         </main>
       </div>
     </div>
+    </>
   );
 }

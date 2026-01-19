@@ -2,9 +2,38 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SimplePage } from "@/components/layout/SimplePage";
 
+const siteURL = "https://cowork.skillsmaps.com";
+
 export const metadata: Metadata = {
   title: "Connect with Claude Cowork",
-  description: "Find the right channel to reach the Cowork team for feedback, partnerships, or support.",
+  description:
+    "Find the right channel to reach the Cowork team for feedback, partnerships, or support.",
+  alternates: {
+    canonical: `${siteURL}/connect-me`,
+  },
+  openGraph: {
+    title: "Connect with Claude Cowork",
+    description:
+      "Find the right channel to reach the Cowork team for feedback, partnerships, or support.",
+    url: `${siteURL}/connect-me`,
+    siteName: "Claude Cowork",
+    type: "website",
+    images: [
+      {
+        url: `${siteURL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Connect with Claude Cowork",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Connect with Claude Cowork",
+    description:
+      "Find the right channel to reach the Cowork team for feedback, partnerships, or support.",
+    images: [`${siteURL}/og-image.jpg`],
+  },
 };
 
 const sections = [

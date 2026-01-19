@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { OrganizationJsonLd, WebsiteJsonLd, SoftwareApplicationJsonLd } from "@/components/seo/JsonLd";
 
 const siteURL = "https://cowork.skillsmaps.com";
 const siteTitle = "Claude Cowork | AI Coworker for Task Automation & Productivity";
@@ -135,10 +136,27 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <OrganizationJsonLd
+          name="Claude Cowork"
+          url={siteURL}
+          logo={`${siteURL}/logo.png`}
+          description={siteDescription}
+          sameAs={[
+            "https://twitter.com/AnthropicAI",
+            "https://www.anthropic.com",
+          ]}
+        />
+        <WebsiteJsonLd
+          name="Claude Cowork"
+          url={siteURL}
+          description={siteDescription}
+        />
+        <SoftwareApplicationJsonLd />
       </head>
       <body className="antialiased">
         {children}
         <GoogleAnalytics gaId={gaId} />
+        <Analytics />
       </body>
     </html>
   );

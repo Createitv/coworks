@@ -1,10 +1,38 @@
 import type { Metadata } from "next";
 import { SimplePage } from "@/components/layout/SimplePage";
 
+const siteURL = "https://cowork.skillsmaps.com";
+
 export const metadata: Metadata = {
   title: "About Claude Cowork",
   description:
     "Learn how Claude Cowork brings Anthropic's agent architecture to everyday workflows so anyone can delegate file and document tasks safely.",
+  alternates: {
+    canonical: `${siteURL}/about`,
+  },
+  openGraph: {
+    title: "About Claude Cowork",
+    description:
+      "Learn how Claude Cowork brings Anthropic's agent architecture to everyday workflows so anyone can delegate file and document tasks safely.",
+    url: `${siteURL}/about`,
+    siteName: "Claude Cowork",
+    type: "website",
+    images: [
+      {
+        url: `${siteURL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "About Claude Cowork",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Claude Cowork",
+    description:
+      "Learn how Claude Cowork brings Anthropic's agent architecture to everyday workflows so anyone can delegate file and document tasks safely.",
+    images: [`${siteURL}/og-image.jpg`],
+  },
 };
 
 const sections = [
