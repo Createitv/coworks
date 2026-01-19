@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const siteURL = "https://cowork.skillsmaps.com";
-const siteTitle = "Claude Cowork — Your AI-Powered Digital Coworker";
+const siteTitle = "Claude Cowork | AI Coworker for Task Automation & Productivity";
 const siteDescription =
   "Claude Cowork is an agentic AI assistant that autonomously plans, executes, and completes multi-step tasks. Automate file organization, document processing, and workflows on macOS.";
 
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
         url: `${siteURL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Claude Cowork — Your AI-Powered Digital Coworker",
+        alt: "Claude Cowork | AI Coworker for Task Automation & Productivity",
       },
     ],
   },
