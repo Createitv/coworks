@@ -28,11 +28,9 @@ export function Navigation({
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Overview", href: "#overview" },
-    { label: "Use Cases", href: "#use-cases" },
-    { label: "Workflow", href: "#workflow" },
-    { label: "Examples", href: "#examples" },
-    { label: "FAQ", href: "#faq" }
+    { label: "Features", href: "#features" },
+    { label: "Docs", href: "/docs" },
+    { label: "About", href: "/about" },
   ];
 
   const navClass = clsx(

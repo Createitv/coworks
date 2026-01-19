@@ -4,9 +4,9 @@ import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const siteURL = "https://cowork.skillsmaps.com";
-const siteTitle = "AI Coworker for Task Automation & Productivity | Claude Cowork";
+const siteTitle = "Claude Cowork — Your AI-Powered Digital Coworker";
 const siteDescription =
-  "Claude Cowork is an AI coworker that automates tasks, organizes files, and executes workflows - your digital coworker for daily work on macOS.";
+  "Claude Cowork is an agentic AI assistant that autonomously plans, executes, and completes multi-step tasks. Automate file organization, document processing, and workflows on macOS.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteURL),
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
         url: `${siteURL}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Claude Cowork - Digital AI Coworker",
+        alt: "Claude Cowork — Your AI-Powered Digital Coworker",
       },
     ],
   },
@@ -117,8 +117,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+
+  // Inline script to set theme before page renders (prevents flash)
+  const themeScript = `
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // Default to dark mode
+      const shouldBeDark = stored === 'dark' || (!stored && true);
+      if (shouldBeDark) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  `;
+
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="antialiased">
         {children}
         <GoogleAnalytics gaId={gaId} />

@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { auth } from "@/lib/auth";
 
+export const runtime = "nodejs";
+
 const PUBLIC_PATHS = [
   "/",
   "/login",
@@ -9,11 +11,12 @@ const PUBLIC_PATHS = [
   "/connect-me",
   "/privacy",
   "/terms",
+  "/docs",
   "/sitemap.xml",
   "/favicon.ico",
 ];
 
-export async function proxy(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
   const originalQuery = request.nextUrl.search || "";
 

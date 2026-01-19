@@ -24,20 +24,18 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const stored = window.localStorage.getItem("skillsmap-theme");
-    if (stored === "light" || stored === "dark") {
-      setTheme(stored);
-      return;
+    const stored = window.localStorage.getItem("theme");
+    // Only switch to light if explicitly set, otherwise stay dark
+    if (stored === "light") {
+      setTheme("light");
     }
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setTheme(prefersDark ? "dark" : "light");
   }, []);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
     document.documentElement.classList.toggle("dark", theme === "dark");
     if (typeof window !== "undefined") {
-      window.localStorage.setItem("skillsmap-theme", theme);
+      window.localStorage.setItem("theme", theme);
     }
   }, [theme]);
 
