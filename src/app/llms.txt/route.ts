@@ -12,6 +12,8 @@ export function GET() {
     "",
     `- [AI access guide](${siteURL}/ai-guide): How to read and cite this site.`,
     `- [JSON knowledge index](${siteURL}/knowledge.json): Canonical URLs, summaries, and video sources.`,
+    `- [Reviewed plugin and connector library](${siteURL}/library): Compatibility, provenance, permissions, and safe first tests.`,
+    `- [Library JSON catalog](${siteURL}/library.json): Machine-readable reviewed resource records.`,
     `- [XML sitemap](${siteURL}/sitemap.xml): All canonical pages and video records.`,
   ];
   for (const [kind, heading] of [["Resource", "Resource indexes"], ["Guide", "Written guides"], ["Video", "Video walkthroughs"]]) {

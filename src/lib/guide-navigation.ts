@@ -9,6 +9,7 @@ export const guideNavigation: NavItem[] = [
     { label: "All documentation", href: "/docs", hint: "Browse the complete written guide." },
   ] },
   { label: "Resources", links: [
+    { label: "Plugin and connector library", href: "/library", hint: "Find reviewed tools by task and compatibility." },
     { label: "Templates", href: "/docs/templates", hint: "Search and copy task prompts." },
     { label: "Official plugin directory", href: "/docs/plugin-directory", hint: "Choose a plugin and try a starter task." },
     { label: "Tips and tricks", href: "/docs/productivity", hint: "Improve prompts and measure review time." },

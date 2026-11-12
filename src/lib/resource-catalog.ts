@@ -29,6 +29,7 @@ export type ResourceEntry = {
 
 export function getResources(): ResourceEntry[] {
   return [
+    { href: "/library", title: "Claude Cowork plugin, skill, and connector library", kind: "Resource", topic: "Tools", summary: "Browse reviewed resources with explicit compatibility, provenance, permissions, and safe first tests." },
     { href: "/docs/templates", title: "Claude Cowork prompt templates", kind: "Resource", topic: "Workflows", summary: "Copy prompts with concrete inputs, outputs, and review checks." },
     { href: "/ai-guide", title: "AI access and citation guide", kind: "Resource", topic: "Site guide", summary: "Find public Markdown, a machine-readable catalog, and canonical URLs." },
     ...getAllDocs().map((doc): ResourceEntry => ({

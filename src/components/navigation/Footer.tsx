@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const links = [
+  { label: "Plugin and connector library", href: "/library" },
   { label: "Find resources", href: "/resources" },
   { label: "AI access guide", href: "/ai-guide" },
   { label: "Video library", href: "/videos" },

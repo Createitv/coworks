@@ -1,4 +1,7 @@
 import { siteBrand, siteURL } from "@/lib/site";
+import type { LibraryResource } from "@/lib/library/types";
+
+const safeJson = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u003c");
 
 interface OrganizationSchema {
   name: string;
@@ -192,4 +195,22 @@ export function SoftwareApplicationJsonLd() {
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
+}
+
+export function LibraryResourceJsonLd({ resource }: { resource: LibraryResource }) {
+  const url = `${siteURL}/library/resources/${resource.slug}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: resource.name,
+    description: resource.summary,
+    url,
+    mainEntityOfPage: url,
+    dateModified: resource.checkedAt,
+    inLanguage: "en",
+    citation: [resource.sourceUrl],
+    author: { "@type": "Organization", name: "Coworks.dev", url: `${siteURL}/about` },
+    publisher: { "@type": "Organization", name: "Coworks.dev", logo: { "@type": "ImageObject", url: `${siteURL}${siteBrand.path}` } },
+  };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJson(schema) }} />;
 }

@@ -4,6 +4,7 @@ import { ResourceShell } from "@/components/layout/ResourceShell";
 import { ResourceDetail } from "@/components/library/ResourceDetail";
 import { getLibraryResource, getPublishedResources } from "@/lib/library/catalog";
 import { publicPageMetadata } from "@/lib/page-metadata";
+import { LibraryResourceJsonLd } from "@/components/seo/JsonLd";
 
 export function generateStaticParams() { return getPublishedResources().map(({ slug }) => ({ slug })); }
 
@@ -15,5 +16,5 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function LibraryResourcePage({ params }: { params: Promise<{ slug: string }> }) {
   const resource = getLibraryResource((await params).slug);
   if (!resource) notFound();
-  return <ResourceShell><ResourceDetail resource={resource} /></ResourceShell>;
+  return <ResourceShell><LibraryResourceJsonLd resource={resource} /><ResourceDetail resource={resource} /></ResourceShell>;
 }
