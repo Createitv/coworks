@@ -5,8 +5,6 @@ slug: "comparison"
 order: 7
 ---
 
-# Claude Cowork vs. ChatGPT, Copilot, and Gemini
-
 Start with where the source files live and where the finished work needs to go. Test each tool using the account and plan your team would actually use.
 
 | Tool | Workflow to evaluate |
@@ -18,8 +16,17 @@ Start with where the source files live and where the finished work needs to go. 
 
 ## Run the same task in each tool
 
-Use a folder with ten sample receipts, including one duplicate and one with a missing total. Ask each tool to produce a spreadsheet with source filename, date, merchant, amount, and currency, plus a list of rows that need review. Use synthetic data for the trial.
+[Download the sample receipts, prompt, answer key, and scorecard](/docs/downloads/receipt-audit.zip). Give each tool the three files from the `inputs` folder and the same prompt. Keep the answer key aside until the run is complete. If your tool cannot connect to a folder, upload the three files and record that input method on the scorecard.
 
-Score each result on the number of correctly extracted rows, whether it flags the two exceptions, how well it preserves the originals, and how much manual cleanup the output requires. Record the tool, plan, and date of the trial so you can reproduce it.
+| Check | Reference result |
+| --- | --- |
+| Unique rows | Two receipt IDs appear once each |
+| Duplicate handling | The review names `cafe-copy.txt` as the duplicate |
+| Missing amount | The amount for `office.txt` stays blank and is flagged for review |
+| Known subtotal | USD 12.50 |
+| Original files | All three input files are preserved |
+| Manual cleanup | Record the minutes needed to fix and verify the output |
 
-For Cowork, follow the [setup and folder access guide](/docs/setup) before trying the task. Check each vendor’s current availability for your account before choosing a workflow.
+Record the tool, plan, date, and input method for each run. The table describes the reference answer for the synthetic inputs. It contains no measured results from the four tools.
+
+For Cowork, follow the [setup guide](/docs/setup#local-files) and [step-by-step receipt exercise](/docs/receipt-audit).

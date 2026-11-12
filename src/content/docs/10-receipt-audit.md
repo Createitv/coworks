@@ -11,7 +11,9 @@ This exercise uses synthetic records. The reference below is a calculated answer
 
 ## Prepare three sample files
 
-Create a dedicated folder and save each line in its own text file. The duplicate shares the same receipt ID even though its filename differs.
+[Download the receipt audit ZIP](/docs/downloads/receipt-audit.zip). Unzip it and connect only the `inputs` folder for the exercise. Open `prompt.txt` separately and keep the `reference` folder aside until you check the result.
+
+To create the input files manually, save each line below in its own text file. The duplicate shares the same receipt ID even though its filename differs.
 
 | Filename | File contents |
 | --- | --- |
@@ -37,4 +39,4 @@ R-102,2026-10-04,Paper Grove,USD,,office.txt
 
 The known subtotal is **USD 12.50**. The review file should identify `cafe-copy.txt` as a duplicate and `office.txt` as missing an amount. Verify that the originals are still present. An output of USD 25.00 signals double counting, and a zero in the missing amount field makes an unknown value look like a real amount.
 
-Once this passes, try a second batch with mixed currencies. Require a subtotal per currency so the spreadsheet never adds unlike amounts.
+Use the included scorecard to record your result or [compare the same task across tools](/docs/comparison). Once this passes, try a second batch with mixed currencies. Require a subtotal per currency so the spreadsheet never adds unlike amounts.
