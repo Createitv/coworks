@@ -1,5 +1,6 @@
 "use client";
 
+import { siteBrand } from "@/lib/site";
 import { useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
@@ -38,11 +39,11 @@ export function Navigation({
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo.png"
-            alt="Claude Cowork logo"
+            src={siteBrand.path}
+            alt=""
             width={44}
             height={44}
-            className="h-11 w-11 rounded-full border border-black/10 object-cover dark:border-white/20"
+            className="h-11 w-11 rounded-lg border border-black/10 object-cover dark:border-white/20"
             priority
           />
           <div>

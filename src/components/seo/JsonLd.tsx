@@ -1,4 +1,4 @@
-import { siteURL } from "@/lib/site";
+import { siteBrand, siteURL } from "@/lib/site";
 
 interface OrganizationSchema {
   name: string;
@@ -131,7 +131,7 @@ export function ArticleJsonLd({
       name: "Coworks.dev",
       logo: {
         "@type": "ImageObject",
-        url: `${siteURL}/logo.png`,
+        url: `${siteURL}${siteBrand.path}`,
       },
     },
   };

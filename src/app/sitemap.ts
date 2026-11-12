@@ -4,6 +4,9 @@ import { getDocSlugs } from "@/lib/markdown";
 import { videoGuides, videoPath, videoPlayer, videoThumbnail } from "@/lib/videos";
 import { siteURL } from "@/lib/site";
 
+// Next's sitemap serializer inserts video text verbatim.
+const xmlText = (value: string) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["/", "/about", "/connect-me", "/privacy", "/terms", "/docs", "/docs/templates", "/videos"];
   const docRoutes = getDocSlugs().map((slug) => `/docs/${slug}`);
@@ -18,11 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [...pages, ...videoGuides.map((video) => ({
     url: `${siteURL}${videoPath(video)}`,
     videos: [{
-      title: video.originalTitle,
-      description: video.description,
+      title: xmlText(video.originalTitle),
+      description: xmlText(video.description),
       thumbnail_loc: videoThumbnail(video),
       player_loc: videoPlayer(video),
       publication_date: video.published,
+      duration: video.duration,
     }],
   }))];
 }

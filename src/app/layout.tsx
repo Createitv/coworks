@@ -1,4 +1,4 @@
-import { siteURL } from "@/lib/site";
+import { siteBrand, siteURL } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
@@ -69,10 +69,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteURL}/logo.png`,
-        width: 1024,
-        height: 1024,
-        alt: "How to Open Claude Cowork | Setup and Examples",
+        url: `${siteURL}${siteBrand.path}`,
+        width: siteBrand.width,
+        height: siteBrand.height,
+        alt: siteBrand.alt,
       },
     ],
   },
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: [`${siteURL}/logo.png`],
+    images: [`${siteURL}${siteBrand.path}`],
   },
   alternates: {
     canonical: "/",
@@ -97,8 +97,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: { url: "/coworks-icon.svg", type: "image/svg+xml", sizes: "any" },
-    apple: { url: "/coworks-apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    icon: { url: siteBrand.path, type: "image/webp", sizes: "512x512" },
+    apple: { url: "/coworks-apple-touch-icon.png?v=cloud", sizes: "180x180", type: "image/png" },
   },
 };
 
@@ -141,7 +141,7 @@ export default function RootLayout({
         <OrganizationJsonLd
           name="Coworks.dev"
           url={siteURL}
-          logo={`${siteURL}/logo.png`}
+          logo={`${siteURL}${siteBrand.path}`}
           description={siteDescription}
         />
         <WebsiteJsonLd

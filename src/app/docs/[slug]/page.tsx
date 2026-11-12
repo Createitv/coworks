@@ -2,7 +2,7 @@ import { DocIllustration } from "../doc-illustration";
 import { getDocIllustration } from "@/lib/doc-illustrations";
 import { docSections } from "@/lib/doc-navigation";
 import { videoGuides, videoPath } from "@/lib/videos";
-import { siteURL } from "@/lib/site";
+import { siteBrand, siteURL } from "@/lib/site";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const illustration = getDocIllustration(slug);
   const shareImage = illustration
     ? { ...illustration, url: `${siteURL}${illustration.url}` }
-    : { url: `${siteURL}/logo.png`, width: 1024, height: 1024, alt: doc.title };
+    : { url: `${siteURL}${siteBrand.path}`, width: siteBrand.width, height: siteBrand.height, alt: siteBrand.alt };
 
   return {
     title: { absolute: doc.title },
@@ -128,11 +128,11 @@ export default async function DocPage({ params }: PageProps) {
             <MobileSidebar docs={allDocs} currentSlug={slug} />
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/logo.png"
-                alt="Claude Cowork"
+                src={siteBrand.path}
+                alt=""
                 width={36}
                 height={36}
-                className="h-9 w-9 rounded-full border border-black/10 object-cover dark:border-white/20"
+                className="h-9 w-9 rounded-lg border border-black/10 object-cover dark:border-white/20"
               />
               <div className="hidden sm:block">
                 <p className="text-base font-semibold">Claude Cowork</p>

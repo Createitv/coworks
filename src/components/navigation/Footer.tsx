@@ -1,5 +1,6 @@
 'use client';
 
+import { siteBrand } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,11 +21,11 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-4">
               <Image
-                src="/logo.png"
-                alt="Coworks.dev logo"
+                src={siteBrand.path}
+                alt=""
                 width={64}
                 height={64}
-                className="h-16 w-16 rounded-full border border-black/10 object-cover dark:border-white/20"
+                className="h-16 w-16 rounded-lg border border-black/10 object-cover dark:border-white/20"
               />
               <div>
                 <p className="text-xl font-semibold">Coworks.dev</p>

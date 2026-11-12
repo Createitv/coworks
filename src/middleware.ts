@@ -15,6 +15,8 @@ const PUBLIC_PATHS = [
   "/robots.txt",
   "/ads.txt",
   "/favicon.ico",
+  "/coworks-cloud.webp",
+  "/manifest.webmanifest",
 ];
 
 export async function middleware(request: NextRequest) {

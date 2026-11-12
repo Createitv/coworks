@@ -1,3 +1,4 @@
+import { siteBrand } from "@/lib/site";
 import Link from "next/link";
 import Image from "next/image";
 import { GuideLinks } from "@/components/navigation/GuideLinks";
@@ -10,7 +11,7 @@ export default function VideosLayout({ children }: { children: React.ReactNode }
       <header className="relative z-20 border-b border-black/10 bg-[#fffdf6] dark:border-white/15 dark:bg-[#15120f]">
         <nav aria-label="Main navigation" className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-x-4 px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-2 py-2 font-semibold">
-            <Image src="/coworks-icon.svg" alt="" width={34} height={34} /> Coworks.dev
+            <Image src={siteBrand.path} alt="" width={34} height={34} className="rounded-lg" /> Coworks.dev
           </Link>
           <div className="hidden sm:block"><GuideLinks /></div>
           <details className="order-last w-full pb-2 sm:hidden">
