@@ -58,3 +58,9 @@ test("rejects invalid enum values", () => {
 test("prevents scenarios from referencing draft resources", () => {
   assert.throws(() => validateLibraryCatalog({ ...catalog, resources: [{ ...resource, publicationStatus: "draft" }] }), /meeting-prep.*google-drive.*published/i);
 });
+
+test("prevents subcategories from referencing missing or draft resources", () => {
+  const input = structuredClone(catalog) as Record<string, any>;
+  input.categories[0].subcategories = [{ slug: "email", name: "Email", summary: "Draft reviewed email.", resourceSlugs: ["missing-resource"] }];
+  assert.throws(() => validateLibraryCatalog(input), /subcategory.*must be published/);
+});

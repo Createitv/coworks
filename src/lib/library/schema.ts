@@ -91,7 +91,12 @@ export function validateLibraryCatalog(input: unknown): LibraryCatalog {
       summary: string(item.summary, `category ${slug}.summary`),
       subcategories: (Array.isArray(item.subcategories) ? item.subcategories : []).map((sub) => {
         const entry = object(sub, `category ${slug}.subcategory`);
-        return { slug: string(entry.slug, `category ${slug}.subcategory.slug`), name: string(entry.name, `category ${slug}.subcategory.name`), summary: string(entry.summary, `category ${slug}.subcategory.summary`) };
+        const subcategorySlug = string(entry.slug, `category ${slug}.subcategory.slug`);
+        const resourceSlugs = strings(entry.resourceSlugs, `subcategory ${subcategorySlug}.resourceSlugs`);
+        for (const resourceSlug of resourceSlugs) {
+          if (resourceBySlug.get(resourceSlug)?.publicationStatus !== "published") throw new Error(`subcategory ${subcategorySlug} resource ${resourceSlug} must be published`);
+        }
+        return { slug: subcategorySlug, name: string(entry.name, `category ${slug}.subcategory.name`), summary: string(entry.summary, `category ${slug}.subcategory.summary`), resourceSlugs };
       }),
     };
   });

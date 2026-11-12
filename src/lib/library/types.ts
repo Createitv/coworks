@@ -33,7 +33,7 @@ export interface LibraryCategory {
   slug: string;
   name: string;
   summary: string;
-  subcategories: { slug: string; name: string; summary: string }[];
+  subcategories: { slug: string; name: string; summary: string; resourceSlugs: string[] }[];
 }
 
 export interface LibraryScenario {

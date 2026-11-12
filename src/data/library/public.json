@@ -9,12 +9,25 @@
         {
           "slug": "meetings",
           "name": "Meetings",
-          "summary": "Prepare, run, and follow up on meetings."
+          "summary": "Prepare, run, and follow up on meetings.",
+          "resourceSlugs": [
+            "productivity-plugin",
+            "slack-plugin",
+            "google-workspace",
+            "microsoft-365",
+            "enterprise-search-plugin"
+          ]
         },
         {
           "slug": "reports",
           "name": "Reports",
-          "summary": "Turn approved updates into recurring reports."
+          "summary": "Turn approved updates into recurring reports.",
+          "resourceSlugs": [
+            "productivity-plugin",
+            "operations-plugin",
+            "data-plugin",
+            "google-analytics-mcp"
+          ]
         }
       ]
     },
@@ -26,7 +39,13 @@
         {
           "slug": "office-files",
           "name": "Office files",
-          "summary": "Work with documents, spreadsheets, slides, and PDFs."
+          "summary": "Work with documents, spreadsheets, slides, and PDFs.",
+          "resourceSlugs": [
+            "google-workspace",
+            "microsoft-365",
+            "design-plugin",
+            "legal-plugin"
+          ]
         }
       ]
     },
@@ -38,7 +57,14 @@
         {
           "slug": "email-calendar",
           "name": "Email and calendar",
-          "summary": "Prepare drafts and coordinate time without losing approval boundaries."
+          "summary": "Prepare drafts and coordinate time without losing approval boundaries.",
+          "resourceSlugs": [
+            "google-workspace",
+            "microsoft-365",
+            "slack-plugin",
+            "sales-plugin",
+            "customer-support-plugin"
+          ]
         }
       ]
     },
@@ -50,12 +76,24 @@
         {
           "slug": "web-research",
           "name": "Web research",
-          "summary": "Retrieve public sources and preserve citations."
+          "summary": "Retrieve public sources and preserve citations.",
+          "resourceSlugs": [
+            "firecrawl-mcp",
+            "enterprise-search-plugin",
+            "data-plugin",
+            "product-management-plugin"
+          ]
         },
         {
           "slug": "content-growth",
           "name": "Content and growth",
-          "summary": "Plan and review content, SEO, and campaigns."
+          "summary": "Plan and review content, SEO, and campaigns.",
+          "resourceSlugs": [
+            "marketing-plugin",
+            "design-plugin",
+            "google-analytics-mcp",
+            "hubspot-mcp"
+          ]
         }
       ]
     },
@@ -67,7 +105,13 @@
         {
           "slug": "revenue",
           "name": "Revenue operations",
-          "summary": "Connect approved CRM context to sales and customer work."
+          "summary": "Connect approved CRM context to sales and customer work.",
+          "resourceSlugs": [
+            "sales-plugin",
+            "hubspot-mcp",
+            "customer-support-plugin",
+            "finance-plugin"
+          ]
         }
       ]
     },
@@ -79,7 +123,13 @@
         {
           "slug": "developer-tools",
           "name": "Developer tools",
-          "summary": "Build, test, review, and deploy software."
+          "summary": "Build, test, review, and deploy software.",
+          "resourceSlugs": [
+            "github-plugin",
+            "frontend-design-skill",
+            "playwright-plugin",
+            "firecrawl-mcp"
+          ]
         }
       ]
     }

@@ -38,6 +38,13 @@ test("generates reviewed category, scenario, and resource routes", () => {
   assert.ok(resourceParams().every(({ slug }) => getPublishedResources().some((resource) => resource.slug === slug)));
 });
 
+test("gives each subcategory an explicit reviewed resource selection", () => {
+  const resources = new Set(getPublishedResources().map(({ slug }) => slug));
+  const subcategories = getLibraryCategories().flatMap(({ subcategories }) => subcategories);
+  assert.ok(subcategories.every(({ resourceSlugs }) => resourceSlugs.length > 0 && resourceSlugs.every((slug) => resources.has(slug))));
+  assert.ok(new Set(subcategories.map(({ resourceSlugs }) => resourceSlugs.join(","))).size > 1);
+});
+
 test("renders the complete trust contract on a resource detail", () => {
   const resource = getPublishedResources().find((item) => item.slug === "google-workspace");
   assert.ok(resource);
