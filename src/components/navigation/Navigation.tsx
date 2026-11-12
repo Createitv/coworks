@@ -5,6 +5,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import Image from "next/image";
+import { guideNavigation } from "@/lib/doc-navigation";
 
 interface NavigationProps {
   isDarkMode: boolean;
@@ -27,20 +28,13 @@ export function Navigation({
 }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
-    { label: "Features", href: "#features" },
-    { label: "Docs", href: "/docs" },
-    { label: "Templates", href: "/docs/templates" },
-    { label: "About", href: "/about" },
-  ];
-
   const navClass = clsx(
     "sticky top-0 z-30 border-b backdrop-blur transition-colors duration-300",
     isDarkMode ? "border-white/10 bg-black/60" : "border-black/10 bg-white/80"
   );
 
   const linkClass =
-    "rounded-full px-4 py-2 text-sm font-semibold text-black/70 transition hover:text-black dark:text-white/70 dark:hover:text-white";
+    "rounded-full px-3 py-2 text-sm font-semibold text-black/70 transition hover:text-black dark:text-white/70 dark:hover:text-white";
 
   return (
     <nav className={navClass}>
@@ -64,15 +58,15 @@ export function Navigation({
           </div>
         </Link>
 
-        <div className="hidden items-center gap-1 lg:flex">
-          {navItems.map((item) => (
+        <div className="hidden items-center gap-1 xl:flex">
+          {guideNavigation.map((item) => (
             <Link key={item.href} href={item.href} className={linkClass}>
               {item.label}
             </Link>
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <button
             onClick={onToggleTheme}
             className="flex items-center gap-2 rounded-full border border-black/10 px-3 py-2 text-sm font-semibold text-black transition hover:border-black dark:border-white/20 dark:text-white dark:hover:border-white"
@@ -122,7 +116,7 @@ export function Navigation({
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="rounded-full border border-black/10 p-2 text-black dark:border-white/20 dark:text-white lg:hidden"
+          className="rounded-full border border-black/10 p-2 text-black dark:border-white/20 dark:text-white xl:hidden"
           aria-label="Toggle navigation"
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -130,9 +124,9 @@ export function Navigation({
       </div>
 
       {isOpen && (
-        <div className="border-t border-black/10 px-4 py-4 dark:border-white/10 lg:hidden">
+        <div className="border-t border-black/10 px-4 py-4 dark:border-white/10 xl:hidden">
           <div className="flex flex-col gap-2">
-            {navItems.map((item) => (
+            {guideNavigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

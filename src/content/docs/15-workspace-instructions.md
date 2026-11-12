@@ -25,4 +25,4 @@ At the start of a session, explicitly ask Claude to read the brief. Confirm it c
 
 Run the workflow with two synthetic interviews. Put one point in both interviews and a conflicting point in only one. Check that the summary distinguishes recurring themes from a single source and flags the conflicting evidence. Update the brief if you find a recurring error.
 
-Use the document brief in the [prompt library](/docs/templates) to start. Once the instructions are stable, see [scheduled tasks](/docs/scheduled-tasks) for recurring drafts.
+Use the document brief in the [prompt library](/docs/templates#document-brief) to start. Once the instructions are stable, see [scheduled tasks](/docs/scheduled-tasks) for recurring drafts.

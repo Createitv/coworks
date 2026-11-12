@@ -5,7 +5,7 @@ slug: "plans-and-pricing"
 order: 13
 ---
 
-Cowork availability depends on your Claude plan, platform, and workspace settings. Anthropic lists Cowork for paid plans. Check the [official pricing page](https://claude.com/pricing) for the current subscription cost in your region and the [availability guide](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile) for your plan and device.
+Anthropic lists Cowork for eligible paid Claude plans. Claude Free has its own chat and tool features. Cowork access depends on your plan, device, and workspace settings. Pricing and platform references checked November 12, 2026. Check the [official pricing page](https://claude.com/pricing) for the current subscription cost in your region and the [availability guide](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile) for your plan and device.
 
 | What you want to do | What to check before choosing a plan |
 | --- | --- |

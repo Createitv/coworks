@@ -25,3 +25,5 @@ A **connector** gives Claude access to a service such as a document store. A **s
 If the plugin is missing, check that you are in the expected account and that your organization allows the plugin. If it is present but cannot find a file, confirm the connected account can open the file directly. For a custom plugin with a local component, check Anthropic's instructions and your organization's settings before installing it.
 
 Use the [connector check prompt](/docs/templates) for a first run. See [Anthropic's plugin instructions](https://support.claude.com/en/articles/13837440-use-plugins-in-claude) and the [official Cowork documentation](https://claude.com/docs/cowork/overview) for current availability.
+
+For document, chat, and calendar examples, see the [connector checklist](/docs/connector-checklist).

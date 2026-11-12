@@ -13,7 +13,7 @@ Start with a task that produces a draft you can verify, such as a weekly summary
 - In the separate Cowork interface, open **Scheduled** from the sidebar and create a task. Review the saved instructions and cadence.
 - Run the prompt once against a date range you can check. Compare the draft with the source before relying on the schedule.
 
-Try the weekly brief in the [prompt library](/docs/templates). If you expect a Monday morning run, specify the time zone explicitly and ask the output to state its coverage dates.
+Try the weekly brief in the [prompt library](/docs/templates#weekly-brief). If you expect a Monday morning run, specify the time zone explicitly and ask the output to state its coverage dates.
 
 ## Diagnose a missing or incomplete report
 

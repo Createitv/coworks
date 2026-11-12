@@ -107,7 +107,7 @@ export function TemplateLibrary() {
       </p>
       <div className="grid gap-4 md:grid-cols-2">
         {visible.map((template) => (
-          <article key={template.id} className="space-y-4 rounded-2xl border border-current/20 p-5">
+          <article key={template.id} id={template.id} className="scroll-mt-6 space-y-4 rounded-2xl border border-current/20 p-5">
             <h2 className="text-xl font-semibold">{template.title}</h2>
             <p className="select-text rounded-xl bg-black/5 p-4 text-sm leading-relaxed dark:bg-white/10">{template.prompt}</p>
             <p className="text-sm"><strong>Check the result.</strong> {template.check}</p>

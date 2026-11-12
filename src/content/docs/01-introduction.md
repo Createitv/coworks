@@ -1,68 +1,27 @@
 ---
-title: "Introduction to Claude Cowork"
-description: "Discover Claude Cowork, the agentic AI assistant that autonomously plans, executes, and completes multi-step tasks. Learn what sets it apart from traditional chat AI."
-keywords: ["Claude Cowork", "AI assistant", "agentic AI", "autonomous AI", "task automation", "productivity AI"]
+title: "What Is Claude Cowork? Tasks, Outputs, and Examples"
+description: "Learn what Claude Cowork does, what it can deliver, and when to use web or Claude Desktop. Try a receipt workflow with an answer key."
 slug: "introduction"
 order: 1
 ---
 
-# Introduction to Claude Cowork
+Claude Cowork is a way to give Claude a multi-step task and review the resulting work. You can ask for a spreadsheet from receipts, a summary with references from a set of documents, or a plan for organizing a folder. The output depends on the files and services you let Claude use.
 
-## What is Claude Cowork?
+## What can Claude Cowork do?
 
-Claude Cowork is an **agentic AI assistant** that goes beyond simple conversations. Unlike traditional chatbots that respond to one message at a time, Cowork can autonomously plan, execute, and complete multi-step tasks on your behalf.
+| Input | Task | Output to verify |
+| --- | --- | --- |
+| Receipts in an approved folder | Extract fields, detect duplicates, and flag unreadable amounts | A CSV and a review note |
+| Notes from several meetings | Pull out decisions, owners, and open questions | An action list that points back to the notes |
+| A folder with duplicate filenames | Propose a destination for each file | A move plan that accounts for every source file |
 
-Think of it as a digital coworker who can take a vague instruction like *"organize my downloads folder and create a summary report"* and independently figure out how to accomplish it—sorting files, categorizing content, generating documents, and delivering polished results.
+The [receipt audit](/docs/receipt-audit) includes three synthetic input files and a reference CSV. The expected result is two distinct receipt IDs, one missing amount, and a known subtotal of USD 12.50. You can compare your own run with that answer key.
 
-### Key Capabilities
+## Where do I use it?
 
-- **Direct local file access** - Read, write, and organize files on your computer
-- **Sub-agent coordination** - Spawn multiple workers for complex parallel tasks
-- **Professional outputs** - Generate Excel, PowerPoint, and formatted documents
-- **Long-running task handling** - Execute workflows that take extended time
+Start from Claude on a supported plan and platform. Tasks that need a folder on your computer can depend on Claude Desktop and its connection to that folder. Availability varies by account and workspace. Check [Anthropic's platform guide](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile).
 
-## How is Cowork Different from Regular Chat AI?
-
-### Traditional Chat AI
-
-- Single turn: responds, then waits for next input
-- No file system access
-- Cannot execute code or scripts
-- Requires manual step-by-step guidance
-- Limited to text-based interactions
-
-### Claude Cowork
-
-- **Autonomous**: Plans and executes multi-step tasks independently
-- **Direct local file access**: Works with your actual files
-- **Runs code in sandboxed environment**: Safely executes scripts and tools
-- **Coordinates sub-agents**: Manages complex workflows with parallel workers
-- **Delivers tangible outputs**: Creates real documents and organized files
-
-## Why Does This Matter?
-
-### Time Savings
-
-Automate hours of repetitive work into minutes of AI execution. Tasks that would take you an afternoon can be completed while you grab coffee.
-
-### Reduced Cognitive Load
-
-Delegate complex workflows instead of managing every step yourself. Describe the outcome you want, and let Cowork figure out how to get there.
-
-### Scalable Productivity
-
-Handle more work without proportionally increasing effort. As your workload grows, Cowork scales with you.
-
-## What This Guide Covers
-
-This comprehensive guide will walk you through everything you need to know about Claude Cowork:
-
-1. **How Cowork Works** - Architecture and technical mechanisms
-2. **Setting Up Cowork** - Step-by-step setup instructions
-3. **Practical Use Cases** - Real-world examples and scenarios
-4. **Productivity Gains** - Analysis of time savings and efficiency
-5. **Limitations & Risks** - Security considerations and best practices
-6. **Competitor Comparison** - How Cowork stacks up against alternatives
-7. **Future of AI Agents** - Trends and predictions for the workspace
-
-Whether you're a power user looking to maximize productivity or just getting started with AI assistants, this guide will help you unlock the full potential of Claude Cowork.
+- [Open Cowork and start a task](/docs/setup#start)
+- [Check plans and pricing](/docs/plans-and-pricing)
+- [Browse prompts and verification checks](/docs/templates)
+- [Troubleshoot access and task failures](/docs/troubleshooting)

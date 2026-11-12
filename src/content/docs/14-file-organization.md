@@ -17,7 +17,7 @@ Create these sample files in a disposable folder. Put a different sentence insid
 | team-b/report.txt | Keep separate and flag any proposed destination collision |
 | notes.txt | Leave in place if the destination is unclear |
 
-Connect the sample folder in [Claude Desktop](/docs/setup#local-files). Copy the dry-run prompt from the [template library](/docs/templates). Ask for a table of source and destination paths plus a list of conflicts, while leaving the folder untouched.
+Connect the sample folder in [Claude Desktop](/docs/setup#local-files). Copy the dry-run prompt from the [template library](/docs/templates#folder-cleanup). Ask for a table of source and destination paths plus a list of conflicts, while leaving the folder untouched.
 
 ## Verify the plan
 

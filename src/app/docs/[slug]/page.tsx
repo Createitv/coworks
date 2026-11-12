@@ -1,3 +1,4 @@
+import { docSections } from "@/lib/doc-navigation";
 import { siteURL } from "@/lib/site";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const pageUrl = `${siteURL}/docs/${slug}`;
 
   return {
-    title: `${doc.title} | Claude Cowork Documentation`,
+    title: { absolute: doc.title },
     description: doc.description,
     keywords: doc.keywords.join(", "),
     alternates: {
@@ -98,6 +99,9 @@ export default async function DocPage({ params }: PageProps) {
   const currentIndex = allDocs.findIndex((d) => d.slug === slug);
   const prevDoc = currentIndex > 0 ? allDocs[currentIndex - 1] : null;
   const nextDoc = currentIndex < allDocs.length - 1 ? allDocs[currentIndex + 1] : null;
+
+  const section = docSections.find(({ slugs }) => slugs.some((entry) => entry === slug));
+  const relatedDocs = section?.slugs.filter((entry) => entry !== slug).flatMap((entry) => allDocs.filter((candidate) => candidate.slug === entry)) ?? [];
 
   const breadcrumbItems = [
     { name: "Home", url: siteURL },
@@ -193,6 +197,19 @@ export default async function DocPage({ params }: PageProps) {
               className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-semibold prose-h2:mt-8 prose-h2:border-b prose-h2:border-black/10 prose-h2:pb-2 prose-h3:mt-6 prose-a:text-[#c08b2d] prose-code:rounded prose-code:bg-black/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-pre:bg-black/5 prose-table:border-collapse prose-th:border prose-th:border-black/10 prose-th:bg-black/5 prose-th:p-2 prose-td:border prose-td:border-black/10 prose-td:p-2 dark:prose-h2:border-white/10 dark:prose-code:bg-white/10 dark:prose-pre:bg-white/5 dark:prose-th:border-white/10 dark:prose-th:bg-white/5 dark:prose-td:border-white/10"
               dangerouslySetInnerHTML={{ __html: doc.htmlContent }}
             />
+            {relatedDocs.length > 0 && (
+              <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-current/15 p-5">
+                <h2 className="font-semibold">{section?.label}</h2>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {relatedDocs.map((entry) => (
+                    <li key={entry.slug}>
+                      <Link href={`/docs/${entry.slug}`} className="underline underline-offset-4">{entry.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+
 
             {/* Navigation */}
             <div className="mt-12 flex items-center justify-between border-t border-black/10 pt-6 dark:border-white/10">

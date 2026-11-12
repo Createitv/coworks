@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   BookOpen,
-  ChevronRight,
   Rocket,
   Workflow,
   Zap,
@@ -15,6 +14,7 @@ import {
   Terminal,
   ExternalLink,
 } from "lucide-react";
+import { docSections } from "@/lib/doc-navigation";
 import { getAllDocs } from "@/lib/markdown";
 import { DocsThemeToggle } from "./docs-theme-toggle";
 
@@ -142,47 +142,31 @@ export default function DocsIndexPage() {
           </ul>
         </div>
 
-        {/* All Articles */}
-        <div>
-          <h2 className="mb-6 text-2xl font-semibold">All Articles</h2>
-          <div className="space-y-4">
-            {allDocs.map((doc) => (
-              <Link
-                key={doc.slug}
-                href={`/docs/${doc.slug}`}
-                className="group flex items-start gap-4 rounded-2xl border border-black/10 bg-white/50 p-5 transition hover:border-[#c08b2d]/50 hover:shadow-lg dark:border-white/10 dark:bg-white/5 dark:hover:border-[#c08b2d]/50"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-[#f7d793]/50 to-[#c08b2d]/50 text-[#8a6420] transition group-hover:from-[#f7d793] group-hover:to-[#c08b2d] group-hover:text-black dark:text-[#f7d793]">
-                  {iconMap[doc.slug] || <BookOpen className="h-5 w-5" />}
-                </div>
-                <div className="flex-1">
-                  <div className="mb-1 flex items-center gap-2">
-                    <span className="text-xs font-medium text-[#c08b2d]">Article {doc.order}</span>
-                  </div>
-                  <h3 className="mb-1 text-lg font-semibold group-hover:text-[#c08b2d]">
-                    {doc.title}
-                  </h3>
-                  <p className="text-sm text-black/60 dark:text-white/60">{doc.description}</p>
-                </div>
-                <ChevronRight className="mt-4 h-5 w-5 shrink-0 text-black/30 transition group-hover:translate-x-1 group-hover:text-[#c08b2d] dark:text-white/30" />
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Footer CTA */}
-        <div className="mt-12 text-center">
-          <p className="mb-4 text-black/60 dark:text-white/60">
-            Ready to get started with Claude Cowork?
-          </p>
-          <Link
-            href={`/docs/${allDocs[0]?.slug || "introduction"}`}
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f7d793] to-[#c08b2d] px-6 py-3 font-semibold text-black transition hover:opacity-90"
-          >
-            Start Reading
-            <ChevronRight className="h-4 w-4" />
-          </Link>
-        </div>
+        <nav aria-label="Guide topics" className="mb-8 flex flex-wrap gap-4">
+          {docSections.map((section) => (
+            <a key={section.id} href={`#${section.id}`} className="text-sm underline underline-offset-4">{section.label}</a>
+          ))}
+        </nav>
+        {docSections.map((section) => (
+          <section key={section.id} id={section.id} className="mb-10 scroll-mt-24">
+            <h2 className="mb-4 text-2xl font-semibold">{section.label}</h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {section.slugs.map((slug) => {
+                const doc = allDocs.find((entry) => entry.slug === slug);
+                return doc && (
+                  <Link key={slug} href={`/docs/${slug}`}
+                    className="flex items-start gap-3 rounded-2xl border border-black/10 bg-white/50 p-4 hover:border-[#c08b2d] dark:border-white/10 dark:bg-white/5">
+                    <span className="mt-1 text-[#c08b2d]">{iconMap[slug] || <BookOpen className="h-5 w-5" />}</span>
+                    <div>
+                      <h3 className="font-semibold">{doc.title}</h3>
+                      <p className="mt-1 text-sm text-black/70 dark:text-white/70">{doc.description}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        ))}
       </main>
     </div>
   );

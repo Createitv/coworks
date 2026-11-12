@@ -27,17 +27,11 @@ For complex tasks, the coordination system manages multiple sub-agents working i
 
 Claude Desktop connects Cowork to files on your computer. Choose which folders to connect and keep the app open while a task needs those files. Review requested permissions and check any outputs before relying on them. See the [setup guide](/docs/setup) for platform and account requirements.
 
-## Claude Chat vs Claude Code vs Cowork
+## Which Claude experience fits the task?
 
-| Feature | Chat | Code | Cowork |
-|---------|------|------|--------|
-| Conversational AI | ✓ | ✓ | ✓ |
-| File System Access | ✗ | ✓ | ✓ |
-| Code Execution | ✗ | ✓ | ✓ |
-| Multi-step Tasks | ✗ | ✓ | ✓ |
-| Sub-agent Coordination | ✗ | ✗ | ✓ |
-| Document Generation | Limited | ✓ | ✓ |
-| Target Users | General | Developers | Knowledge Workers |
+Use Claude's conversation interface for questions, drafts, and follow-up edits. If your interface combines chat and Cowork, start a task in the same conversation. Use Claude Code for software work that needs a repository and development tools. Choose an approved connector or connected folder based on where your inputs live.
+
+See the [unified Claude interface guide](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude) and [Cowork overview](/docs/introduction) for context.
 
 ## How Multi-Step Tasks Are Processed
 

@@ -33,3 +33,5 @@ Create a dedicated folder with copies of the files needed for the task. Connect 
 If Claude cannot find a file, confirm it is inside the connected folder and available on disk. Make sure Claude Desktop is open and connected. If you started on another device, try starting the local file task from Claude Desktop itself. For work accounts, check whether the organization allows the relevant capability.
 
 Use a small sample before processing a full folder. The [receipt audit exercise](/docs/receipt-audit) has three synthetic inputs, a prompt, and an expected CSV you can use to check the result.
+
+For a symptom-by-symptom checklist, see [Cowork troubleshooting](/docs/troubleshooting).
