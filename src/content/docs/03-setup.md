@@ -1,35 +1,35 @@
 ---
-title: "Claude Cowork Setup: Plans, Platforms, and Local Files"
-description: "Check which Claude plans support Cowork, start your first session, and connect a working folder in Claude Desktop."
+title: "How to Open Claude Cowork and Fix a Missing Tab"
+description: "Start a Claude Cowork task, check plan and platform access, and troubleshoot missing tabs and local file permissions."
 slug: "setup"
 order: 3
 ---
 
-# Claude Cowork setup
+<h2 id="start">Open Cowork and start a task</h2>
 
-Cowork is available on paid Claude plans. Check the [official availability guide](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) for platform support and organization settings. For tasks that need local files, use Claude Desktop and keep it open and connected while Cowork accesses them.
+1. Open [Claude](https://claude.ai/) and sign in to the account you intend to use. If your task needs files on your computer, install or open [Claude Desktop](https://claude.com/download).
+2. Select **Cowork** if your message box offers a mode selector. In the unified Claude experience, start a conversation and describe the task directly.
+3. Specify the inputs, the deliverable, and where it should go. Review any requested permissions before the task proceeds.
 
-## Start a session
+<h2 id="missing-cowork">Why is the Cowork tab missing?</h2>
 
-1. Open [Claude](https://claude.ai/) or install [Claude Desktop](https://claude.com/download) if you need local files.
-2. Sign in with the account that has your paid plan. If you use a work account, check whether your organization has enabled Cowork.
-3. Select Cowork if your interface has a mode selector. In the unified interface, enter the task in the message box.
-4. Describe the deliverable and review the proposed work before starting.
+| What you see | What to check |
+| --- | --- |
+| The chat box has no Chat or Cowork selector | You may have the unified interface. Start a normal conversation and ask Claude to create a small sample file. |
+| Cowork appears under one account but not another | Check the active account, workspace, and subscription. |
+| Cowork is unavailable in a work account | Ask your workspace admin whether Cowork is enabled for your account. |
+| The desktop interface differs from the web guide | Update Claude Desktop and check which experience is available on your account. |
 
-## Connect local files
+See the [official explanation of the unified experience](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude) for rollout details.
 
-Create a dedicated working folder and copy in only the files needed for the task. In Claude Desktop, connect that folder when the task requires it. Review any requests to access files or other tools.
+<h2 id="plans-and-platforms">Check plans and platforms</h2>
 
-For a first run, give Cowork a small set of sample files and ask it to create a separate output.
+Cowork is available on paid Claude plans. Availability across desktop, web, and mobile depends on the plan, platform, and workspace settings. Check Anthropic's [current availability table](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile) for your combination. Choose a supported Claude Desktop setup when the task requires local files.
 
-> Read the receipts in this folder and create a CSV with date, merchant, amount, and currency. Flag missing values for review and leave the originals in place.
+<h2 id="local-files">Connect and troubleshoot local files</h2>
 
-Check the CSV against a few source files before relying on the result.
+Create a dedicated folder with copies of the files needed for the task. Connect that folder from a Claude Desktop session and review the requested access.
 
-## If Cowork or a folder is unavailable
+If Claude cannot find a file, confirm it is inside the connected folder and available on disk. Make sure Claude Desktop is open and connected. If you started on another device, try starting the local file task from Claude Desktop itself. For work accounts, check whether the organization allows the relevant capability.
 
-- Check that you are using the right account and that your plan and organization settings allow Cowork.
-- If you do not see a Cowork tab, check whether your account has the unified Claude interface.
-- For local files, confirm Claude Desktop is open and connected, then check that you granted access to the right folder.
-
-Continue with [workflow examples](/docs/use-cases) and [permissions and limitations](/docs/limitations).
+Use a small sample before processing a full folder. The [receipt audit exercise](/docs/receipt-audit) has three synthetic inputs, a prompt, and an expected CSV you can use to check the result.

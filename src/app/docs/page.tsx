@@ -111,29 +111,29 @@ export default function DocsIndexPage() {
           </div>
           <h1 className="mb-4 text-4xl font-bold">Claude Cowork Documentation and Guides</h1>
           <p className="mx-auto max-w-2xl text-lg text-black/70 dark:text-white/70">
-            Everything you need to know about Claude Cowork, from getting started to advanced use
-            cases. Learn how to maximize your productivity with AI-powered task automation.
+            Find the steps to open Cowork, fix a missing tab, connect a local folder, or try a workflow with sample data.
           </p>
         </div>
 
         {/* Quick Start */}
         <div className="mb-12 rounded-2xl border border-[#c08b2d]/30 bg-gradient-to-br from-[#f7d793]/10 to-[#c08b2d]/10 p-6">
-          <h2 className="mb-4 text-xl font-semibold">Quick Start</h2>
-          <p className="mb-4 text-black/70 dark:text-white/70">
-            New to Cowork? Start with these essential articles:
-          </p>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {["setup", "limitations", "receipt-audit"].flatMap((slug) => allDocs.filter((doc) => doc.slug === slug)).map((doc) => (
-              <Link
-                key={doc.slug}
-                href={`/docs/${doc.slug}`}
-                className="flex items-center gap-3 rounded-xl bg-white/50 p-3 transition hover:bg-white dark:bg-white/5 dark:hover:bg-white/10"
-              >
-                <span className="text-[#c08b2d]">{iconMap[doc.slug]}</span>
-                <span className="text-sm font-medium">{doc.title}</span>
-              </Link>
+          <h2 className="mb-4 text-xl font-semibold">What are you trying to do?</h2>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {[
+              { href: "/docs/setup#start", label: "Open Cowork and start a task" },
+              { href: "/docs/setup#missing-cowork", label: "Find a missing Cowork tab" },
+              { href: "/docs/setup#plans-and-platforms", label: "Check plans and platforms" },
+              { href: "/docs/setup#local-files", label: "Connect or troubleshoot local files" },
+              { href: "/docs/receipt-audit", label: "Try a receipt audit with sample files" },
+              { href: "/docs/comparison", label: "Compare Cowork with other tools" },
+            ].map(({ href, label }) => (
+              <li key={href}>
+                <Link href={href} className="block rounded-xl bg-white/50 p-3 text-sm font-medium underline-offset-4 hover:underline dark:bg-white/5">
+                  {label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {/* All Articles */}

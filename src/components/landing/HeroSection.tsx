@@ -1,22 +1,10 @@
-import { ArrowRight, ShieldCheck, Sparkles, Target } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import clsx from "clsx";
-import Image from "next/image";
+import Link from "next/link";
 
 interface HeroSectionProps {
   isDarkMode: boolean;
 }
-
-const stats = [
-  { label: "Platforms", value: "Web, desktop, mobile" },
-  { label: "Subscription", value: "Paid Claude plans" },
-  { label: "Local files", value: "Claude Desktop" }
-];
-
-const highlights = [
-  "Multi-step planning & execution",
-  "Scoped folder read/write access",
-  "Live progress updates"
-];
 
 export function HeroSection({ isDarkMode }: HeroSectionProps) {
   return (
@@ -35,100 +23,41 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
 
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
         <div className="space-y-8">
-          <div className="flex flex-wrap items-center gap-4">
-            <Image
-              src="/logo.png"
-              alt="Claude Cowork logo"
-              width={96}
-              height={96}
-              className="h-16 w-16 rounded-full border border-black/10 object-cover shadow-lg shadow-black/10 dark:border-white/20"
-            />
-            <div className="inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-2 text-sm font-medium uppercase tracking-[0.3em] text-black/70 dark:border-white/20 dark:text-white/70">
-              Independent Claude Cowork guide
-            </div>
-          </div>
-          <div className="space-y-6">
+          <div className="space-y-4">
+            <p className="text-sm text-black/70 dark:text-white/70">Independent guide from Coworks.dev</p>
             <h1 className="text-4xl font-semibold leading-tight text-[#0b0b0b] dark:text-white sm:text-5xl">
-              Claude Cowork guide
+              How to open and use Claude Cowork
             </h1>
             <p className="max-w-2xl text-lg text-black/70 dark:text-white/70">
-              Claude Cowork helps you complete multi-step work such as organizing files, preparing reports, and
-              building spreadsheets. Learn which Claude plans support it, how to start a session, and when you
-              need the desktop app for local files.
+              Sign in to Claude with an eligible paid plan. Select Cowork if you see a mode selector.
+              If your interface combines chat and Cowork, describe the task in the message box.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
             <a
-              href="/docs/setup"
+              href="https://claude.ai/"
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f7d793] to-[#c08b2d] px-6 py-3 text-base font-semibold text-black shadow-lg shadow-[#f4c572]/50 transition hover:-translate-y-0.5"
             >
-              Read the setup guide
+              Open Claude Cowork
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </a>
-            <a
-              href="/docs"
+            <Link
+              href="/docs/setup"
               className="inline-flex items-center gap-2 rounded-full border border-black/20 px-6 py-3 text-base font-semibold text-[#101010] transition hover:border-black hover:text-black dark:border-white/30 dark:text-white dark:hover:border-white"
             >
-              Browse all guides
-            </a>
-          </div>
-          <div className="flex flex-wrap gap-3 text-sm">
-            {highlights.map((text) => (
-              <span
-                key={text}
-                className="inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-black/70 dark:border-white/20 dark:text-white/70"
-              >
-                <Sparkles className="h-4 w-4 text-[#c99b3b]" />
-                {text}
-              </span>
-            ))}
+              Setup and troubleshooting
+            </Link>
           </div>
         </div>
 
-        <div className="space-y-6 rounded-3xl border border-black/10 bg-white/70 p-6 backdrop-blur dark:border-white/10 dark:bg-black/40">
-          <div className="rounded-2xl border border-black/5 bg-black text-white shadow-xl dark:border-white/5 dark:bg-gradient-to-br dark:from-black dark:to-[#131313]">
-            <div className="border-b border-white/10 px-6 py-4 text-sm uppercase tracking-[0.3em] text-white/70">
-              Cowork operating model
-            </div>
-            <div className="space-y-4 px-6 py-5">
-              <div className="flex items-start gap-3">
-                <ShieldCheck className="mt-0.5 h-5 w-5 text-[#f6d190]" />
-                <div>
-                  <p className="text-base font-semibold">Scoped, protected access</p>
-                  <p className="text-sm text-white/70">
-                    When connecting local files, choose a dedicated folder and keep a copy of anything
-                    you want to preserve before letting Cowork make changes.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Target className="mt-0.5 h-5 w-5 text-[#f6d190]" />
-                <div>
-                  <p className="text-base font-semibold">Natural-language control</p>
-                  <p className="text-sm text-white/70">
-                    Describe the result you need - "sort receipts by month," "package this research into a PDF" - and Cowork
-                    breaks everything into actions until the deliverable matches your instructions.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-2xl border border-black/10 bg-white/80 px-4 py-3 text-left dark:border-white/10 dark:bg-white/5"
-              >
-                <div className="text-2xl font-semibold text-[#0b0b0b] dark:text-white">
-                  {stat.value}
-                </div>
-                <div className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="space-y-4 rounded-3xl border border-black/10 bg-white/70 p-6 dark:border-white/10 dark:bg-black/40">
+          <h2 className="text-xl font-semibold">Find your next step</h2>
+          <ul className="space-y-3 text-sm">
+            <li><Link className="underline underline-offset-4" href="/docs/setup#missing-cowork">Find Cowork when the tab is missing</Link></li>
+            <li><Link className="underline underline-offset-4" href="/docs/setup#plans-and-platforms">Check plans and supported platforms</Link></li>
+            <li><Link className="underline underline-offset-4" href="/docs/setup#local-files">Connect a folder in Claude Desktop</Link></li>
+            <li><Link className="underline underline-offset-4" href="/docs/receipt-audit">Try a receipt-to-spreadsheet workflow</Link></li>
+          </ul>
         </div>
       </div>
     </section>

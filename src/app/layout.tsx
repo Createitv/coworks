@@ -5,9 +5,9 @@ import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
 
-const siteTitle = "Claude Cowork Guide: Setup, Plans & Workflows";
+const siteTitle = "How to Open Claude Cowork | Setup and Examples";
 const siteDescription =
-  "Learn how to start Claude Cowork, check plan and platform requirements, connect local files, and try practical workflows for documents and spreadsheets.";
+  "Open Claude Cowork, find it when the tab is missing, and connect local files in Claude Desktop. Try a receipt-to-spreadsheet exercise with sample data.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteURL),
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
         url: `${siteURL}/logo.png`,
         width: 1024,
         height: 1024,
-        alt: "Claude Cowork Guide: Setup, Plans & Workflows",
+        alt: "How to Open Claude Cowork | Setup and Examples",
       },
     ],
   },
