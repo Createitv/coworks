@@ -1,7 +1,7 @@
+import { siteURL } from "@/lib/site";
 import type { Metadata } from "next";
 import { SimplePage } from "@/components/layout/SimplePage";
 
-const siteURL = "https://cowork.skillsmaps.com";
 
 export const metadata: Metadata = {
   title: "About Claude Cowork",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteURL}/og-image.jpg`,
-        width: 1200,
-        height: 630,
+        url: `${siteURL}/logo.png`,
+        width: 1024,
+        height: 1024,
         alt: "About Claude Cowork",
       },
     ],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "About Claude Cowork",
     description:
       "Learn how Claude Cowork brings Anthropic's agent architecture to everyday workflows so anyone can delegate file and document tasks safely.",
-    images: [`${siteURL}/og-image.jpg`],
+    images: [`${siteURL}/logo.png`],
   },
 };
 
@@ -46,7 +46,7 @@ const sections = [
   {
     heading: "How it works today",
     body: [
-      "Cowork is currently available as a research preview inside Claude Desktop on macOS for Claude Max subscribers. You grant it access to a dedicated folder, describe the outcome in plain English, and Cowork plans and executes the steps locally.",
+      "Cowork is available on paid Claude plans. To work with local files, connect a dedicated folder in Claude Desktop and review the access requested for your task.",
       "Everything happens within the boundary you approve, keeping your personal or team workspace safe while Cowork sorts, renames, summarizes, and packages deliverables.",
     ],
   },
@@ -62,7 +62,7 @@ const sections = [
 export default function AboutPage() {
   return (
     <SimplePage
-      title="About the Claude Cowork preview"
+      title="About this Claude Cowork guide"
       description="The Cowork team is focused on turning Claude into a dependable, desk-side coworker that handles the repetitive computer work you do not have time for."
       sections={sections}
     />

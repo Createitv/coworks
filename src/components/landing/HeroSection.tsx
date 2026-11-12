@@ -7,9 +7,9 @@ interface HeroSectionProps {
 }
 
 const stats = [
-  { label: "Platform", value: "macOS" },
-  { label: "Subscription", value: "Claude Max" },
-  { label: "Release stage", value: "Research Preview" }
+  { label: "Platforms", value: "Web, desktop, mobile" },
+  { label: "Subscription", value: "Paid Claude plans" },
+  { label: "Local files", value: "Claude Desktop" }
 ];
 
 const highlights = [
@@ -44,32 +44,32 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
               className="h-16 w-16 rounded-full border border-black/10 object-cover shadow-lg shadow-black/10 dark:border-white/20"
             />
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-2 text-sm font-medium uppercase tracking-[0.3em] text-black/70 dark:border-white/20 dark:text-white/70">
-              Claude Cowork - Research Preview
+              Independent Claude Cowork guide
             </div>
           </div>
           <div className="space-y-6">
             <h1 className="text-4xl font-semibold leading-tight text-[#0b0b0b] dark:text-white sm:text-5xl">
-              Your AI coworker for smarter work automation
+              Claude Cowork guide
             </h1>
             <p className="max-w-2xl text-lg text-black/70 dark:text-white/70">
-              Claude Cowork is an autonomous AI agent for work - give it a scoped folder, spell out the workflow in plain
-              English, and this digital coworker will organize files, generate reports, and ship deliverables while keeping
-              you informed at every step.
+              Claude Cowork helps you complete multi-step work such as organizing files, preparing reports, and
+              building spreadsheets. Learn which Claude plans support it, how to start a session, and when you
+              need the desktop app for local files.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
             <a
-              href="#cta"
+              href="/docs/setup"
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f7d793] to-[#c08b2d] px-6 py-3 text-base font-semibold text-black shadow-lg shadow-[#f4c572]/50 transition hover:-translate-y-0.5"
             >
-              Request Cowork access
+              Read the setup guide
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </a>
             <a
-              href="#workflow"
+              href="/docs"
               className="inline-flex items-center gap-2 rounded-full border border-black/20 px-6 py-3 text-base font-semibold text-[#101010] transition hover:border-black hover:text-black dark:border-white/30 dark:text-white dark:hover:border-white"
             >
-              See how it works
+              Browse all guides
             </a>
           </div>
           <div className="flex flex-wrap gap-3 text-sm">
@@ -96,8 +96,8 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
                 <div>
                   <p className="text-base font-semibold">Scoped, protected access</p>
                   <p className="text-sm text-white/70">
-                    Cowork only reads, writes, and reorganizes inside the folder you authorize. Set aside a dedicated space
-                    and keep backups to avoid surprises.
+                    When connecting local files, choose a dedicated folder and keep a copy of anything
+                    you want to preserve before letting Cowork make changes.
                   </p>
                 </div>
               </div>

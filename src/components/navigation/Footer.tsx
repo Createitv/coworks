@@ -28,7 +28,7 @@ export function Footer() {
               <div>
                 <p className="text-xl font-semibold">Claude Cowork</p>
                 <p className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
-                  Digital coworker preview
+                  Independent guide
                 </p>
               </div>
             </Link>
@@ -63,7 +63,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-black/10 pt-6 text-sm text-black/60 dark:border-white/10 dark:text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {year} Claude Cowork. All rights reserved.</p>
-          <p>Built with Anthropic AI agents.</p>
+          <p>Independent guide to Anthropic’s Claude Cowork.</p>
         </div>
       </div>
     </footer>

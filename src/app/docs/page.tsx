@@ -1,3 +1,4 @@
+import { siteURL } from "@/lib/site";
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,10 +18,9 @@ import {
 import { getAllDocs } from "@/lib/markdown";
 import { DocsThemeToggle } from "./docs-theme-toggle";
 
-const siteURL = "https://cowork.skillsmaps.com";
 
 export const metadata: Metadata = {
-  title: "Documentation | Claude Cowork — Your AI-Powered Digital Coworker",
+  title: { absolute: "Claude Cowork Documentation: Setup, Permissions & Examples" },
   description:
     "Complete guide to Claude Cowork, the agentic AI assistant. Learn setup, use cases, productivity tips, security best practices, and how it compares to other AI tools.",
   keywords:
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     url: `${siteURL}/docs`,
     images: [
       {
-        url: `${siteURL}/og-image.jpg`,
-        width: 1200,
-        height: 630,
+        url: `${siteURL}/logo.png`,
+        width: 1024,
+        height: 1024,
         alt: "Claude Cowork Documentation",
       },
     ],
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Claude Cowork Documentation",
     description:
       "Complete guide to Claude Cowork, the agentic AI assistant. Learn setup, use cases, productivity tips, and more.",
-    images: [`${siteURL}/og-image.jpg`],
+    images: [`${siteURL}/logo.png`],
   },
 };
 
@@ -108,7 +108,7 @@ export default function DocsIndexPage() {
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-[#f7d793] to-[#c08b2d]">
             <BookOpen className="h-8 w-8 text-black" />
           </div>
-          <h1 className="mb-4 text-4xl font-bold">Claude Cowork Documentation</h1>
+          <h1 className="mb-4 text-4xl font-bold">Claude Cowork Documentation and Guides</h1>
           <p className="mx-auto max-w-2xl text-lg text-black/70 dark:text-white/70">
             Everything you need to know about Claude Cowork, from getting started to advanced use
             cases. Learn how to maximize your productivity with AI-powered task automation.
@@ -122,7 +122,7 @@ export default function DocsIndexPage() {
             New to Cowork? Start with these essential articles:
           </p>
           <div className="grid gap-3 sm:grid-cols-3">
-            {allDocs.slice(0, 3).map((doc) => (
+            {["setup", "limitations", "use-cases"].flatMap((slug) => allDocs.filter((doc) => doc.slug === slug)).map((doc) => (
               <Link
                 key={doc.slug}
                 href={`/docs/${doc.slug}`}

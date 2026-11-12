@@ -12,26 +12,26 @@ export function CallToAction() {
             Ready to work
           </p>
           <h2 className="text-4xl font-semibold">
-            Launch your AI coworker and automate daily workflows end to end
+            Start your first Cowork task
           </h2>
           <p className="text-base text-white/70">
-            Install Claude Desktop, authorize a workspace folder, and describe the workflow once. Cowork - the autonomous AI
-            coworker for task automation - runs every step, tracks changes, and hands you the finished deliverable.
+            Open Claude to start a Cowork session. If your task needs local files, follow the setup guide to connect
+            a working folder in Claude Desktop.
           </p>
         </div>
         <div className="flex flex-col gap-4">
           <a
-            href="/login"
+            href="https://claude.ai/"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#f7d793] to-[#c08b2d] px-6 py-3 text-base font-semibold text-black shadow-lg shadow-[#f4c572]/50 transition hover:-translate-y-0.5"
           >
-            Sign in to Claude Max
+            Open Claude
             <ArrowRight className="h-4 w-4" />
           </a>
           <a
-            href="#overview"
+            href="/docs/setup"
             className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-base font-semibold text-white hover:bg-white/10"
           >
-            Review Cowork basics
+            Read the setup guide
           </a>
         </div>
       </div>

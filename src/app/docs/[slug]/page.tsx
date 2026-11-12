@@ -1,3 +1,4 @@
+import { siteURL } from "@/lib/site";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -20,7 +21,6 @@ import { ThemeToggle } from "./theme-toggle";
 import { MobileSidebar } from "./mobile-sidebar";
 import { BreadcrumbJsonLd, ArticleJsonLd } from "@/components/seo/JsonLd";
 
-const siteURL = "https://cowork.skillsmaps.com";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -70,9 +70,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: pageUrl,
       images: [
         {
-          url: `${siteURL}/og-image.jpg`,
-          width: 1200,
-          height: 630,
+          url: `${siteURL}/logo.png`,
+          width: 1024,
+          height: 1024,
           alt: doc.title,
         },
       ],
@@ -81,7 +81,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: doc.title,
       description: doc.description,
-      images: [`${siteURL}/og-image.jpg`],
+      images: [`${siteURL}/logo.png`],
     },
   };
 }

@@ -13,6 +13,7 @@ const PUBLIC_PATHS = [
   "/terms",
   "/docs",
   "/sitemap.xml",
+  "/robots.txt",
   "/favicon.ico",
 ];
 
@@ -25,7 +26,7 @@ export async function middleware(request: NextRequest) {
   const isDocsPath = pathname === "/docs" || pathname.startsWith("/docs/");
   const isPublicPath = PUBLIC_PATHS.includes(pathname) || isDocsPath;
 
-  if (isAuthRoute || pathname.startsWith("/_next")) {
+  if (isAuthRoute || pathname.startsWith("/_next") || (isPublicPath && !isLoginPage)) {
     return NextResponse.next();
   }
 

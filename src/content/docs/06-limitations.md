@@ -1,7 +1,7 @@
 ---
 title: "Limitations & Risks of Claude Cowork"
 description: "Understand the security considerations, platform limitations, and best practices for safely using Claude Cowork. Learn when to use and when to avoid AI task automation."
-keywords: ["Claude Cowork limitations", "AI security risks", "file access security", "macOS only", "best practices"]
+keywords: ["Claude Cowork limitations", "AI security risks", "file access security", "platform requirements", "best practices"]
 slug: "limitations"
 order: 6
 ---
@@ -27,16 +27,15 @@ Granting Cowork access to your file system gives it significant power. While ope
 - Internet access means potential exposure to external resources
 - Long-running tasks may make unexpected changes while unmonitored
 
-## Preview Status & Limitations
+## Availability and limitations
 
 ### Platform Restrictions
 
 | Limitation | Details |
 |------------|---------|
-| **macOS Only** | Currently unavailable on Windows or Linux |
-| **Max Plan Required** | Not available on free or lower-tier plans |
-| **Desktop App Only** | No web or mobile version |
-| **Session Dependency** | Closing the app stops running tasks |
+| **Paid plan** | Access depends on your Claude plan and, for work accounts, organization settings. |
+| **Local files** | Keep Claude Desktop open and connected while a task accesses folders on your computer. |
+| **Platform availability** | Check the [official availability guide](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) for platform and plan details. |
 
 ### Usage Quotas
 Cowork tasks consume more of your usage quota compared to standard chat:

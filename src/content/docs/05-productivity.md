@@ -95,8 +95,7 @@ If your hourly rate is $50 and Cowork saves you 10 hours per month:
 
 - Monthly savings: 10 hours × $50 = **$500**
 - Annual savings: $500 × 12 = **$6,000**
-- Minus Max subscription cost: ~$200/year
-- **Net annual benefit: $5,800**
+- Subtract your actual subscription cost and time spent reviewing or correcting outputs.
 
 ### Productivity Multiplier
 

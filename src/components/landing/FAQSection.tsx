@@ -1,13 +1,13 @@
 const faqs = [
   {
-    question: "Do I need to pay extra to try Cowork?",
+    question: "Which Claude plans include Cowork?",
     answer:
-      "Cowork is currently part of the Claude Max subscription and only available through Claude Desktop on macOS."
+      "Cowork is available on paid Claude plans, including Pro, Max, Ultra, Team, and Enterprise. Available platforms and organization settings vary by plan."
   },
   {
     question: "How much control do I have over my files?",
     answer:
-      "You pick the folder Cowork can touch. It cannot browse anywhere else, and you can revoke access whenever you feel unsure."
+      "When a task needs local files, connect only the folders it needs in Claude Desktop. Review the requested access before starting and remove access when you finish."
   },
   {
     question: "What kinds of jobs does Cowork handle best?",

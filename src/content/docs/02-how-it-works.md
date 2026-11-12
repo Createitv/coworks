@@ -25,27 +25,7 @@ For complex tasks, the coordination system manages multiple sub-agents working i
 
 ## Integration with Claude Desktop
 
-Cowork runs directly within the Claude Desktop application on macOS. This native integration provides several advantages:
-
-### Local File System Access
-- Read, write, and organize files in your designated workspace folders
-- Direct access without cloud uploads or downloads
-- Maintains file permissions and metadata
-
-### Sandboxed Code Execution
-- Run scripts and tools safely in an isolated virtual environment
-- Execute Python, shell scripts, and other code
-- No risk to your main system
-
-### Native App Performance
-- Smooth operation without browser limitations
-- Reduced latency compared to web-based tools
-- Better resource management
-
-### Persistent Sessions
-- Continue long-running tasks while the app remains open
-- Resume where you left off
-- Track progress across complex workflows
+Claude Desktop connects Cowork to files on your computer. Choose which folders to connect and keep the app open while a task needs those files. Review requested permissions and check any outputs before relying on them. See the [setup guide](/docs/setup) for platform and account requirements.
 
 ## Claude Chat vs Claude Code vs Cowork
 

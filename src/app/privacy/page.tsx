@@ -1,7 +1,7 @@
+import { siteURL } from "@/lib/site";
 import type { Metadata } from "next";
 import { SimplePage } from "@/components/layout/SimplePage";
 
-const siteURL = "https://cowork.skillsmaps.com";
 
 export const metadata: Metadata = {
   title: "Privacy | Claude Cowork",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteURL}/og-image.jpg`,
-        width: 1200,
-        height: 630,
+        url: `${siteURL}/logo.png`,
+        width: 1024,
+        height: 1024,
         alt: "Privacy | Claude Cowork",
       },
     ],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Privacy | Claude Cowork",
     description:
       "Understand how Claude Cowork handles the folders, files, and activity logs you share during the research preview.",
-    images: [`${siteURL}/og-image.jpg`],
+    images: [`${siteURL}/logo.png`],
   },
 };
 

@@ -2,7 +2,7 @@ const details = [
   {
     title: "Folder authorization",
     description:
-      "Cowork operates inside a folder you explicitly approve. Everything it reads, edits, or creates stays within that sandbox.",
+      "For local tasks, connect a dedicated folder containing the files Cowork needs. Review separately any access requested by connectors or browser tools.",
     bullets: [
       "Pick a dedicated workspace before any run",
       "Revoke or swap the folder whenever you like",
@@ -15,14 +15,14 @@ const details = [
       "Natural-language instructions become a multi-step plan. Cowork executes sequentially and only asks for help when needed.",
     bullets: [
       "Autonomous step planning and ordering",
-      "Local execution without extra scripts",
+      "Task execution from a plain-language prompt",
       "Status pings after each milestone"
     ]
   },
   {
     title: "Safety practices",
     description:
-      "Cowork is still a research preview, so Anthropic recommends a cautious setup while you explore its power.",
+      "Review the task plan and keep a copy of important files before allowing Cowork to make changes.",
     bullets: [
       "Back up the working folder frequently",
       "Confirm any destructive action before proceeding",

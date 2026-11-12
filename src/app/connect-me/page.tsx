@@ -1,8 +1,8 @@
+import { siteURL } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SimplePage } from "@/components/layout/SimplePage";
 
-const siteURL = "https://cowork.skillsmaps.com";
 
 export const metadata: Metadata = {
   title: "Connect with Claude Cowork",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteURL}/og-image.jpg`,
-        width: 1200,
-        height: 630,
+        url: `${siteURL}/logo.png`,
+        width: 1024,
+        height: 1024,
         alt: "Connect with Claude Cowork",
       },
     ],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Connect with Claude Cowork",
     description:
       "Find the right channel to reach the Cowork team for feedback, partnerships, or support.",
-    images: [`${siteURL}/og-image.jpg`],
+    images: [`${siteURL}/logo.png`],
   },
 };
 

@@ -1,13 +1,13 @@
+import { siteURL } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
-import { OrganizationJsonLd, WebsiteJsonLd, SoftwareApplicationJsonLd } from "@/components/seo/JsonLd";
+import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
 
-const siteURL = "https://cowork.skillsmaps.com";
-const siteTitle = "Claude Cowork | AI Coworker for Task Automation & Productivity";
+const siteTitle = "Claude Cowork Guide: Setup, Plans & Workflows";
 const siteDescription =
-  "Claude Cowork is an agentic AI assistant that autonomously plans, executes, and completes multi-step tasks. Automate file organization, document processing, and workflows on macOS.";
+  "Learn how to start Claude Cowork, check plan and platform requirements, connect local files, and try practical workflows for documents and spreadsheets.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteURL),
@@ -69,10 +69,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteURL}/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Claude Cowork | AI Coworker for Task Automation & Productivity",
+        url: `${siteURL}/logo.png`,
+        width: 1024,
+        height: 1024,
+        alt: "Claude Cowork Guide: Setup, Plans & Workflows",
       },
     ],
   },
@@ -80,12 +80,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    site: "@AnthropicAI",
-    creator: "@AnthropicAI",
-    images: [`${siteURL}/og-image.jpg`],
+    images: [`${siteURL}/logo.png`],
   },
   alternates: {
-    canonical: siteURL,
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -101,7 +99,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/logo.png",
   },
 };
 
@@ -142,21 +140,16 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <OrganizationJsonLd
-          name="Claude Cowork"
+          name="Coworks.dev"
           url={siteURL}
           logo={`${siteURL}/logo.png`}
           description={siteDescription}
-          sameAs={[
-            "https://twitter.com/AnthropicAI",
-            "https://www.anthropic.com",
-          ]}
         />
         <WebsiteJsonLd
-          name="Claude Cowork"
+          name="Coworks.dev"
           url={siteURL}
           description={siteDescription}
         />
-        <SoftwareApplicationJsonLd />
       </head>
       <body className="antialiased">
         {children}

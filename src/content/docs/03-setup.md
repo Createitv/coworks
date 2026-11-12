@@ -1,105 +1,35 @@
 ---
-title: "Setting Up Claude Cowork"
-description: "Complete setup guide for Claude Cowork including requirements, folder access configuration, and step-by-step instructions for switching to Cowork mode on macOS."
-keywords: ["Claude Cowork setup", "macOS setup", "folder access", "Claude Max subscription", "workspace configuration"]
+title: "Claude Cowork Setup: Plans, Platforms, and Local Files"
+description: "Check which Claude plans support Cowork, start your first session, and connect a working folder in Claude Desktop."
 slug: "setup"
 order: 3
 ---
 
-# Setting Up Claude Cowork
+# Claude Cowork setup
 
-## Requirements
+Cowork is available on paid Claude plans. Check the [official availability guide](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) for platform support and organization settings. For tasks that need local files, use Claude Desktop and keep it open and connected while Cowork accesses them.
 
-Before you can start using Cowork, ensure you have the following:
+## Start a session
 
-### macOS
-Currently, Cowork is available exclusively on macOS through the Claude Desktop application. Windows and Linux support may be added in future releases.
+1. Open [Claude](https://claude.ai/) or install [Claude Desktop](https://claude.com/download) if you need local files.
+2. Sign in with the account that has your paid plan. If you use a work account, check whether your organization has enabled Cowork.
+3. Select Cowork if your interface has a mode selector. In the unified interface, enter the task in the message box.
+4. Describe the deliverable and review the proposed work before starting.
 
-### Max Subscription
-Cowork requires an active Claude Max plan subscription. This ensures you have access to the compute resources needed for complex agentic tasks. Non-Max users can join the waitlist to request access in the future.
+## Connect local files
 
-### Internet Connection
-A stable internet connection is required for API communication and task execution.
+Create a dedicated working folder and copy in only the files needed for the task. In Claude Desktop, connect that folder when the task requires it. Review any requests to access files or other tools.
 
-## Granting Folder Access
+For a first run, give Cowork a small set of sample files and ask it to create a separate output.
 
-Cowork requires explicit permission to access folders on your system. This permission model ensures your files remain secure while enabling powerful automation.
+> Read the receipts in this folder and create a CSV with date, merchant, amount, and currency. Flag missing values for review and leave the originals in place.
 
-### Step 1: Create a Dedicated Workspace
+Check the CSV against a few source files before relying on the result.
 
-Create a specific folder for Cowork to access, for example:
-- `~/CoworkSpace`
-- `~/Documents/CoworkProjects`
+## If Cowork or a folder is unavailable
 
-**Important**: Keep sensitive files outside this folder. Only grant access to folders containing files you want Cowork to work with.
+- Check that you are using the right account and that your plan and organization settings allow Cowork.
+- If you do not see a Cowork tab, check whether your account has the unified Claude interface.
+- For local files, confirm Claude Desktop is open and connected, then check that you granted access to the right folder.
 
-### Step 2: Grant Access When Prompted
-
-When you first use Cowork with a new folder:
-1. You'll see a macOS security dialog
-2. Click "Allow" to grant folder access
-3. Cowork will confirm the permission was granted
-
-### Step 3: Manage Permissions in Settings
-
-You can revoke or modify folder access anytime:
-1. Open Claude Desktop
-2. Go to Settings → Cowork → Folder Access
-3. Add or remove folder permissions as needed
-
-## Switching to Cowork Mode
-
-### Step-by-Step Guide
-
-1. **Open Claude Desktop** - Launch the application on your Mac
-2. **Find the Mode Selector** - Look at the top of the interface
-3. **Locate the Tabs** - You'll see "Chat" and "Cowork" options
-4. **Click Cowork** - Switch to Tasks mode
-5. **Enter Your Task** - Type a description of what you want to accomplish
-6. **Review the Plan** - Cowork will show its proposed approach
-7. **Click Run** - Execute the task
-
-### Important Notes
-
-- The Claude Desktop app must remain open during task execution
-- Closing the app will end your session and stop any running tasks
-- You can switch back to Chat mode anytime without losing Cowork progress
-
-## Tips for Managing Workspace Folders
-
-### Use Dedicated Folders
-Create separate folders for different project types to keep things organized:
-- `~/CoworkSpace/Reports`
-- `~/CoworkSpace/FileOrganization`
-- `~/CoworkSpace/DataAnalysis`
-
-### Isolate Sensitive Data
-Never grant Cowork access to folders containing:
-- Financial records
-- Personal identification documents
-- Passwords or credentials
-- Confidential work materials
-
-### Organize Input Files
-Place files you want Cowork to process in clearly labeled subfolders:
-- `~/CoworkSpace/Input` - Files to be processed
-- `~/CoworkSpace/Output` - Where results should go
-
-### Review Output Location
-Before running tasks, understand where Cowork will save generated files. You can specify output locations in your task description.
-
-## Troubleshooting Common Issues
-
-### "Folder Access Denied"
-- Check System Preferences → Security & Privacy → Files and Folders
-- Ensure Claude Desktop has permission for your workspace
-
-### "Task Won't Start"
-- Verify your Max subscription is active
-- Check your internet connection
-- Try restarting Claude Desktop
-
-### "Slow Performance"
-- Close unnecessary applications
-- Ensure sufficient disk space
-- Check for large files in the workspace that may slow scanning
+Continue with [workflow examples](/docs/use-cases) and [permissions and limitations](/docs/limitations).

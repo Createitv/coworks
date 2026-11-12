@@ -1,14 +1,14 @@
 const steps = [
   {
-    title: "Install Claude Desktop and open Cowork",
+    title: "Open Cowork in Claude",
     description:
-      "Update Claude Desktop on macOS and launch the Cowork tab inside the research preview build.",
-    detail: "macOS only"
+      "Open Claude on a supported platform. Select Cowork if your interface shows a mode selector.",
+    detail: "Paid plan"
   },
   {
     title: "Authorize a working folder",
     description:
-      "Pick a dedicated folder for Cowork. It operates strictly inside that boundary and you can revoke access anytime.",
+      "For a task involving local files, connect a dedicated working folder through Claude Desktop.",
     detail: "Scoped access"
   },
   {

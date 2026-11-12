@@ -1,3 +1,5 @@
+import { siteURL } from "@/lib/site";
+
 interface OrganizationSchema {
   name: string;
   url: string;
@@ -107,7 +109,7 @@ export function ArticleJsonLd({
   url,
   datePublished,
   dateModified,
-  author = "Claude Cowork",
+  author = "Coworks.dev",
 }: ArticleSchema) {
   const schema = {
     "@context": "https://schema.org",
@@ -115,18 +117,18 @@ export function ArticleJsonLd({
     headline: title,
     description,
     url,
-    datePublished: datePublished || new Date().toISOString(),
-    dateModified: dateModified || new Date().toISOString(),
+    datePublished,
+    dateModified,
     author: {
       "@type": "Organization",
       name: author,
     },
     publisher: {
       "@type": "Organization",
-      name: "Claude Cowork",
+      name: "Coworks.dev",
       logo: {
         "@type": "ImageObject",
-        url: "https://cowork.skillsmaps.com/logo.png",
+        url: `${siteURL}/logo.png`,
       },
     },
   };
