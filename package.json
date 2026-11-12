@@ -7,6 +7,7 @@
 		"build": "next build",
 		"test": "tsx --test tests/**/*.test.ts",
 		"library:sync": "tsx scripts/library/sync.ts",
+		"library:publish": "tsx scripts/library/publish.ts",
 		"start": "next start"
 	},
 	"dependencies": {
