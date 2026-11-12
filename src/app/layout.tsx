@@ -97,9 +97,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/logo.png",
+    icon: { url: "/coworks-icon.svg", type: "image/svg+xml", sizes: "any" },
+    apple: { url: "/coworks-apple-touch-icon.png", sizes: "180x180", type: "image/png" },
   },
 };
 

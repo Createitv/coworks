@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { DocIllustration } from "../doc-illustration";
+import { getDocIllustration } from "@/lib/doc-illustrations";
 import { TemplateLibrary } from "./template-library";
+
+const illustration = getDocIllustration("templates");
 
 export const metadata: Metadata = {
   title: { absolute: "Claude Cowork Prompt Templates and Workflows" },
@@ -10,6 +14,7 @@ export const metadata: Metadata = {
     title: "Claude Cowork Prompt Templates and Workflows",
     description: "Copy a task prompt and see how to check the result.",
     url: "/docs/templates",
+    images: illustration ? [illustration] : undefined,
   },
 };
 
@@ -23,6 +28,7 @@ export default function TemplatesPage() {
         Each template includes a check you can use before relying on the result.
       </p>
       <TemplateLibrary />
+      <div className="max-w-3xl"><DocIllustration slug="templates" /></div>
     </main>
   );
 }

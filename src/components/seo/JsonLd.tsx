@@ -14,6 +14,7 @@ interface BreadcrumbItem {
 }
 
 interface ArticleSchema {
+  image?: string;
   title: string;
   description: string;
   url: string;
@@ -104,6 +105,7 @@ export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
 }
 
 export function ArticleJsonLd({
+  image,
   title,
   description,
   url,
@@ -115,6 +117,7 @@ export function ArticleJsonLd({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: title,
+    image,
     description,
     url,
     datePublished,

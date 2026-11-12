@@ -1,3 +1,5 @@
+import { DocIllustration } from "../doc-illustration";
+import { getDocIllustration } from "@/lib/doc-illustrations";
 import { docSections } from "@/lib/doc-navigation";
 import { siteURL } from "@/lib/site";
 import { Metadata } from "next";
@@ -55,6 +57,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const pageUrl = `${siteURL}/docs/${slug}`;
+  const illustration = getDocIllustration(slug);
+  const shareImage = illustration
+    ? { ...illustration, url: `${siteURL}${illustration.url}` }
+    : { url: `${siteURL}/logo.png`, width: 1024, height: 1024, alt: doc.title };
 
   return {
     title: { absolute: doc.title },
@@ -69,20 +75,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       siteName: "Claude Cowork",
       url: pageUrl,
-      images: [
-        {
-          url: `${siteURL}/logo.png`,
-          width: 1024,
-          height: 1024,
-          alt: doc.title,
-        },
-      ],
+      images: [shareImage],
     },
     twitter: {
       card: "summary_large_image",
       title: doc.title,
       description: doc.description,
-      images: [`${siteURL}/logo.png`],
+      images: [shareImage],
     },
   };
 }
@@ -95,6 +94,7 @@ export default async function DocPage({ params }: PageProps) {
     notFound();
   }
 
+  const illustration = getDocIllustration(slug);
   const allDocs = getAllDocs();
   const currentIndex = allDocs.findIndex((d) => d.slug === slug);
   const prevDoc = currentIndex > 0 ? allDocs[currentIndex - 1] : null;
@@ -115,6 +115,7 @@ export default async function DocPage({ params }: PageProps) {
       <ArticleJsonLd
         title={doc.title}
         description={doc.description}
+        image={illustration ? `${siteURL}${illustration.url}` : undefined}
         url={`${siteURL}/docs/${slug}`}
       />
       <div className="min-h-screen bg-[#f7f7f0] text-[#0f0f0f] dark:bg-[#050505] dark:text-white">
@@ -180,7 +181,7 @@ export default async function DocPage({ params }: PageProps) {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 px-4 py-8 sm:px-6 lg:px-12 lg:py-12">
+        <main className="min-w-0 flex-1 px-4 py-8 sm:px-6 lg:px-12 lg:py-12">
           <div className="mx-auto max-w-3xl">
             <div className="mb-8">
               <p className="mb-2 text-sm font-medium text-[#c08b2d]">Article {doc.order}</p>
@@ -191,6 +192,8 @@ export default async function DocPage({ params }: PageProps) {
                 <h1 className="text-3xl font-semibold">{doc.title}</h1>
               </div>
             </div>
+
+            <DocIllustration slug={slug} />
 
             {/* Markdown Content */}
             <article
