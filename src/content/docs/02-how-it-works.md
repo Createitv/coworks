@@ -4,24 +4,25 @@ description: "Understand the architecture behind Claude Cowork including its pla
 keywords: ["Claude Cowork architecture", "AI agent system", "task execution", "sub-agent coordination", "Claude Desktop integration"]
 slug: "how-it-works"
 order: 2
+answer: "Cowork plans and carries out tasks using tools you approve. Cloud execution, direct folder access, connectors, and on-screen computer use are different routes to the same deliverable; the best one depends on where the inputs live."
 ---
 
-# How Claude Cowork Works
+## What Cowork can do
 
-## Architecture Overview
+| Capability | Example | Verify before relying on it |
+| --- | --- | --- |
+| Plan a multi-step task | Turn three meeting notes into a decision brief | Check that decisions and open questions are separated |
+| Work with approved local files | Sort copies of documents and extract receipt rows | Review folder scope, missing fields, and duplicate names |
+| Use connected sources | Build a brief from a calendar event and approved notes | Open citations using the intended account |
+| Produce reviewable documents | Draft a spreadsheet, report, or slide deck | Check formulas, totals, and the source of each material claim |
+| Use desktop controls where enabled | Inspect a screen or interact with a desktop app | Specify what needs approval; review the visible result |
+| Run recurring work | Prepare a draft digest every week | Confirm timezone, date window, and run history |
 
-Claude Cowork is built on the same powerful agentic architecture as Claude Code. It operates as an autonomous agent that can reason, plan, and execute complex workflows while maintaining transparency and user control.
+Use formats you can verify: Markdown or text for briefs, CSV for a row-by-row audit, and a workbook or slides when formatting or formulas matter. Check inputs with unusual encodings, scanned text, macros, or other embedded features on a sample first.
 
-### Core Components
+## Where the task runs
 
-#### Planning Layer
-The planning layer analyzes your requests and breaks them into actionable steps. It understands context, identifies dependencies, and creates an execution roadmap.
-
-#### Execution Engine
-Tasks run in an isolated sandbox environment, ensuring your system remains safe while Cowork performs operations. This engine handles file operations, code execution, and tool usage.
-
-#### Coordination System
-For complex tasks, the coordination system manages multiple sub-agents working in parallel. Each sub-agent handles a specific portion of the work while the main agent orchestrates the overall workflow.
+Anthropic describes a cloud session that can use local capabilities through Claude Desktop where supported. Keep the desktop connection available for steps that depend on local files, the browser, or computer use. For current platform requirements, see the [official Cowork availability guide](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork).
 
 ## Integration with Claude Desktop
 
@@ -33,28 +34,9 @@ Use Claude's conversation interface for questions, drafts, and follow-up edits. 
 
 See the [unified Claude interface guide](https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude) and [Cowork overview](/docs/introduction) for context.
 
-## How Multi-Step Tasks Are Processed
+## What happens after you submit a task?
 
-### Step 1: Request Analysis
-Cowork interprets your natural language request and identifies the core objective. It understands implicit requirements and asks clarifying questions if needed.
-
-### Step 2: Task Decomposition
-Complex requests are broken into smaller, manageable sub-tasks. Each sub-task has clear inputs, outputs, and success criteria.
-
-### Step 3: Resource Planning
-Cowork identifies required files, tools, and permissions needed for execution. It verifies access before starting work.
-
-### Step 4: Parallel Execution
-Independent sub-tasks run simultaneously via coordinated sub-agents. This dramatically speeds up complex workflows.
-
-### Step 5: Result Synthesis
-Outputs are combined, formatted, and delivered to your file system. Cowork verifies completion and provides a summary of what was accomplished.
-
-## Transparency and Control
-
-Throughout the entire process, you maintain visibility and control:
-
-- **Progress Indicators**: See what Cowork is doing at each step
-- **Reasoning Transparency**: Understand why Cowork makes certain decisions
-- **Intervention Points**: Pause, modify, or stop tasks at any time
-- **Activity Logs**: Review everything Cowork did after completion
+1. Give Cowork the goal, source boundaries, expected output, and a check it can perform.
+2. Review the proposed approach and any permission prompts. Broaden access only if a necessary source is missing.
+3. While it works, intervene if the task changes scope or if a step requires review. Larger tasks may be split into subtasks.
+4. Open the finished result and compare it with the source. Use the [workspace instructions guide](/docs/workspace-instructions) to keep useful rules for the next run.

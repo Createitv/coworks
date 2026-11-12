@@ -1,28 +1,24 @@
-import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/page-metadata";
 import { SimplePage } from "@/components/layout/SimplePage";
 
 const title = "Privacy policy";
-const description = "How Coworks.dev uses account information, analytics, and advertising technologies.";
+const description = "How Coworks.dev uses hosting, analytics, advertising, and embedded video.";
 
-export const metadata: Metadata = {
-  title: { absolute: title },
-  description,
-  alternates: { canonical: "/privacy" },
-  openGraph: { title, description, url: "/privacy", siteName: "Coworks.dev" },
-};
+export const metadata = publicPageMetadata(title, description, "/privacy");
 
 const sections = [
   {
     heading: "Scope and contact",
     body: [
-      <>This policy covers Coworks.dev, an independent website about Claude Cowork. For questions about this site or requests concerning your account data, email <a href="mailto:xfy150150@gmail.com">xfy150150@gmail.com</a>.</>,
+      <>This policy covers Coworks.dev, an independent website about Claude Cowork. For questions about this site or privacy requests, email <a href="mailto:xfy150150@gmail.com">xfy150150@gmail.com</a>.</>,
       <>Anthropic operates Claude and handles data you provide to its services under the <a href="https://www.anthropic.com/legal/privacy">Anthropic Privacy Policy</a>.</>,
     ],
   },
   {
-    heading: "Accounts, hosting, and analytics",
+    heading: "Hosting, analytics, and video",
     body: [
-      "If you sign in with Google or GitHub, we use the profile and account information returned by that provider to create or recognize your site account. Session cookies keep you signed in. You can browse the guides without an account.",
+      "The guides, templates, and videos are open to visitors without a Coworks.dev account.",
+      "Our video watch pages load a YouTube player. YouTube receives information needed to serve the player and applies its own privacy policy.",
       "We use Vercel to host the website and Vercel Web Analytics to measure visits. Where Google Analytics is enabled, Google receives site usage events and may use cookies or similar identifiers to measure visits.",
       "If you email us, we use your email address and message to respond to your request.",
     ],

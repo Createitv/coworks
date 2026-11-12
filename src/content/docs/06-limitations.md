@@ -4,9 +4,8 @@ description: "Understand the security considerations, platform limitations, and 
 keywords: ["Claude Cowork limitations", "AI security risks", "file access security", "platform requirements", "best practices"]
 slug: "limitations"
 order: 6
+answer: "Grant Cowork the smallest useful set of permissions, keep copies of source files, and review outputs before relying on them. Ask for a plan before actions that move, delete, send, or publish anything."
 ---
-
-# Limitations & Risks
 
 ## Risks of Granting File Access
 

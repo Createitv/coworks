@@ -3,6 +3,7 @@ title: "What Is Claude Cowork? Tasks, Outputs, and Examples"
 description: "Learn what Claude Cowork does, what it can deliver, and when to use web or Claude Desktop. Try a receipt workflow with an answer key."
 slug: "introduction"
 order: 1
+answer: "Claude Cowork turns a brief and approved sources into a deliverable such as a report, spreadsheet, or organized folder. Use it when a task requires several steps and you can check the finished result."
 ---
 
 Claude Cowork is a way to give Claude a multi-step task and review the resulting work. You can ask for a spreadsheet from receipts, a summary with references from a set of documents, or a plan for organizing a folder. The output depends on the files and services you let Claude use.

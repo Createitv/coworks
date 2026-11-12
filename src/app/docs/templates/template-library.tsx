@@ -2,65 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { templates } from "@/lib/templates";
 
-const templates = [
-  {
-    id: "folder-cleanup",
-    title: "Organize a folder with a dry run",
-    category: "Files",
-    prompt: "Inspect [folder] and propose a file organization plan. Write a table of current and proposed paths, flagging name collisions and files you cannot classify. Ask me to approve the plan before moving or renaming any files.",
-    check: "Every original appears once, and proposed paths are unique.",
-    guide: "/docs/file-organization",
-    guideLabel: "File organization guide",
-  },
-  {
-    id: "receipt-audit",
-    title: "Turn receipts into a checked CSV",
-    category: "Files",
-    prompt: "Read the receipts in [folder]. Create receipts.csv with receipt ID, date, merchant, currency, amount, and source filename. Keep one row per receipt ID. Leave unreadable amounts blank and list missing fields and duplicates in review.md. Sum known amounts by currency and preserve the source files.",
-    check: "Unknown amounts stay blank. Duplicate receipts contribute only once to each subtotal.",
-    guide: "/docs/receipt-audit",
-    guideLabel: "Receipt exercise and sample files",
-  },
-  {
-    id: "document-brief",
-    title: "Create a brief with source references",
-    category: "Documents",
-    prompt: "Read [approved documents]. Create brief.md with a one-paragraph summary, decisions, open questions, and a source reference for each material claim. Use file names and page or section numbers where available. Flag contradictions and unreadable sections for review.",
-    check: "Trace two claims back to their source and confirm contradictions are listed.",
-    guide: "/docs/workspace-instructions",
-    guideLabel: "Workspace instructions guide",
-  },
-  {
-    id: "meeting-actions",
-    title: "Extract action items from meeting notes",
-    category: "Documents",
-    prompt: "Read [meeting notes] and produce a Markdown table with action, owner, due date, and source excerpt. Mark an unassigned owner or due date as unknown. Keep decisions and unresolved questions in separate lists. Prepare the draft for my review.",
-    check: "Owners and due dates match the notes. Open questions are separate from actions.",
-    guide: "/docs/use-cases",
-    guideLabel: "Cowork use cases",
-  },
-  {
-    id: "weekly-brief",
-    title: "Draft a recurring weekly brief",
-    category: "Automation",
-    prompt: "Every [weekday] at [time and time zone], read [approved source] for the previous seven days. Draft a weekly brief with changes, blockers, and source links. Record inaccessible sources and leave the draft for my review.",
-    check: "Verify the date window and time zone on the first run. Open each source link.",
-    guide: "/docs/scheduled-tasks",
-    guideLabel: "Scheduled tasks guide",
-  },
-  {
-    id: "connector-check",
-    title: "Check access to a connected source",
-    category: "Automation",
-    prompt: "Using [connector], find [one approved test document]. Report the document title, link, and one short fact from it. Stop after this read-only check. If access fails, describe the account, workspace, or permission issue you encountered.",
-    check: "The link opens the intended test file in the right account.",
-    guide: "/docs/plugins-and-connectors",
-    guideLabel: "Plugins and connectors guide",
-  },
-] as const;
-
-const categories = ["All", "Files", "Documents", "Automation"] as const;
+const categories = ["All", "Files", "Documents", "Data", "Presentations", "Communication", "Research", "Automation"] as const;
 
 export function TemplateLibrary() {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");

@@ -3,9 +3,8 @@ title: "Claude Cowork Receipt Audit with Sample Data"
 description: "Try a reproducible receipt-to-CSV exercise with synthetic data, duplicate and missing-value checks, and a reference result."
 slug: "receipt-audit"
 order: 10
+answer: "Extract one row per receipt ID and leave unreadable amounts blank. Check duplicates and total known values by currency, then compare the result with the sample answer key."
 ---
-
-# Audit a batch of receipts with Claude Cowork
 
 This exercise uses synthetic records. The reference below is a calculated answer key you can compare with your own Cowork run.
 

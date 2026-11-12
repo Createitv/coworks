@@ -195,6 +195,11 @@ export default async function DocPage({ params }: PageProps) {
               </div>
             </div>
 
+            <section className="mb-5 border-l-4 border-[#c08b2d] pl-4" aria-labelledby="quick-answer">
+              <h2 id="quick-answer" className="font-semibold">Quick answer</h2>
+              <p className="mt-1 leading-relaxed">{doc.answer}</p>
+              <p className="mt-2 text-sm"><a href={`/knowledge/${slug}.md`} className="underline underline-offset-4">Read this guide as Markdown</a></p>
+            </section>
             <DocIllustration slug={slug} />
 
             {/* Markdown Content */}

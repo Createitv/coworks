@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/page-metadata";
 import Link from "next/link";
 import { DocIllustration } from "../doc-illustration";
 import { getDocIllustration } from "@/lib/doc-illustrations";
@@ -6,17 +6,17 @@ import { TemplateLibrary } from "./template-library";
 
 const illustration = getDocIllustration("templates");
 
-export const metadata: Metadata = {
-  title: { absolute: "Claude Cowork Prompt Templates and Workflows" },
-  description: "Find and copy Claude Cowork prompts for local files, receipt audits, document reviews, weekly reports, meeting notes, and connector checks.",
-  alternates: { canonical: "/docs/templates" },
-  openGraph: {
-    title: "Claude Cowork Prompt Templates and Workflows",
-    description: "Copy a task prompt and see how to check the result.",
-    url: "/docs/templates",
-    images: illustration ? [illustration] : undefined,
-  },
+const base = publicPageMetadata(
+  "Claude Cowork Prompt Templates and Workflows",
+  "Copy Claude Cowork prompts for files, receipts, presentations, meeting notes, research, and connected workflows. Each prompt includes an output check.",
+  "/docs/templates",
+);
+export const metadata = {
+  ...base,
+  openGraph: { ...base.openGraph, images: illustration ? [illustration] : undefined },
+  twitter: { ...base.twitter, card: "summary_large_image" as const, images: illustration ? [illustration] : undefined },
 };
+
 
 export default function TemplatesPage() {
   return (

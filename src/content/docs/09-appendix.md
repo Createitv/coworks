@@ -4,11 +4,11 @@ description: "Copy-and-paste prompt templates for common Claude Cowork tasks inc
 keywords: ["Claude Cowork templates", "prompt templates", "task automation templates", "file organization prompts", "data analysis prompts"]
 slug: "appendix"
 order: 9
+answer: "A useful Cowork prompt names the inputs, deliverable, boundaries, and checks. Start from a template, fill in its placeholders, and test it on sample data."
 ---
 
 You can also [search and copy prompts in the template library](/docs/templates).
 
-# Quick Command Templates
 
 Copy and customize these prompt templates for common Cowork tasks.
 

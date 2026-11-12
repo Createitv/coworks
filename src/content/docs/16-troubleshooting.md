@@ -3,6 +3,7 @@ title: "Claude Cowork Not Working? Troubleshoot Access and Tasks"
 description: "Diagnose missing Cowork access, local file failures, connectors, incomplete outputs, and recurring tasks with small verification checks."
 slug: "troubleshooting"
 order: 16
+answer: "First identify whether the failure is feature availability, folder access, connector access, or the task itself. Reproduce it with one known sample before changing settings or broadening permissions."
 ---
 
 Start with the symptom you can reproduce. Use one synthetic input so you can distinguish an access problem from a problem with a particular file or prompt.

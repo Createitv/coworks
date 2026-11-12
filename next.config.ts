@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
         destination: "https://www.coworks.dev/:path*",
         permanent: true,
       },
+      { source: "/login", destination: "/docs", permanent: true },
     ];
   },
   reactCompiler: true,

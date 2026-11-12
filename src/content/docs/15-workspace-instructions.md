@@ -3,6 +3,7 @@ title: "Claude Cowork Workspace Instructions and Review Rules"
 description: "Create a reusable Cowork workspace with a task brief, approved inputs, and output review rules."
 slug: "workspace-instructions"
 order: 15
+answer: "Use global instructions for recurring habits and folder instructions for local rules. State the accepted inputs, output format, files to preserve, and the actions that require approval."
 ---
 
 A recurring task is easier to review when its inputs, instructions, and outputs have predictable locations. Start with a workspace dedicated to one workflow, such as turning customer interview notes into a weekly summary.

@@ -9,14 +9,18 @@ const docsDirectory = path.join(process.cwd(), "src/content/docs");
 
 export interface DocMetadata {
   title: string;
+  answer: string;
   description: string;
   keywords: string[];
   slug: string;
   order: number;
 }
 
-export interface DocData extends DocMetadata {
+export interface DocSource extends DocMetadata {
   content: string;
+}
+
+export interface DocData extends DocSource {
   htmlContent: string;
 }
 
@@ -42,6 +46,7 @@ export function getAllDocs(): DocMetadata[] {
       const { data } = matter(fileContents);
       return {
         title: data.title,
+        answer: data.answer || data.description,
         description: data.description,
         keywords: data.keywords || [],
         slug: data.slug,
@@ -52,7 +57,7 @@ export function getAllDocs(): DocMetadata[] {
   return allDocs.sort((a, b) => a.order - b.order);
 }
 
-export async function getDocBySlug(slug: string): Promise<DocData | null> {
+export function getDocSource(slug: string): DocSource | null {
   const fileNames = fs.readdirSync(docsDirectory);
 
   for (const fileName of fileNames) {
@@ -63,23 +68,24 @@ export async function getDocBySlug(slug: string): Promise<DocData | null> {
     const { data, content } = matter(fileContents);
 
     if (data.slug === slug) {
-      const processedContent = await remark()
-        .use(remarkGfm)
-        .use(html, { sanitize: false })
-        .process(content);
-      const htmlContent = processedContent.toString();
-
       return {
         title: data.title,
+        answer: data.answer || data.description,
         description: data.description,
         keywords: data.keywords || [],
         slug: data.slug,
         order: data.order,
         content,
-        htmlContent,
       };
     }
   }
 
   return null;
+}
+
+export async function getDocBySlug(slug: string): Promise<DocData | null> {
+  const doc = getDocSource(slug);
+  if (!doc) return null;
+  const htmlContent = (await remark().use(remarkGfm).use(html, { sanitize: false }).process(doc.content)).toString();
+  return { ...doc, htmlContent };
 }

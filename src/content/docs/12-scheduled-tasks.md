@@ -3,6 +3,7 @@ title: "Claude Cowork Scheduled Tasks and Recurring Workflows"
 description: "Set up a recurring Cowork task, test it with known inputs, and troubleshoot missed runs, source access, and time zones."
 slug: "scheduled-tasks"
 order: 12
+answer: "Run a workflow once and verify its output before scheduling it. Record the date window, time zone, failure behavior, and approval steps; then check the first scheduled run."
 ---
 
 Start with a task that produces a draft you can verify, such as a weekly summary of one approved source. Write down the cadence, time zone, date range, and output format before scheduling it.

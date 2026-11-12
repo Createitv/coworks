@@ -3,6 +3,7 @@ title: "How to Open Claude Cowork and Fix a Missing Tab"
 description: "Start a Claude Cowork task, check plan and platform access, and troubleshoot missing tabs and local file permissions."
 slug: "setup"
 order: 3
+answer: "Open Claude with an eligible plan, start a Cowork task from the available task entry, and give it a small test brief. Use Claude Desktop when the job needs local files or computer use; check workspace permissions if access is missing."
 ---
 
 <h2 id="start">Open Cowork and start a task</h2>

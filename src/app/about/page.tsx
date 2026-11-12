@@ -1,15 +1,10 @@
-import type { Metadata } from "next";
+import { publicPageMetadata } from "@/lib/page-metadata";
 import { SimplePage } from "@/components/layout/SimplePage";
 
 const title = "About Coworks.dev";
 const description = "An independent guide to Claude Cowork, with setup instructions and sample workflows.";
 
-export const metadata: Metadata = {
-  title: { absolute: title },
-  description,
-  alternates: { canonical: "/about" },
-  openGraph: { title, description, url: "/about", siteName: "Coworks.dev" },
-};
+export const metadata = publicPageMetadata(title, description, "/about");
 
 const sections = [
   {

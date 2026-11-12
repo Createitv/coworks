@@ -3,6 +3,7 @@ title: "Organize Local Files with Claude Cowork"
 description: "Plan a local folder cleanup with Claude Cowork, catch duplicate filenames, and verify proposed moves before applying them."
 slug: "file-organization"
 order: 14
+answer: "Ask for an old-to-new path table before moving files. Keep copies of originals, flag duplicate names, and check the resulting folder tree against the approved plan."
 ---
 
 Use a copy of a small folder for your first run. Ask for a move plan before applying changes, and require an explicit destination for every source file.

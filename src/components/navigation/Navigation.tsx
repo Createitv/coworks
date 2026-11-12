@@ -11,22 +11,8 @@ import { GuideLinks } from "./GuideLinks";
 interface NavigationProps {
   isDarkMode: boolean;
   onToggleTheme: () => void;
-  onLoginClick: () => void;
-  user?: {
-    name?: string | null;
-    image?: string | null;
-    email?: string | null;
-  } | null;
-  isAuthenticated?: boolean;
 }
-
-export function Navigation({
-  isDarkMode,
-  onToggleTheme,
-  onLoginClick,
-  user,
-  isAuthenticated,
-}: NavigationProps) {
+export function Navigation({ isDarkMode, onToggleTheme }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navClass = clsx(
@@ -35,7 +21,7 @@ export function Navigation({
   );
 
   return (
-    <nav className={navClass}>
+    <nav aria-label="Main navigation" className={navClass}>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -56,11 +42,11 @@ export function Navigation({
           </div>
         </Link>
 
-        <div className="hidden items-center gap-1 xl:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           <GuideLinks />
         </div>
 
-        <div className="hidden items-center gap-3 xl:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <button
             onClick={onToggleTheme}
             className="flex items-center gap-2 rounded-full border border-black/10 px-3 py-2 text-sm font-semibold text-black transition hover:border-black dark:border-white/20 dark:text-white dark:hover:border-white"
@@ -76,41 +62,14 @@ export function Navigation({
               </>
             )}
           </button>
-          {isAuthenticated ? (
-            <div className="flex items-center gap-3 rounded-full border border-black/10 bg-white/70 px-3 py-1.5 text-sm font-semibold text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
-              <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-black/10 dark:bg-white/20">
-                {user?.image ? (
-                  <Image
-                    src={user.image}
-                    alt={user.name ?? "user avatar"}
-                    width={32}
-                    height={32}
-                    className="h-8 w-8 object-cover"
-                  />
-                ) : (
-                  <span>{user?.name?.[0] ?? user?.email?.[0] ?? "U"}</span>
-                )}
-              </div>
-              <div className="text-left">
-                <p className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">Signed in</p>
-                <p className="text-sm font-semibold text-black dark:text-white">
-                  {user?.name || user?.email || "Anonymous builder"}
-                </p>
-              </div>
-            </div>
-          ) : (
-            <button
-              onClick={onLoginClick}
-              className="rounded-full bg-gradient-to-r from-[#f7d793] to-[#c08b2d] px-5 py-2 text-sm font-semibold text-black shadow-lg shadow-[#f4c572]/40 transition hover:-translate-y-0.5"
-            >
-              Sign in
-            </button>
-          )}
+          <Link href="/resources" className="rounded-full bg-[#f7d793] px-4 py-2 text-sm font-semibold text-black hover:bg-[#edc575]">
+            Find resources
+          </Link>
         </div>
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="rounded-full border border-black/10 p-2 text-black dark:border-white/20 dark:text-white xl:hidden"
+          className="rounded-full border border-black/10 p-2 text-black dark:border-white/20 dark:text-white lg:hidden"
           aria-label="Toggle navigation"
           aria-expanded={isOpen}
         >
@@ -119,7 +78,7 @@ export function Navigation({
       </div>
 
       {isOpen && (
-        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-black/10 px-4 py-4 dark:border-white/10 xl:hidden">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-black/10 px-4 py-4 dark:border-white/10 lg:hidden">
           <GuideLinks mobile onNavigate={() => setIsOpen(false)} />
           <div className="mt-4 flex flex-col gap-3">
             <button
@@ -139,37 +98,9 @@ export function Navigation({
                 </>
               )}
             </button>
-            {isAuthenticated ? (
-              <div className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white/70 px-4 py-3 text-left text-sm font-semibold text-black dark:border-white/10 dark:bg-black/40 dark:text-white">
-                <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-black/10 dark:bg-white/20">
-                  {user?.image ? (
-                    <Image
-                      src={user.image}
-                      alt={user.name ?? "user avatar"}
-                      width={40}
-                      height={40}
-                      className="h-10 w-10 object-cover"
-                    />
-                  ) : (
-                    <span>{user?.name?.[0] ?? user?.email?.[0] ?? "U"}</span>
-                  )}
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">Signed in</p>
-                  <p>{user?.name || user?.email || "Anonymous builder"}</p>
-                </div>
-              </div>
-            ) : (
-              <button
-                onClick={() => {
-                  onLoginClick();
-                  setIsOpen(false);
-                }}
-                className="rounded-full bg-gradient-to-r from-[#f7d793] to-[#c08b2d] px-4 py-3 text-center text-sm font-semibold text-black shadow-lg shadow-[#f4c572]/40"
-              >
-                Sign In
-              </button>
-            )}
+            <Link href="/resources" onClick={() => setIsOpen(false)} className="rounded-full bg-[#f7d793] px-4 py-3 text-center text-sm font-semibold text-black">
+              Find resources
+            </Link>
           </div>
         </div>
       )}

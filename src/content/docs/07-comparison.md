@@ -3,6 +3,7 @@ title: "Claude Cowork vs. ChatGPT, Copilot, and Gemini"
 description: "Compare Claude Cowork, ChatGPT, Microsoft 365 Copilot, and Gemini for file workflows, document creation, permissions, and review."
 slug: "comparison"
 order: 7
+answer: "Compare Cowork and alternatives using identical sample inputs and a written scoring rubric. Check source accuracy, output format, permissions, and review effort before drawing a conclusion."
 ---
 
 Start with where the source files live and where the finished work needs to go. Test each tool using the account and plan your team would actually use.
