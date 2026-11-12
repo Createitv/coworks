@@ -136,6 +136,11 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3775964724446697"
+          crossOrigin="anonymous"
+        />
         <OrganizationJsonLd
           name="Claude Cowork"
           url={siteURL}
