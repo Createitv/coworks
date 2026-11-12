@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Reviewed resource library
+
+The `/library` feature is generated from a committed, editorially reviewed catalog. Source discovery and public publication are separate commands:
+
+```bash
+pnpm library:sync
+pnpm library:publish
+```
+
+See [resource library operations](docs/library-operations.md) for source tiers, review requirements, automation, deployment, and rollback.
+
 ## Getting Started
 
 First, run the development server:

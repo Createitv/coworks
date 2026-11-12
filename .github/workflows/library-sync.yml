@@ -1,0 +1,41 @@
+name: Review library source updates
+
+on:
+  schedule:
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Fetch approved source metadata
+        run: pnpm library:sync
+      - name: Rebuild reviewed public snapshot
+        run: pnpm library:publish
+      - name: Validate tests and production build
+        run: pnpm test && pnpm build
+      - name: Open a review pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/library-source-update
+          delete-branch: true
+          commit-message: "chore: refresh library source candidates"
+          title: "Review library source updates"
+          body: "Automated metadata refresh. Review source changes and compatibility evidence before publishing any new record."
+          labels: content-review
