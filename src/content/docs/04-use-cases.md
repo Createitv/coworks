@@ -125,3 +125,5 @@ Detailed report of what was accomplished:
 ### Report Generation
 - "Create a weekly status report from my project files"
 - "Generate a presentation from this quarterly data"
+
+To practice research and synthesis with a fixed answer key, download the [three-file research brief exercise](/docs/research-brief).

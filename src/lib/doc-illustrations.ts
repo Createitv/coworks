@@ -1,4 +1,7 @@
 const altText: Record<string, string> = {
+  dispatch: "A task moves from a phone to a desktop workspace and returns as a checked brief.",
+  "plugin-directory": "Work plugin cards appear next to a permission lock and checklist.",
+  "research-brief": "Three source documents feed into an evidence table and a checked decision memo.",
   introduction: "A task brief and source files become a report ready for review.",
   "how-it-works": "A brief and authorized files enter the workspace, and the draft goes to human review.",
   setup: "A desktop computer and browser point toward a folder of sample files.",

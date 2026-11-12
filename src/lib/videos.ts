@@ -167,13 +167,13 @@ export const videoGuides: readonly VideoGuide[] = [
     "takeaways": [
       "The phone is the handoff point. Decide where the files or connected sources actually live.",
       "Include a deliverable and a clear stop condition in a remote brief so you can review the outcome later.",
-      "This is a launch-era demo; check the current setup and device requirements before relying on it."
+      "This launch demo shows an earlier setup flow. Dispatch is now a limited beta for existing users; consult the current guide before trying to pair."
     ],
-    "exercise": "Send a low-risk note summarization task and confirm that the result can be opened from the device where you plan to review it.",
+    "exercise": "If Dispatch is already available to you, send a low-risk note summarization task and verify you can open the result. Otherwise try the same brief in cloud Cowork.",
     "docs": [
       {
-        "label": "Setup and first task",
-        "href": "/docs/setup"
+        "label": "Dispatch availability and alternatives",
+        "href": "/docs/dispatch"
       },
       {
         "label": "How Cowork works",
@@ -228,7 +228,7 @@ export const videoGuides: readonly VideoGuide[] = [
     "exercise": "Put two sample documents in a test folder, then request a short summary saved as a separate file. Open it and check both documents were represented.",
     "docs": [
       {
-        "label": "Setup and first task",
+        "label": "Dispatch availability and alternatives",
         "href": "/docs/setup"
       },
       {

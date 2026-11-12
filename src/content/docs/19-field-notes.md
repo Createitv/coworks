@@ -31,3 +31,5 @@ Run the same prompt manually on a fixed date range twice. Compare the source lis
 Ask for the intermediate table as well as the slides. Use a fixed reporting period and write the units beside each chart. Spot-check the title, total, and one percentage change against the spreadsheet. The [Excel-to-PowerPoint demo](/videos/claude-cowork-excel-to-powerpoint) shows where to inspect the generated deck.
 
 Have a reproducible correction or workflow idea? [Send the page and the steps you used](/connect-me).
+
+Try the [research brief exercise](/docs/research-brief) to check how a report handles different populations and missing evidence.

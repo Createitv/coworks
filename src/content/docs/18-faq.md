@@ -37,3 +37,7 @@ Match the output against an answer key or review a few rows against the original
 ## What if my first task fails?
 
 Shrink the job to one sample and find the first point at which it fails: access, instructions, execution, or output. Try the [troubleshooting guide](/docs/troubleshooting) or consult [Claude Help](https://support.claude.com/) for account support.
+
+## Why can’t I find Dispatch?
+
+Anthropic limits Dispatch to some existing beta users. If it is missing, check [Dispatch availability and cloud alternatives](/docs/dispatch) rather than assuming the paid plan or mobile app will enable it.

@@ -18,3 +18,9 @@ Reference checked on 2026-11-12: [Claude Cowork Guide](https://claudecowork.im/)
 | Find resources | /resources | Search public guides and videos by task or type |
 
 HTML is the canonical source. /llms.txt is a text index, /knowledge.json is a structured catalog with templates, and /knowledge/<slug>.md is a public copy of each written guide. The sitemap lists canonical HTML URLs, with image and video entries where relevant. Markdown and JSON copies remain fetchable and are not separate search landing pages.
+
+## Content coverage follow-up
+
+- The reference's role-based plugins now map to a curated [official plugin directory](/docs/plugin-directory) with source links and first-task checks.
+- Mobile handoff now has a [Dispatch availability guide](/docs/dispatch). Anthropic's help article supersedes the original video where it describes current availability.
+- The reference's research use case now has a [reproducible research exercise](/docs/research-brief), including synthetic inputs and an answer key instead of claimed customer results.

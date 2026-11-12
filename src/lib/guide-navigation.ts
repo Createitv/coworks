@@ -10,7 +10,7 @@ export const guideNavigation: NavItem[] = [
   ] },
   { label: "Resources", links: [
     { label: "Templates", href: "/docs/templates", hint: "Search and copy task prompts." },
-    { label: "Plugins and connectors", href: "/docs/plugins-and-connectors", hint: "Connect Cowork to your tools." },
+    { label: "Official plugin directory", href: "/docs/plugin-directory", hint: "Choose a plugin and try a starter task." },
     { label: "Tips and tricks", href: "/docs/productivity", hint: "Improve prompts and measure review time." },
     { label: "Integrations", href: "/docs/connector-checklist", hint: "Check access in email, files, and calendar tools." },
     { label: "Field notes", href: "/docs/field-notes", hint: "Read repeatable experiments and checklists." },

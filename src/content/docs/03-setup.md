@@ -36,3 +36,5 @@ If Claude cannot find a file, confirm it is inside the connected folder and avai
 Use a small sample before processing a full folder. The [receipt audit exercise](/docs/receipt-audit) has three synthetic inputs, a prompt, and an expected CSV you can use to check the result.
 
 For a symptom-by-symptom checklist, see [Cowork troubleshooting](/docs/troubleshooting).
+
+If you’re following a mobile handoff demo, check [Dispatch availability and the cloud alternative](/docs/dispatch) before trying to pair devices.

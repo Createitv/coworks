@@ -40,3 +40,5 @@ For document, chat, and calendar examples, see the [connector checklist](/docs/c
 | Product and engineering | Summarize a test issue or decision log | Repository scope, source links, and no unintended changes |
 
 Look in the [Claude connector directory](https://claude.com/connectors) and your workspace's plugin catalog for currently enabled options. A plugin can bundle instructions and tool calls; it does not automatically grant access to an app or bypass workspace policy. Watch [how a plugin is installed](/videos/claude-cowork-install-and-use-plugins) or follow the [first read-only connector check](/docs/connector-checklist).
+
+For official source links by work area and a test task for each, see the [plugin directory](/docs/plugin-directory).
