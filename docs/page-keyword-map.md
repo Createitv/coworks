@@ -26,5 +26,27 @@
 | /docs/templates | Toolkit 搜索与复制 | Claude Cowork prompts、workflow templates，可搜索、筛选和复制 |
 | /docs/troubleshooting | .im /troubleshooting | Claude Cowork not working，从症状跳到验证步骤 |
 | /docs/connector-checklist | .im /integrations | Claude Cowork connector setup，用文档、聊天、日历测试读权限 |
+| /docs/meeting-prep | .im 场景页结构 | Claude Cowork meeting preparation，产出有来源、有日期的会前简报 |
+| /docs/weekly-report | .im 场景页结构 | Claude Cowork weekly report，限定周期和来源的状态报告 |
+| /docs/email-drafts | .im 场景页结构 | Claude Cowork email draft，只生成草稿并保留人工发送审批 |
+| /docs/report-to-slides | .im 场景页结构 | Claude Cowork report to slides，先核对叙事与数字再生成演示文稿 |
+| /docs/google-workspace-connector | .im MCP 专页结构 | Claude Cowork Google Workspace connector，连接、只读测试、写入审批和排错 |
+| /docs/microsoft-365-connector | .im 博客细分问题与 MCP 专页结构 | Claude Cowork Microsoft 365 connector，个人与组织账户的接入和验收 |
 
 关于、联系、隐私和使用条款提供运营与信任信息。本站登录页保持现有 noindex。竞品资源目录还有大量 Claude Code 技能词，待确认具体资源与 Cowork 兼容后再考虑收录。竞品第三方流量估算不能证明某个页面已为本站带来点击。
+
+## 页面之间的搜索意图边界
+
+| 查询中的动作 | 主页面 | 不由这些页面承接 |
+| --- | --- | --- |
+| Cowork 是什么、能做什么 | /docs/introduction | setup、use-cases |
+| 如何打开、找不到入口 | /docs/setup | introduction、troubleshooting |
+| 是否免费、选哪个套餐 | /docs/plans-and-pricing | setup、faq |
+| 为具体会议准备简报 | /docs/meeting-prep | use-cases、weekly-report |
+| 生成固定周期状态报告 | /docs/weekly-report | scheduled-tasks、meeting-prep |
+| 生成邮件草稿但不发送 | /docs/email-drafts | Google/Microsoft 连接器页 |
+| 把报告转成演示结构 | /docs/report-to-slides | research-brief、templates |
+| 连接 Gmail、Calendar、Drive | /docs/google-workspace-connector | plugins-and-connectors |
+| 连接 Outlook、OneDrive、SharePoint、Teams | /docs/microsoft-365-connector | plugins-and-connectors |
+
+总览页负责选择路径，详情页负责完成任务。只有当一个查询需要不同输入、步骤、产出或失败处理时，才新增独立 URL。
