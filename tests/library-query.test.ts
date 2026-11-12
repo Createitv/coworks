@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { getLibraryCategory, getLibraryResource, getLibraryScenario, getPublishedResources } from "../src/lib/library/catalog";
-import { filterLibraryResources } from "../src/lib/library/query";
+import { filterLibraryResources, queryFromSearchParams } from "../src/lib/library/query";
 
 const resources = getPublishedResources();
 
@@ -32,4 +32,9 @@ test("catalog getters expose reviewed public records and navigation entities", (
   assert.equal(getLibraryCategory("communication")?.name, "Communication");
   assert.equal(getLibraryScenario("meeting-prep")?.guide, "/docs/meeting-prep");
   assert.ok(resources.length >= 20);
+});
+
+test("restores shareable library filters from browser search parameters", () => {
+  const query = queryFromSearchParams(new URLSearchParams("q=meeting&compatibility=cowork&type=plugin&source=anthropic&category=work-planning"));
+  assert.deepEqual(query, { search: "meeting", compatibility: "cowork", type: "plugin", sourceClass: "anthropic", category: "work-planning" });
 });

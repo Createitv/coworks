@@ -3,13 +3,19 @@
 import { useEffect, useMemo, useState } from "react";
 import { LibraryFilters } from "@/components/library/LibraryFilters";
 import { ResourceRow } from "@/components/library/ResourceRow";
-import { filterLibraryResources, type LibraryQuery } from "@/lib/library/query";
+import { filterLibraryResources, queryFromSearchParams, type LibraryQuery } from "@/lib/library/query";
 import type { LibraryCategory, LibraryResource, LibraryScenario } from "@/lib/library/types";
 
 export function LibraryBrowser({ resources, categories, scenarios, initialQuery }: { resources: LibraryResource[]; categories: LibraryCategory[]; scenarios: LibraryScenario[]; initialQuery: LibraryQuery }) {
   const [query, setQuery] = useState(initialQuery);
+  const [urlReady, setUrlReady] = useState(false);
   const matches = useMemo(() => filterLibraryResources(resources, query), [resources, query]);
   useEffect(() => {
+    setQuery(queryFromSearchParams(new URLSearchParams(window.location.search)));
+    setUrlReady(true);
+  }, []);
+  useEffect(() => {
+    if (!urlReady) return;
     const params = new URLSearchParams();
     if (query.search) params.set("q", query.search);
     if (query.compatibility) params.set("compatibility", query.compatibility);
@@ -17,7 +23,7 @@ export function LibraryBrowser({ resources, categories, scenarios, initialQuery 
     if (query.sourceClass) params.set("source", query.sourceClass);
     if (query.category) params.set("category", query.category);
     window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}`);
-  }, [query]);
+  }, [query, urlReady]);
   return (
     <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-8">
       <aside aria-label="Resource categories" className="lg:border-r lg:border-black/15 lg:pr-6 dark:lg:border-white/15">

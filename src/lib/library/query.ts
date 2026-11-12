@@ -19,3 +19,16 @@ export function filterLibraryResources(resources: LibraryResource[], query: Libr
       && (!query.category || resource.categories.includes(query.category));
   });
 }
+
+export function queryFromSearchParams(params: URLSearchParams): LibraryQuery {
+  const compatibility = params.get("compatibility");
+  const type = params.get("type");
+  const sourceClass = params.get("source");
+  return {
+    search: params.get("q") ?? "",
+    compatibility: compatibility === "cowork" || compatibility === "claude-web" || compatibility === "claude-code" ? compatibility : "",
+    type: type === "plugin" || type === "skill" || type === "connector" || type === "mcp" || type === "subagent" || type === "command" ? type : "",
+    sourceClass: sourceClass === "anthropic" || sourceClass === "vendor" || sourceClass === "community" ? sourceClass : "",
+    category: params.get("category") ?? "",
+  };
+}
