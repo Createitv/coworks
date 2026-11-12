@@ -1,3 +1,4 @@
+import { getEditorialReview } from "@/lib/editorial-sources";
 import { DocIllustration } from "../doc-illustration";
 import { getDocIllustration } from "@/lib/doc-illustrations";
 import { docSections } from "@/lib/doc-navigation";
@@ -96,6 +97,7 @@ export default async function DocPage({ params }: PageProps) {
   }
 
   const illustration = getDocIllustration(slug);
+  const review = getEditorialReview(slug);
   const relatedVideos = videoGuides.filter((video) => video.docs.some((entry) => entry.href === `/docs/${slug}`));
   const allDocs = getAllDocs();
   const currentIndex = allDocs.findIndex((d) => d.slug === slug);
@@ -117,6 +119,7 @@ export default async function DocPage({ params }: PageProps) {
       <ArticleJsonLd
         title={doc.title}
         description={doc.description}
+        citations={review?.sources.map(({ url }) => url)}
         image={illustration ? `${siteURL}${illustration.url}` : undefined}
         url={`${siteURL}/docs/${slug}`}
       />
@@ -198,6 +201,16 @@ export default async function DocPage({ params }: PageProps) {
             <section className="mb-5 border-l-4 border-[#c08b2d] pl-4" aria-labelledby="quick-answer">
               <h2 id="quick-answer" className="font-semibold">Quick answer</h2>
               <p className="mt-1 leading-relaxed">{doc.answer}</p>
+              {review && (
+                <div className="mt-3 text-sm">
+                  <p>Official sources checked: <time dateTime={review.checkedOn}>{review.checkedOn}</time></p>
+                  <ul className="mt-1 space-y-1">
+                    {review.sources.map(({ label, url }) => (
+                      <li key={url}><a href={url} className="underline underline-offset-4">{label}</a></li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <p className="mt-2 text-sm"><a href={`/knowledge/${slug}.md`} className="underline underline-offset-4">Read this guide as Markdown</a></p>
             </section>
             <DocIllustration slug={slug} />

@@ -80,6 +80,7 @@ export default async function VideoPage({ params }: Props) {
         <a href={videoSource(video)} className="font-semibold underline underline-offset-4">Watch on YouTube</a>
       </div>
       <p className="mt-5 max-w-3xl text-lg leading-relaxed opacity-80">{video.description}</p>
+      <p className="mt-2 text-sm"><a href={`/knowledge/video-${video.slug}.md`} className="underline underline-offset-4">Read these video notes as Markdown</a></p>
       <div className="mt-8 grid gap-8 border-t border-current/15 pt-7 md:grid-cols-[minmax(0,1fr)_minmax(13rem,0.42fr)]">
         <div className="space-y-7">
           <section>

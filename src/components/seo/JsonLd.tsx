@@ -21,6 +21,7 @@ interface ArticleSchema {
   datePublished?: string;
   dateModified?: string;
   author?: string;
+  citations?: readonly string[];
 }
 
 interface WebsiteSchema {
@@ -66,14 +67,7 @@ export function WebsiteJsonLd({ name, url, description }: WebsiteSchema) {
     name,
     url,
     description,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${url}/docs?search={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
+
   };
 
   return (
@@ -112,11 +106,15 @@ export function ArticleJsonLd({
   datePublished,
   dateModified,
   author = "Coworks.dev",
+  citations,
 }: ArticleSchema) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: title,
+    mainEntityOfPage: url,
+    inLanguage: "en",
+    citation: citations,
     image,
     description,
     url,
@@ -125,6 +123,7 @@ export function ArticleJsonLd({
     author: {
       "@type": "Organization",
       name: author,
+      url: `${siteURL}/about`,
     },
     publisher: {
       "@type": "Organization",

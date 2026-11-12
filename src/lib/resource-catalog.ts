@@ -1,3 +1,4 @@
+import { getEditorialReview, type EditorialReview } from "./editorial-sources";
 import { getAllDocs } from "./markdown";
 import { docSections } from "./doc-navigation";
 import { templates } from "./templates";
@@ -22,6 +23,8 @@ export type ResourceEntry = {
   published?: string;
   thumbnail?: string;
   embed?: string;
+  review?: EditorialReview;
+  answerUrl?: string;
 };
 
 export function getResources(): ResourceEntry[] {
@@ -33,12 +36,15 @@ export function getResources(): ResourceEntry[] {
       topic: docSections.find((section) => section.slugs.some((slug) => slug === doc.slug))?.label ?? "Guide",
       keywords: doc.keywords,
       markdown: `/knowledge/${doc.slug}.md`,
+      answerUrl: `${siteURL}/docs/${doc.slug}#quick-answer`,
+      review: getEditorialReview(doc.slug),
     })),
     ...videoGuides.map((video): ResourceEntry => ({
       href: videoPath(video), title: video.title, kind: "Video", summary: video.description,
       topic: videoSections.find((section) => section.id === video.section)?.label ?? "Video",
       source: videoSource(video), publisher: video.publisher, duration: video.duration, published: video.published,
       thumbnail: videoThumbnail(video), embed: videoPlayer(video),
+      markdown: `/knowledge/video-${video.slug}.md`,
     })),
   ];
 }

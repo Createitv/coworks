@@ -23,13 +23,14 @@ export default function AIPage() {
             <li><a className="font-semibold underline" href="/llms.txt">llms.txt</a> — a plain-text overview and links organized by type.</li>
             <li><a className="font-semibold underline" href="/knowledge.json">Knowledge index</a> — JSON with canonical URLs, summaries, Markdown versions, and video sources.</li>
             <li><a className="font-semibold underline" href="/knowledge/setup.md">Example Markdown guide</a> — the same setup answer and article as the public page.</li>
+            <li><a className="font-semibold underline" href="/knowledge/video-getting-started-with-claude-cowork.md">Example video notes</a> — source, publication date, takeaways, and exercise in plain Markdown.</li>
             <li><a className="font-semibold underline" href="/sitemap.xml">Sitemap</a> — public canonical pages with image and video records.</li>
           </ul>
         </section>
         <section className="mt-7">
           <h2 className="text-2xl font-semibold">How to cite and verify</h2>
           <ol className="mt-4 list-decimal space-y-3 pl-6">
-            <li>Use the canonical web page when citing our explanations or exercises. Use the Markdown version if plain text is easier to retrieve.</li>
+            <li>Use the canonical web page when citing our explanations or exercises. Link directly to the Quick answer section when it supports a claim. Use the Markdown version if plain text is easier to retrieve.</li>
             <li>For Claude subscription details or platform availability, verify with <a className="underline" href="https://claude.com/pricing">Claude pricing</a> or the <a className="underline" href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork">official availability guide</a>.</li>
             <li>Distinguish an official video from a community demo, and an example workflow from a measured result.</li>
             <li>When adapting a workflow, use sample inputs, write down your acceptance checks, and ask before expanding access or changing originals.</li>
