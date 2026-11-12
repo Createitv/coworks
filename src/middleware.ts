@@ -11,7 +11,6 @@ const PUBLIC_PATHS = [
   "/connect-me",
   "/privacy",
   "/terms",
-  "/docs",
   "/sitemap.xml",
   "/robots.txt",
   "/ads.txt",
@@ -24,8 +23,8 @@ export async function middleware(request: NextRequest) {
 
   const isAuthRoute = pathname.startsWith("/api/auth");
   const isLoginPage = pathname === "/login";
-  const isDocsPath = pathname === "/docs" || pathname.startsWith("/docs/");
-  const isPublicPath = PUBLIC_PATHS.includes(pathname) || isDocsPath;
+  const isPublicContent = ["/docs", "/videos"].some((section) => pathname === section || pathname.startsWith(`${section}/`));
+  const isPublicPath = PUBLIC_PATHS.includes(pathname) || isPublicContent;
 
   if (isAuthRoute || pathname.startsWith("/_next") || (isPublicPath && !isLoginPage)) {
     return NextResponse.next();

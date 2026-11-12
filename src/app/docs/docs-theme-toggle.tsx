@@ -23,6 +23,7 @@ export function DocsThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
+      aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
       className="flex items-center gap-2 rounded-full border border-black/10 px-3 py-2 text-sm font-semibold transition hover:border-black dark:border-white/20 dark:hover:border-white"
     >
       {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}

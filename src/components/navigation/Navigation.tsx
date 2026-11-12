@@ -5,7 +5,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import Image from "next/image";
-import { guideNavigation } from "@/lib/doc-navigation";
+import { GuideLinks } from "./GuideLinks";
 
 interface NavigationProps {
   isDarkMode: boolean;
@@ -33,9 +33,6 @@ export function Navigation({
     isDarkMode ? "border-white/10 bg-black/60" : "border-black/10 bg-white/80"
   );
 
-  const linkClass =
-    "rounded-full px-3 py-2 text-sm font-semibold text-black/70 transition hover:text-black dark:text-white/70 dark:hover:text-white";
-
   return (
     <nav className={navClass}>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -59,11 +56,7 @@ export function Navigation({
         </Link>
 
         <div className="hidden items-center gap-1 xl:flex">
-          {guideNavigation.map((item) => (
-            <Link key={item.href} href={item.href} className={linkClass}>
-              {item.label}
-            </Link>
-          ))}
+          <GuideLinks />
         </div>
 
         <div className="hidden items-center gap-3 xl:flex">
@@ -118,25 +111,15 @@ export function Navigation({
           onClick={() => setIsOpen(!isOpen)}
           className="rounded-full border border-black/10 p-2 text-black dark:border-white/20 dark:text-white xl:hidden"
           aria-label="Toggle navigation"
+          aria-expanded={isOpen}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {isOpen && (
-        <div className="border-t border-black/10 px-4 py-4 dark:border-white/10 xl:hidden">
-          <div className="flex flex-col gap-2">
-            {guideNavigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-2xl border border-black/10 px-4 py-3 text-base font-semibold text-black/80 dark:border-white/10 dark:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-black/10 px-4 py-4 dark:border-white/10 xl:hidden">
+          <GuideLinks mobile onNavigate={() => setIsOpen(false)} />
           <div className="mt-4 flex flex-col gap-3">
             <button
               onClick={() => {

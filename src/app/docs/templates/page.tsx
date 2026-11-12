@@ -29,6 +29,7 @@ export default function TemplatesPage() {
       </p>
       <TemplateLibrary />
       <div className="max-w-3xl"><DocIllustration slug="templates" /></div>
+      <p className="text-sm">Want to see a multi-step task in action? <Link href="/videos/delegate-tasks-in-claude-cowork" className="underline underline-offset-4">Watch the task delegation demo</Link>.</p>
     </main>
   );
 }

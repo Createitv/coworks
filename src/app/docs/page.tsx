@@ -97,6 +97,7 @@ export default function DocsIndexPage() {
             >
               Back to Home <ExternalLink className="h-3 w-3" />
             </Link>
+            <Link href="/videos" className="text-sm font-semibold underline underline-offset-4">Videos</Link>
             <DocsThemeToggle />
           </div>
         </div>
