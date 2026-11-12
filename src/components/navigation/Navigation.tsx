@@ -1,27 +1,31 @@
 "use client";
 
 import { siteBrand } from "@/lib/site";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import clsx from "clsx";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import Image from "next/image";
 import { GuideLinks } from "./GuideLinks";
 
-interface NavigationProps {
-  isDarkMode: boolean;
-  onToggleTheme: () => void;
-}
-export function Navigation({ isDarkMode, onToggleTheme }: NavigationProps) {
+export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setDarkMode] = useState(true);
 
-  const navClass = clsx(
-    "sticky top-0 z-30 border-b backdrop-blur transition-colors duration-300",
-    isDarkMode ? "border-white/10 bg-black/60" : "border-black/10 bg-white/80"
-  );
+  useEffect(() => {
+    const dark = localStorage.getItem("theme") !== "light";
+    setDarkMode(dark);
+    document.documentElement.classList.toggle("dark", dark);
+  }, []);
+
+  function onToggleTheme() {
+    const next = !isDarkMode;
+    setDarkMode(next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", next);
+  }
 
   return (
-    <nav aria-label="Main navigation" className={navClass}>
+    <nav aria-label="Main navigation" className="sticky top-0 z-30 border-b border-black/10 bg-[#f7f7f0]/90 backdrop-blur dark:border-white/10 dark:bg-black/75">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -34,7 +38,7 @@ export function Navigation({ isDarkMode, onToggleTheme }: NavigationProps) {
           />
           <div>
             <p className="text-base font-semibold text-[#0b0b0b] dark:text-white">
-              Claude Cowork
+              Coworks.dev
             </p>
             <p className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
               Independent guide

@@ -76,18 +76,14 @@ export default function RootLayout({
   // Inline script to set theme before page renders (prevents flash)
   const themeScript = `
     (function() {
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      // Default to dark mode
-      const shouldBeDark = stored === 'dark' || (!stored && true);
-      if (shouldBeDark) {
-        document.documentElement.classList.add('dark');
-      }
+      try {
+        document.documentElement.classList.toggle('dark', localStorage.getItem('theme') !== 'light');
+      } catch {}
     })();
   `;
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
