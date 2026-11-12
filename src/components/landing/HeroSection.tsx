@@ -57,6 +57,7 @@ export function HeroSection({ isDarkMode }: HeroSectionProps) {
             <li><Link className="underline underline-offset-4" href="/docs/setup#plans-and-platforms">Check plans and supported platforms</Link></li>
             <li><Link className="underline underline-offset-4" href="/docs/setup#local-files">Connect a folder in Claude Desktop</Link></li>
             <li><Link className="underline underline-offset-4" href="/docs/receipt-audit">Try a receipt-to-spreadsheet workflow</Link></li>
+            <li><Link className="underline underline-offset-4" href="/docs/templates">Find and copy a Cowork prompt</Link></li>
           </ul>
         </div>
       </div>

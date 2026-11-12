@@ -30,6 +30,7 @@ export function Navigation({
   const navItems = [
     { label: "Features", href: "#features" },
     { label: "Docs", href: "/docs" },
+    { label: "Templates", href: "/docs/templates" },
     { label: "About", href: "/about" },
   ];
 
@@ -58,7 +59,7 @@ export function Navigation({
               Claude Cowork
             </p>
             <p className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
-              Digital coworker preview
+              Independent guide
             </p>
           </div>
         </Link>

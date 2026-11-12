@@ -24,7 +24,7 @@ See the [official explanation of the unified experience](https://support.claude.
 
 <h2 id="plans-and-platforms">Check plans and platforms</h2>
 
-Cowork is available on paid Claude plans. Availability across desktop, web, and mobile depends on the plan, platform, and workspace settings. Check Anthropic's [current availability table](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile) for your combination. Choose a supported Claude Desktop setup when the task requires local files.
+Cowork is available on paid Claude plans. Availability across desktop, web, and mobile depends on the plan, platform, and workspace settings. Check Anthropic's [current availability table](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile) for your combination. Choose a supported Claude Desktop setup when the task requires local files. See the [plans and pricing guide](/docs/plans-and-pricing) for a checklist.
 
 <h2 id="local-files">Connect and troubleshoot local files</h2>
 

@@ -126,6 +126,12 @@ export default function DocsIndexPage() {
               { href: "/docs/setup#local-files", label: "Connect or troubleshoot local files" },
               { href: "/docs/receipt-audit", label: "Try a receipt audit with sample files" },
               { href: "/docs/comparison", label: "Compare Cowork with other tools" },
+              { href: "/docs/templates", label: "Search and copy workflow prompts" },
+              { href: "/docs/plugins-and-connectors", label: "Set up plugins, skills, and connectors" },
+              { href: "/docs/scheduled-tasks", label: "Schedule a recurring task" },
+              { href: "/docs/plans-and-pricing", label: "Check Cowork plans and pricing" },
+              { href: "/docs/file-organization", label: "Organize files with a dry run" },
+              { href: "/docs/workspace-instructions", label: "Set up reusable workspace instructions" },
             ].map(({ href, label }) => (
               <li key={href}>
                 <Link href={href} className="block rounded-xl bg-white/50 p-3 text-sm font-medium underline-offset-4 hover:underline dark:bg-white/5">

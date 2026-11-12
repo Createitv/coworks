@@ -6,6 +6,8 @@ slug: "appendix"
 order: 9
 ---
 
+You can also [search and copy prompts in the template library](/docs/templates).
+
 # Quick Command Templates
 
 Copy and customize these prompt templates for common Cowork tasks.
