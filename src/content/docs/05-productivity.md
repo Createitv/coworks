@@ -57,35 +57,11 @@ Cowork can integrate with external services through MCP (Model Context Protocol)
 - Sync files between services
 - Organize cloud files
 
-## Time Saved: Scorecard
+## Measure time and accuracy on your own files
 
-| Task Type | Manual Time | With Cowork | Savings |
-|-----------|-------------|-------------|---------|
-| File Organization (100 files) | 45 min | 5 min | **89%** |
-| Data Extraction (20 PDFs) | 2 hours | 12 min | **90%** |
-| Report Generation | 1.5 hours | 8 min | **91%** |
-| Meeting Notes Summary | 30 min | 3 min | **90%** |
-| Spreadsheet Creation | 1 hour | 10 min | **83%** |
-| Document Formatting | 45 min | 5 min | **89%** |
-| Batch File Renaming | 30 min | 2 min | **93%** |
+Run the same small task manually and with Cowork. Record preparation, execution, and review time for each run. Count incorrect fields and missing records before comparing the totals.
 
-## What Users Are Saying
-
-> "I used to spend my Sunday evenings organizing files from the week. Now Cowork handles it in 10 minutes while I make coffee."
->
-> — **Product Manager**
-
-> "Generating monthly reports used to be a dreaded task. Cowork turned it into a simple prompt and I get better results."
->
-> — **Operations Lead**
-
-> "The ability to batch process documents and extract data into spreadsheets has been game-changing for our team."
->
-> — **Data Analyst**
-
-> "As a freelancer, Cowork has essentially given me a free assistant. I can take on more projects because the administrative work is automated."
->
-> — **Independent Consultant**
+The [receipt audit exercise](/docs/receipt-audit) includes sample inputs and an answer key. Time the workflow only after checking that it produces the expected result.
 
 ## Calculating Your ROI
 

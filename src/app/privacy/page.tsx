@@ -1,70 +1,41 @@
-import { siteURL } from "@/lib/site";
 import type { Metadata } from "next";
 import { SimplePage } from "@/components/layout/SimplePage";
 
+const title = "Privacy policy";
+const description = "How Coworks.dev uses account information, analytics, and advertising technologies.";
 
 export const metadata: Metadata = {
-  title: "Privacy | Claude Cowork",
-  description:
-    "Understand how Claude Cowork handles the folders, files, and activity logs you share during the research preview.",
-  alternates: {
-    canonical: `${siteURL}/privacy`,
-  },
-  openGraph: {
-    title: "Privacy | Claude Cowork",
-    description:
-      "Understand how Claude Cowork handles the folders, files, and activity logs you share during the research preview.",
-    url: `${siteURL}/privacy`,
-    siteName: "Claude Cowork",
-    type: "website",
-    images: [
-      {
-        url: `${siteURL}/logo.png`,
-        width: 1024,
-        height: 1024,
-        alt: "Privacy | Claude Cowork",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Privacy | Claude Cowork",
-    description:
-      "Understand how Claude Cowork handles the folders, files, and activity logs you share during the research preview.",
-    images: [`${siteURL}/logo.png`],
-  },
+  title: { absolute: title },
+  description,
+  alternates: { canonical: "/privacy" },
+  openGraph: { title, description, url: "/privacy", siteName: "Coworks.dev" },
 };
 
 const sections = [
   {
-    heading: "Folder access",
+    heading: "Scope and contact",
     body: [
-      "Cowork can only read, edit, or create files inside the folder you authorize inside Claude Desktop. You can revoke access or switch folders at any time.",
-      "We encourage you to use a dedicated workspace folder with copies of important documents instead of originals.",
+      <>This policy covers Coworks.dev, an independent website about Claude Cowork. For questions about this site or requests concerning your account data, email <a href="mailto:xfy150150@gmail.com">xfy150150@gmail.com</a>.</>,
+      <>Anthropic operates Claude and handles data you provide to its services under the <a href="https://www.anthropic.com/legal/privacy">Anthropic Privacy Policy</a>.</>,
     ],
   },
   {
-    heading: "Activity logging",
+    heading: "Accounts, hosting, and analytics",
     body: [
-      "Every action Cowork takes is recorded locally inside Claude Desktop. You can export those logs for your own audit trail or share them with the team for debugging.",
-      "During the research preview, aggregated, anonymized usage data helps us understand reliability and inform improvements.",
+      "If you sign in with Google or GitHub, we use the profile and account information returned by that provider to create or recognize your site account. Session cookies keep you signed in. You can browse the guides without an account.",
+      "We use Vercel to host the website and Vercel Web Analytics to measure visits. Where Google Analytics is enabled, Google receives site usage events and may use cookies or similar identifiers to measure visits.",
+      "If you email us, we use your email address and message to respond to your request.",
     ],
   },
   {
-    heading: "Data retention",
+    heading: "Google AdSense and advertising",
     body: [
-      "Files stay on your device. Anthropic does not automatically upload or store the contents of your Cowork workspace unless you explicitly attach them when contacting support.",
-      "Logs submitted to support are handled under Anthropic's standard privacy policy and deleted when troubleshooting concludes unless you request otherwise.",
+      "Coworks.dev uses Google AdSense. When ads are served, Google and other advertising partners may place or read cookies, use web beacons, and receive IP addresses or other identifiers to deliver ads, measure their performance, and detect abuse. Depending on your choices and applicable rules, these partners may use information from this and other sites to personalize ads.",
+      <>Read <a href="https://policies.google.com/technologies/partner-sites">how Google uses data from partner sites</a>. You can manage ad personalization in <a href="https://myadcenter.google.com/">My Ad Center</a>, manage cookies in your browser, and revisit consent through the site's privacy options where available.</>,
     ],
   },
 ];
 
-export default function PrivacyPage() {
-  return (
-    <SimplePage
-      title="Privacy in the Cowork preview"
-      description="Your trust matters. Cowork adheres to strict scoping so you remain in control of every file it touches."
-      sections={sections}
-    />
-  );
+export default function Page() {
+  return <SimplePage title={title} description={description} sections={sections} />;
 }

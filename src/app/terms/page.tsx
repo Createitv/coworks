@@ -1,67 +1,37 @@
-import { siteURL } from "@/lib/site";
 import type { Metadata } from "next";
 import { SimplePage } from "@/components/layout/SimplePage";
 
+const title = "Terms of use";
+const description = "Terms for using the Coworks.dev website and its guides.";
 
 export const metadata: Metadata = {
-  title: "Terms | Claude Cowork",
-  description: "Review the usage terms for the Claude Cowork research preview.",
-  alternates: {
-    canonical: `${siteURL}/terms`,
-  },
-  openGraph: {
-    title: "Terms | Claude Cowork",
-    description: "Review the usage terms for the Claude Cowork research preview.",
-    url: `${siteURL}/terms`,
-    siteName: "Claude Cowork",
-    type: "website",
-    images: [
-      {
-        url: `${siteURL}/logo.png`,
-        width: 1024,
-        height: 1024,
-        alt: "Terms | Claude Cowork",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Terms | Claude Cowork",
-    description: "Review the usage terms for the Claude Cowork research preview.",
-    images: [`${siteURL}/logo.png`],
-  },
+  title: { absolute: title },
+  description,
+  alternates: { canonical: "/terms" },
+  openGraph: { title, description, url: "/terms", siteName: "Coworks.dev" },
 };
 
 const sections = [
   {
-    heading: "Preview availability",
+    heading: "About this website",
     body: [
-      "Cowork is offered as a limited research preview for Claude Max subscribers on macOS. Features may change, pause, or end with short notice as we iterate.",
-      "By participating, you agree to share feedback when possible so we can improve reliability, safety, and usability.",
+      "Coworks.dev publishes independent educational guides about Claude Cowork. Anthropic operates Claude Cowork and sets the terms for using that product.",
+      <>See the <a href="https://www.anthropic.com/legal/consumer-terms">Anthropic Consumer Terms</a> for Claude use and our <a href="/privacy">privacy policy</a> for how this website handles visitor data.</>,
     ],
   },
   {
-    heading: "Appropriate use",
+    heading: "Using our examples",
     body: [
-      "Only run Cowork on folders you own or have permission to manage. Do not direct Cowork to handle sensitive data such as production credentials or regulated personal information.",
-      "You remain responsible for reviewing Cowork's output and ensuring it meets your organization's compliance requirements.",
+      "Platform support, plans, and product behavior can change. Verify requirements with the product provider and check outputs before using them in your work.",
+      "Use sample files or files you have permission to use. Keep copies of original files before trying examples that rename, move, or edit them.",
     ],
   },
   {
-    heading: "Liability",
-    body: [
-      "Anthropic provides Cowork \"as is\" during the preview without warranties of performance. Back up important files prior to granting access and monitor Cowork's actions to prevent accidental loss.",
-      "Any disputes or questions fall under Anthropic's standard Terms of Service in addition to these preview specifics.",
-    ],
+    heading: "Contact",
+    body: [<>Send questions about these terms to <a href="mailto:xfy150150@gmail.com">xfy150150@gmail.com</a>.</>],
   },
 ];
 
-export default function TermsPage() {
-  return (
-    <SimplePage
-      title="Terms of the Cowork research preview"
-      description="Please review these guidelines before authorizing Cowork on your device."
-      sections={sections}
-    />
-  );
+export default function Page() {
+  return <SimplePage title={title} description={description} sections={sections} />;
 }

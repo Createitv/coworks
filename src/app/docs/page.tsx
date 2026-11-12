@@ -54,6 +54,7 @@ export const metadata: Metadata = {
 };
 
 const iconMap: Record<string, React.ReactNode> = {
+  "receipt-audit": <BookOpen className="h-5 w-5" />,
   introduction: <BookOpen className="h-5 w-5" />,
   "how-it-works": <Workflow className="h-5 w-5" />,
   setup: <Rocket className="h-5 w-5" />,
@@ -122,7 +123,7 @@ export default function DocsIndexPage() {
             New to Cowork? Start with these essential articles:
           </p>
           <div className="grid gap-3 sm:grid-cols-3">
-            {["setup", "limitations", "use-cases"].flatMap((slug) => allDocs.filter((doc) => doc.slug === slug)).map((doc) => (
+            {["setup", "limitations", "receipt-audit"].flatMap((slug) => allDocs.filter((doc) => doc.slug === slug)).map((doc) => (
               <Link
                 key={doc.slug}
                 href={`/docs/${doc.slug}`}

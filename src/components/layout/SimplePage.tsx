@@ -20,7 +20,7 @@ export function SimplePage({ title, description, sections, cta }: SimplePageProp
       <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="space-y-4 text-center sm:text-left">
           <p className="text-sm uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
-            Claude Cowork
+            Coworks.dev
           </p>
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">{title}</h1>
           <div className="text-lg text-black/70 dark:text-white/70">{description}</div>

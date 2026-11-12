@@ -1,70 +1,33 @@
-import { siteURL } from "@/lib/site";
 import type { Metadata } from "next";
 import { SimplePage } from "@/components/layout/SimplePage";
 
+const title = "About Coworks.dev";
+const description = "An independent guide to Claude Cowork, with setup instructions and sample workflows.";
 
 export const metadata: Metadata = {
-  title: "About Claude Cowork",
-  description:
-    "Learn how Claude Cowork brings Anthropic's agent architecture to everyday workflows so anyone can delegate file and document tasks safely.",
-  alternates: {
-    canonical: `${siteURL}/about`,
-  },
-  openGraph: {
-    title: "About Claude Cowork",
-    description:
-      "Learn how Claude Cowork brings Anthropic's agent architecture to everyday workflows so anyone can delegate file and document tasks safely.",
-    url: `${siteURL}/about`,
-    siteName: "Claude Cowork",
-    type: "website",
-    images: [
-      {
-        url: `${siteURL}/logo.png`,
-        width: 1024,
-        height: 1024,
-        alt: "About Claude Cowork",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Claude Cowork",
-    description:
-      "Learn how Claude Cowork brings Anthropic's agent architecture to everyday workflows so anyone can delegate file and document tasks safely.",
-    images: [`${siteURL}/logo.png`],
-  },
+  title: { absolute: title },
+  description,
+  alternates: { canonical: "/about" },
+  openGraph: { title, description, url: "/about", siteName: "Coworks.dev" },
 };
 
 const sections = [
   {
-    heading: "Our purpose",
+    heading: "Who publishes this site",
     body: [
-      "Cowork was born from the realization that most people do not want to prompt a chat bot - they want a trusted teammate who can take a folder of messy inputs and return a polished result.",
-      "By channeling the Claude Code agent architecture into a guided desktop experience, we help busy people reclaim time from mundane file organization, reporting, and documentation chores.",
+      "Coworks.dev is independently maintained and has no affiliation with Anthropic. Claude and Claude Cowork are Anthropic products.",
+      <>For corrections or questions about this site, <a href="/connect-me">contact the site maintainer</a>.</>,
     ],
   },
   {
-    heading: "How it works today",
+    heading: "What you can find here",
     body: [
-      "Cowork is available on paid Claude plans. To work with local files, connect a dedicated folder in Claude Desktop and review the access requested for your task.",
-      "Everything happens within the boundary you approve, keeping your personal or team workspace safe while Cowork sorts, renames, summarizes, and packages deliverables.",
-    ],
-  },
-  {
-    heading: "Where we are heading",
-    body: [
-      "We are continuing to expand supported tasks, from smarter classification rules to richer report generation. Multi-task orchestration, deeper progress tracking, and shared workspaces are on the roadmap as we learn from early adopters.",
-      "Security and transparency remain non-negotiable - we will always favor scoped permissions, explicit confirmations, and detailed activity logs over opaque automation.",
+      <>Read the <a href="/docs/setup">setup guide</a> for account, platform, and folder requirements, or try the <a href="/docs/receipt-audit">receipt workflow</a> with synthetic data and a reference output.</>,
+      <>For current product availability, see the <a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork">Claude Help Center</a>.</>,
     ],
   },
 ];
 
-export default function AboutPage() {
-  return (
-    <SimplePage
-      title="About this Claude Cowork guide"
-      description="The Cowork team is focused on turning Claude into a dependable, desk-side coworker that handles the repetitive computer work you do not have time for."
-      sections={sections}
-    />
-  );
+export default function Page() {
+  return <SimplePage title={title} description={description} sections={sections} />;
 }

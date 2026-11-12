@@ -20,21 +20,20 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-4">
               <Image
                 src="/logo.png"
-                alt="Claude Cowork logo"
+                alt="Coworks.dev logo"
                 width={64}
                 height={64}
                 className="h-16 w-16 rounded-full border border-black/10 object-cover dark:border-white/20"
               />
               <div>
-                <p className="text-xl font-semibold">Claude Cowork</p>
+                <p className="text-xl font-semibold">Coworks.dev</p>
                 <p className="text-xs uppercase tracking-[0.3em] text-black/60 dark:text-white/60">
                   Independent guide
                 </p>
               </div>
             </Link>
             <p className="text-base text-black/70 dark:text-white/70">
-              A macOS desktop agent that plans, executes, and reports back on multi-step file work so you can focus on the
-              interesting problems.
+              Setup guides and reproducible workflow examples for Claude Cowork.
             </p>
           </div>
 
@@ -52,17 +51,16 @@ export function Footer() {
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.3em] text-black/60 dark:text-white/60">Contact</p>
               <div className="space-y-2 text-base text-black/80 dark:text-white/80">
-                <Link href="mailto: xfy150150@gmail.com" className="underline decoration-dotted decoration-[#c28d39]">
+                <Link href="mailto:xfy150150@gmail.com" className="underline decoration-dotted decoration-[#c28d39]">
                   xfy150150@gmail.com
                 </Link>
-                <p>Preview hours: Mon-Fri, 10am-6pm PT</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-black/10 pt-6 text-sm text-black/60 dark:border-white/10 dark:text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright {year} Claude Cowork. All rights reserved.</p>
+          <p>Copyright {year} Coworks.dev. All rights reserved.</p>
           <p>Independent guide to Anthropic’s Claude Cowork.</p>
         </div>
       </div>

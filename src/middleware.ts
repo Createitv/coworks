@@ -14,6 +14,7 @@ const PUBLIC_PATHS = [
   "/docs",
   "/sitemap.xml",
   "/robots.txt",
+  "/ads.txt",
   "/favicon.ico",
 ];
 
