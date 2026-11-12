@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChartNoAxesGantt, FilePieChart, PenSquare, Users } from "lucide-react";
 
 const useCases = [
@@ -6,28 +7,28 @@ const useCases = [
     description:
       "Cowork sweeps the folder you authorize, groups files by month, type, or project, and renames everything to match your structure.",
     icon: FilePieChart,
-    result: "Keep everyday folders clean without touching a mouse"
+    href: "/docs/file-organization"
   },
   {
     title: "Turn screenshots into expense sheets",
     description:
       "Drop in receipts or screenshots and Cowork extracts the amount, date, and category, then fills the spreadsheet for you.",
     icon: PenSquare,
-    result: "Expense tracking with zero manual typing"
+    href: "/docs/receipt-audit"
   },
   {
     title: "Compile research into reports",
     description:
       "Give Cowork a messy folder of notes, PDFs, or CSVs. It highlights the key findings and drafts formatted summaries.",
     icon: ChartNoAxesGantt,
-    result: "Presentation-ready docs on the first pass"
+    href: "/docs/workspace-instructions"
   },
   {
     title: "Batch create or rename files",
     description:
       "Ask Cowork to duplicate templates, rename dozens of assets, or add labels while keeping a running log of every change.",
     icon: Users,
-    result: "Delegate repetitive file work to AI"
+    href: "/docs/templates#folder-cleanup"
   }
 ];
 
@@ -51,7 +52,6 @@ export function UseCaseGrid() {
           >
             <div className="flex items-center gap-3 text-sm uppercase tracking-[0.3em] text-[#c28d39]">
               <useCase.icon className="h-5 w-5" />
-              Proven impact
             </div>
             <h3 className="mt-4 text-2xl font-semibold text-[#0b0b0b] dark:text-white">
               {useCase.title}
@@ -59,9 +59,9 @@ export function UseCaseGrid() {
             <p className="mt-3 text-base text-black/70 dark:text-white/70">
               {useCase.description}
             </p>
-            <div className="mt-6 rounded-2xl border border-dashed border-[#c28d39]/40 px-4 py-3 text-sm font-semibold text-[#c28d39]">
-              {useCase.result}
-            </div>
+            <Link href={useCase.href} className="mt-5 inline-block text-sm font-semibold underline underline-offset-4">
+              Try this workflow
+            </Link>
           </div>
         ))}
       </div>

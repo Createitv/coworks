@@ -3,16 +3,16 @@ import { BadgeCheck, Blocks, GitBranch, RefreshCcw } from "lucide-react";
 export function FeatureHighlights() {
   const features = [
     {
-      title: "Agent-grade execution",
+      title: "Multi-step tasks",
       description:
-        "Cowork breaks \"tidy my Downloads\" or \"produce a report\" into discrete steps, runs them locally, and hands over the finished work.",
+        "Cowork breaks \"tidy my Downloads\" or \"produce a report\" into discrete steps, and produces an output you can review.",
       icon: RefreshCcw,
       meta: "Multi-step Agent"
     },
     {
       title: "Scoped file-system access",
       description:
-        "It only reads, writes, renames, or creates inside the folder you approved. Revoke permission anytime for a safer workspace.",
+        "Use Claude Desktop when the task needs local files. Connect the folder you want Claude to work with.",
       icon: Blocks,
       meta: "Scoped Access"
     },
@@ -24,9 +24,9 @@ export function FeatureHighlights() {
       meta: "Live Status"
     },
     {
-      title: "Safety-first defaults",
+      title: "Review before applying changes",
       description:
-        "Clear instructions prevent accidental deletions. Anthropic still recommends backups, so you stay protected even in preview.",
+        "Ask for a dry run and check proposed changes on a copy of your files.",
       icon: BadgeCheck,
       meta: "Safe defaults"
     }
@@ -39,11 +39,10 @@ export function FeatureHighlights() {
           Capabilities
         </p>
         <h2 className="text-3xl font-semibold text-[#0b0b0b] dark:text-white">
-          More than chat - Cowork is a teammate that operates directly on your computer
+          What can Claude Cowork do?
         </h2>
         <p className="max-w-3xl text-base text-black/70 dark:text-white/70">
-          Built on the Claude Code agent architecture but aimed at everyday workflows, Cowork takes one authorized folder
-          plus a plain-language goal and does the rest - planned, contained, and auditable.
+          Give Claude a task, approved inputs, and an output to produce. You can use connected services or, where supported, a folder on your computer.
         </p>
       </div>
 
