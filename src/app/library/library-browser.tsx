@@ -26,14 +26,14 @@ export function LibraryBrowser({ resources, categories, scenarios, initialQuery 
   }, [query, urlReady]);
   return (
     <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:px-8">
-      <aside aria-label="Resource categories" className="lg:border-r lg:border-black/15 lg:pr-6 dark:lg:border-white/15">
+      <aside aria-label="Resource categories" className="min-w-0 lg:border-r lg:border-black/15 lg:pr-6 dark:lg:border-white/15">
         <p className="font-semibold">Browse by task</p>
         <div className="mt-3 flex gap-2 overflow-x-auto pb-2 lg:grid">
           <button type="button" onClick={() => setQuery({ ...query, category: "" })} aria-pressed={!query.category} className="whitespace-nowrap rounded-lg px-3 py-2 text-left text-sm aria-pressed:bg-[#c08b2d] aria-pressed:text-white">All resources</button>
           {categories.map((category) => <button key={category.slug} type="button" onClick={() => setQuery({ ...query, category: category.slug })} aria-pressed={query.category === category.slug} className="whitespace-nowrap rounded-lg px-3 py-2 text-left text-sm aria-pressed:bg-[#c08b2d] aria-pressed:text-white">{category.name}</button>)}
         </div>
       </aside>
-      <main>
+      <main className="min-w-0">
         <section aria-labelledby="scenario-heading" className="border-b border-black/15 pb-8 dark:border-white/15">
           <h2 id="scenario-heading" className="text-2xl font-semibold">Start with a complete workflow</h2>
           <div className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">{scenarios.map((scenario) => <a key={scenario.slug} href={`/library/scenarios/${scenario.slug}`} className="border-l-2 border-[#c08b2d] pl-3"><span className="font-semibold">{scenario.name}</span><span className="mt-1 block text-sm opacity-65">{scenario.summary}</span></a>)}</div>
