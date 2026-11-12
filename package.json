@@ -5,6 +5,8 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
+		"test": "tsx --test tests/**/*.test.ts",
+		"library:sync": "tsx scripts/library/sync.ts",
 		"start": "next start"
 	},
 	"dependencies": {
