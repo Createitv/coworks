@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { DelayedAdSlot } from "@/components/ads/DelayedAdSlot";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
 
 const siteTitle = "How to Open Claude Cowork | Setup and Examples";
@@ -105,6 +106,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <DelayedAdSlot />
         <GoogleAnalytics gaId={gaId} />
         <Analytics />
       </body>
